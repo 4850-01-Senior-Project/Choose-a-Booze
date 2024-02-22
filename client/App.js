@@ -58,7 +58,7 @@ export default function App() {
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
       <Image
-        style={styles.logo}
+        style={styles.cow}
         source={{
           uri: 'https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvcHgxMzMwNzgxLWltYWdlXzEucG5n.png',
         }}
@@ -82,22 +82,23 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
+    backgroundColor: "#808D8E",
+    alignItems: "right",
     justifyContent: "center",
   },
-  logo: {
+  cow: {
     width: 256,
     height: 128,
   },
   item: {
-    backgroundColor: '#f9c2ff',
-    padding: 20,
-    marginVertical: 8,
+    backgroundColor: '#A9D2D5',
+    padding: 30,
   },
   header: {
     fontSize: 32,
-    backgroundColor: '#fff',
+    backgroundColor: '#766C7F',
+    color: '#eee',
+    padding: 16,
   },
   title: {
     fontSize: 24,
