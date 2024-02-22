@@ -2,7 +2,7 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import * as Font from "expo-font";
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback, useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, ScrollView, View, Image, SectionList, Text } from "react-native";
 import { Button, CheckBox } from "react-native-elements";
 
 export default function App() {
@@ -40,17 +40,40 @@ export default function App() {
     return null;
   }
 
+  const DATA = [
+    {
+      title: 'Beer',
+      data: ['Beer 1', 'Beer 2', 'Beer 3'],
+    },
+    {
+      title: 'Wine',
+      data: ['Wine 1', 'Wine 2', 'Wine 3'],
+    },
+    {
+      title: 'Mixed Drinks',
+      data: ['MD 1', 'MD 2', 'MD 3'],
+    },
+  ];
+
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
-      <Button
-        raised
-        icon={{ name: "cached", color: "white" }}
-        title="RAISED WITH ICON"
+      <Image
+        style={styles.logo}
+        source={{
+          uri: 'https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvcHgxMzMwNzgxLWltYWdlXzEucG5n.png',
+        }}
       />
-      <CheckBox
-        title="Click Here"
-        checked={checked}
-        onPress={() => setChecked((checked) => !checked)}
+      <SectionList 
+        sections={DATA}
+        keyExtractor={(item, index) => item + index}
+        renderItem={({item}) => (
+          <View style={styles.item}>
+            <Text style={styles.title}>{item}</Text>
+          </View>
+      )}
+      renderSectionHeader={({section: {title}}) => (
+        <Text style={styles.header}>{title}</Text>
+      )}
       />
     </View>
   );
@@ -62,5 +85,21 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  logo: {
+    width: 256,
+    height: 128,
+  },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+  },
+  header: {
+    fontSize: 32,
+    backgroundColor: '#fff',
+  },
+  title: {
+    fontSize: 24,
   },
 });
