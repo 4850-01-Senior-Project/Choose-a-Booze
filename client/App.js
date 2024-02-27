@@ -58,9 +58,10 @@ export default function App() {
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
       <Image
-        style={styles.cow}
         source={{
-          uri: 'https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvcHgxMzMwNzgxLWltYWdlXzEucG5n.png',
+          width: "100%",
+          height: "20%",
+          uri: 'https://picsum.photos/1920/1080',
         }}
       />
       <SectionList 
@@ -85,10 +86,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#808D8E",
     alignItems: "right",
     justifyContent: "center",
-  },
-  cow: {
-    width: 256,
-    height: 128,
   },
   item: {
     backgroundColor: '#A9D2D5',
