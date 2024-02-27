@@ -1,8 +1,9 @@
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import * as Font from "expo-font";
 import * as SplashScreen from 'expo-splash-screen';
+import {styles} from './Style';
 import { useCallback, useEffect, useState } from "react";
-import { StyleSheet, ScrollView, View, Image, SectionList, Text } from "react-native";
+import { ScrollView, View, Image, SectionList, Text } from "react-native";
 import { Button, CheckBox } from "react-native-elements";
 
 export default function App() {
@@ -60,7 +61,7 @@ export default function App() {
       <Image
         source={{
           width: "100%",
-          height: "20%",
+          height: "35%",
           uri: 'https://picsum.photos/1920/1080',
         }}
       />
@@ -79,25 +80,3 @@ export default function App() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#808D8E",
-    alignItems: "right",
-    justifyContent: "center",
-  },
-  item: {
-    backgroundColor: '#A9D2D5',
-    padding: 30,
-  },
-  header: {
-    fontSize: 32,
-    backgroundColor: '#766C7F',
-    color: '#eee',
-    padding: 16,
-  },
-  title: {
-    fontSize: 24,
-  },
-});
