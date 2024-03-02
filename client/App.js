@@ -15,12 +15,12 @@ export default function App() {
       try {
         // Keep the splash screen visible while we fetch resources
         await SplashScreen.preventAutoHideAsync();
-        // Pre-load fonts, make any API calls you need to do here
+                // Pre-load fonts, make any API calls you need to do here
         await Font.loadAsync(MaterialIcons.font);
-        // Artificially delay for two seconds to simulate a slow loading
+                // Artificially delay for two seconds to simulate a slow loading
         // experience. Please remove this if you copy and paste the code!
         await new Promise(resolve => setTimeout(resolve, 2000));
-      } catch (e) {
+              } catch (e) {
         console.warn(e);
       } finally {
         // Tell the application to render
@@ -59,7 +59,7 @@ export default function App() {
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
       <Image
-        source={{
+                source={{
           width: "100%",
           height: "35%",
           uri: 'https://picsum.photos/1920/1080',
