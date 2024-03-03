@@ -165,3 +165,4 @@ node_modules/
 #databaseinfo
 server/env.json
 
+server/env.json
