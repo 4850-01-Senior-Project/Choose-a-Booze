@@ -5,6 +5,7 @@ import {styles} from './Style';
 import { useCallback, useEffect, useState } from "react";
 import { ScrollView, View, Image, SectionList, Text } from "react-native";
 import { Button, CheckBox } from "react-native-elements";
+import MyButton from './ui';
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -43,14 +44,6 @@ export default function App() {
 
   const DATA = [
     {
-      title: 'Beer',
-      data: ['Beer 1', 'Beer 2', 'Beer 3'],
-    },
-    {
-      title: 'Wine',
-      data: ['Wine 1', 'Wine 2', 'Wine 3'],
-    },
-    {
       title: 'Mixed Drinks',
       data: ['MD 1', 'MD 2', 'MD 3'],
     },
@@ -70,7 +63,7 @@ export default function App() {
         keyExtractor={(item, index) => item + index}
         renderItem={({item}) => (
           <View style={styles.item}>
-            <Text style={styles.title}>{item}</Text>
+            <MyButton style={styles.title} title={"My Title"} />
           </View>
       )}
       renderSectionHeader={({section: {title}}) => (
