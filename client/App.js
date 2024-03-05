@@ -5,11 +5,26 @@ import {styles} from './Style';
 import { useCallback, useEffect, useState } from "react";
 import { ScrollView, View, Image, SectionList, Text } from "react-native";
 import { Button, CheckBox } from "react-native-elements";
+import {getAllDrinkDataByLiquorType} from './controllers/getData'
+
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
   const [checked, setChecked] = useState(false);
+  const [getData, setData] = useState([])
+  useEffect(() => {
+    const fetchData =  async () => {
+      try {
+        const data = await getAllDrinkDataByLiquorType('Bourbon');
+        setData(data);
 
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
+    fetchData();
+  }, []);
   useEffect(() => {
     async function prepare() {
       try {
@@ -30,7 +45,7 @@ export default function App() {
 
     prepare();
   }, []);
-
+  
   const onLayoutRootView = useCallback(async () => {
     if (appIsReady) {
       await SplashScreen.hideAsync();
@@ -40,7 +55,7 @@ export default function App() {
   if (!appIsReady) {
     return null;
   }
-
+  
   const DATA = [
     {
       title: 'Beer',
@@ -52,9 +67,10 @@ export default function App() {
     },
     {
       title: 'Mixed Drinks',
-      data: ['MD 1', 'MD 2', 'MD 3'],
+      data: getData.map((drink) => String(drink.drink.Name)),
     },
   ];
+
 
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
