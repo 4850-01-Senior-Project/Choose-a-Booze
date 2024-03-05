@@ -6,7 +6,7 @@ from filterData import filterDataDontInclude, filterDataInclude
 from flask_cors import CORS
 import requests
 
-firestore_client = firestore.Client.from_service_account_json('../server/env.json')
+firestore_client = firestore.Client.from_service_account_json('../server/database/env.json')
 collection_ref = firestore_client.collection('Drinks')
 app = Flask(__name__)
 CORS(app)

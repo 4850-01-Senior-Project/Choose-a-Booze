@@ -169,3 +169,4 @@ server/env.json
 =======
 >>>>>>> d8f2ac9f9df12944b46595fea86af4e34f64b0a6
 server/env.json
+server/database/env.json

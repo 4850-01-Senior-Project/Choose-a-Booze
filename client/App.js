@@ -66,7 +66,7 @@ export default function App() {
       data: ['Wine 1', 'Wine 2', 'Wine 3'],
     },
     {
-      title: 'Mixed Drinks',
+      title: 'Mixed Drinks - Bourbon',
       data: getData.map((drink) => String(drink.drink.Name)),
     },
   ];
