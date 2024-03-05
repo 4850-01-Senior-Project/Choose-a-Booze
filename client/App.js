@@ -4,13 +4,27 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useCallback, useEffect, useState } from "react";
 import { ScrollView, View, Image, SectionList, Text } from "react-native";
 import { Button, CheckBox } from "react-native-elements";
+import {getAllDrinkDataByLiquorType} from './controllers/getData'
 import { styles } from './ui/assets/Style';
 import { MyButton } from './ui/components/MyButton';
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
   const [checked, setChecked] = useState(false);
+  const [getData, setData] = useState([])
+  useEffect(() => {
+    const fetchData =  async () => {
+      try {
+        const data = await getAllDrinkDataByLiquorType('Bourbon');
+        setData(data);
 
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
+    fetchData();
+  }, []);
   useEffect(() => {
     async function prepare() {
       try {
@@ -31,7 +45,7 @@ export default function App() {
 
     prepare();
   }, []);
-
+  
   const onLayoutRootView = useCallback(async () => {
     if (appIsReady) {
       await SplashScreen.hideAsync();
@@ -41,13 +55,22 @@ export default function App() {
   if (!appIsReady) {
     return null;
   }
-
+  
   const DATA = [
     {
-      title: 'Mixed Drinks',
-      data: ['MD 1', 'MD 2', 'MD 3'],
+      title: 'Beer',
+      data: ['Beer 1', 'Beer 2', 'Beer 3'],
+    },
+    {
+      title: 'Wine',
+      data: ['Wine 1', 'Wine 2', 'Wine 3'],
+    },
+    {
+      title: 'Mixed Drinks - Bourbon',
+      data: getData.map((drink) => String(drink.drink.Name)),
     },
   ];
+
 
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
