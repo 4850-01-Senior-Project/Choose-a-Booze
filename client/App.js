@@ -2,7 +2,7 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import * as Font from "expo-font";
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback, useEffect, useState } from "react";
-import { ScrollView, View, Image, SectionList, Text } from "react-native";
+import { ScrollView, View, Image, SectionList, Text, RefreshControl } from "react-native";
 import { Button, CheckBox } from "react-native-elements";
 import { styles } from './ui/assets/Style';
 import { MyButton } from './ui/components/MyButton';
@@ -16,6 +16,7 @@ export default function App() {
       try {
         // Keep the splash screen visible while we fetch resources
         await SplashScreen.preventAutoHideAsync();
+        setTimeout(SplashScreen.hideAsync, 5000);
         // Pre-load fonts, make any API calls you need to do here
         await Font.loadAsync(MaterialIcons.font);
         // Artificially delay for two seconds to simulate a slow loading
@@ -47,6 +48,14 @@ export default function App() {
       title: 'Mixed Drinks',
       data: ['MD 1', 'MD 2', 'MD 3'],
     },
+    {
+      title: 'Mocktails',
+      data: ['MT 1', 'MT 2'],
+    },
+    {
+      title: 'Third Category',
+      data: ['Cat 1', 'Cat 2', 'Cat 3', 'Cat 4'],
+    }
   ];
 
   return (
@@ -61,13 +70,13 @@ export default function App() {
       <SectionList
         sections={DATA}
         keyExtractor={(item, index) => item + index}
-        renderItem={({ item }) => (
-          <View style={styles.item}>
-            <MyButton title="This is a 'MyButton'" />
-          </View>
-        )}
         renderSectionHeader={({ section: { title } }) => (
           <Text style={styles.header}>{title}</Text>
+        )}
+        renderItem={({item}) => (
+          <View style={styles.title}>
+            <MyButton style={styles.item} title={item} />
+          </View>
         )}
       />
     </View>
