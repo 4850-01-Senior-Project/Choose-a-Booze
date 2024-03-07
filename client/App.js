@@ -6,6 +6,7 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import * as Font from "expo-font";
 
 import { Button, CheckBox } from "react-native-elements";
+import {getAllDrinkDataByLiquorType} from './controllers/getData'
 import { styles, colors } from './ui/assets/Style';
 import { MyButton } from './ui/components/MyButton';
 
@@ -14,7 +15,20 @@ import { MyButton } from './ui/components/MyButton';
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
   const [checked, setChecked] = useState(false);
+  const [getData, setData] = useState([])
+  useEffect(() => {
+    const fetchData =  async () => {
+      try {
+        const data = await getAllDrinkDataByLiquorType('Bourbon');
+        setData(data);
 
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
+    fetchData();
+  }, []);
   useEffect(() => {
     async function prepare() {
       try {
@@ -53,8 +67,16 @@ export default function App() {
 
   const DATA = [
     {
-      title: 'Mixed Drinks',
-      data: ['MD 1', 'MD 2', 'MD 3'],
+      title: 'Beer',
+      data: ['Beer 1', 'Beer 2', 'Beer 3'],
+    },
+    {
+      title: 'Wine',
+      data: ['Wine 1', 'Wine 2', 'Wine 3'],
+    },
+    {
+      title: 'Mixed Drinks - Bourbon',
+      data: getData.map((drink) => String(drink.drink.Name)),
     },
     {
       title: 'Mocktails',
