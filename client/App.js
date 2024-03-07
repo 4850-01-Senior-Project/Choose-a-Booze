@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
-import { ScrollView, View, Image, SectionList, Text, RefreshControl } from "react-native";
+import { View, Text, Image } from "react-native";
 import * as SplashScreen from 'expo-splash-screen';
 
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import * as Font from "expo-font";
 
-import { Button, CheckBox } from "react-native-elements";
 import {getAllDrinkDataByLiquorType} from './controllers/getData'
-import { styles, colors } from './ui/assets/Style';
-import { MyButton } from './ui/components/MyButton';
+import { styles } from './ui/assets/Style';
+import { Banner } from './ui/components/MyComponents.js'
+import { ScreenHeight } from "react-native-elements/dist/helpers";
 
 // --------------------------------------------------
 
@@ -90,27 +90,16 @@ export default function App() {
 
   // --------------------------------------------------
 
+  const logo = require('./ui/assets/logo.png');
+
   return (
-    <View style={styles.container} onLayout={onLayoutRootView}>
-      <Image
-        source={{
-          width: "100%",
-          height: "35%",
-          uri: 'https://picsum.photos/1920/1080',
-        }}
-      />
-      <SectionList
-        sections={DATA}
-        keyExtractor={(item, index) => item + index}
-        renderSectionHeader={({ section: { title } }) => (
-          <Text style={styles.header}>{title}</Text>
-        )}
-        renderItem={({ item }) => (
-          <View style={styles.title}>
-            <MyButton style={styles.item} title={item} onPress={console.log("Pressed.")}/>
-          </View>
-        )}
-      />
+    <View style={styles.fullSize}>
+      <Banner />
+      <View style={styles.content} onLayout={onLayoutRootView}>
+        <Text style={styles.p}>There is nothing in this View.</Text>
+        <Text style={styles.p}>The View has been moved to 'DrinkSelector.js'.</Text>
+        <Text style={styles.p}>Please navigate from 'App.js' using Python routing.</Text>
+      </View >
     </View>
   );
 }
