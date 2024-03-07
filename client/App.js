@@ -1,11 +1,15 @@
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import * as Font from "expo-font";
-import * as SplashScreen from 'expo-splash-screen';
 import { useCallback, useEffect, useState } from "react";
 import { ScrollView, View, Image, SectionList, Text, RefreshControl } from "react-native";
+import * as SplashScreen from 'expo-splash-screen';
+
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import * as Font from "expo-font";
+
 import { Button, CheckBox } from "react-native-elements";
-import { styles } from './ui/assets/Style';
+import { styles, colors } from './ui/assets/Style';
 import { MyButton } from './ui/components/MyButton';
+
+// --------------------------------------------------
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -33,6 +37,8 @@ export default function App() {
     prepare();
   }, []);
 
+  // --------------------------------------------------
+
   const onLayoutRootView = useCallback(async () => {
     if (appIsReady) {
       await SplashScreen.hideAsync();
@@ -42,6 +48,8 @@ export default function App() {
   if (!appIsReady) {
     return null;
   }
+
+  // --------------------------------------------------
 
   const DATA = [
     {
@@ -58,6 +66,8 @@ export default function App() {
     }
   ];
 
+  // --------------------------------------------------
+
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
       <Image
@@ -73,9 +83,9 @@ export default function App() {
         renderSectionHeader={({ section: { title } }) => (
           <Text style={styles.header}>{title}</Text>
         )}
-        renderItem={({item}) => (
+        renderItem={({ item }) => (
           <View style={styles.title}>
-            <MyButton style={styles.item} title={item} />
+            <MyButton style={styles.item} title={item} onPress={console.log("Pressed.")}/>
           </View>
         )}
       />
