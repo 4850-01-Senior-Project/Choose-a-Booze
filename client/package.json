@@ -20,16 +20,10 @@
     "typescript": "^5.1.3"
   },
   "expo": {
-    "name": "splash-screen",
-    "slug": "splash-screen",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/logo.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./ui/assets/logo.jpg",
+      "backgroundColor": "#2C272E",
+      "resizeMode": "contain"
     }
   },
   "devDependencies": {

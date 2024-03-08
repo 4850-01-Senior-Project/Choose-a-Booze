@@ -20,7 +20,6 @@ export default function App() {
       try {
         // Keep the splash screen visible while we fetch resources
         await SplashScreen.preventAutoHideAsync();
-        setTimeout(SplashScreen.hideAsync, 5000);
         // Pre-load fonts, make any API calls you need to do here
         await Font.loadAsync(MaterialIcons.font);
         // Artificially delay for two seconds to simulate a slow loading
@@ -68,7 +67,7 @@ export default function App() {
 
   // --------------------------------------------------
 
-  const logo = require('./ui/assets/logo.png');
+  const logo = require('./ui/assets/logo.jpg');
 
   return (
     <View style={styles.fullSize}>
