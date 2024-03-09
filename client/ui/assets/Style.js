@@ -46,6 +46,12 @@ export const styles = StyleSheet.create({
 		color: colors.orange,
 		padding: 16,
 	},
+	discovery: {
+		fontSize: 16,
+		fontFamily: 'monospace',
+		color: colors.orange,
+		padding: 16,
+	},
 	item: {
 		backgroundColor: colors.purple,
 		color: colors.orange,

@@ -1,5 +1,5 @@
-import { styles, colors } from './ui/assets/Style';
-import { Category } from './ui/components/MyComponents';
+import { styles, colors } from '../assets/Style';
+import { Category } from '../components/MyComponents';
 
 // --------------------------------------------------
 

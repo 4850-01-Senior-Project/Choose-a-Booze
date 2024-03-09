@@ -1,10 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
 import { ScrollView, View, Image, SectionList, Text, RefreshControl } from "react-native";
+import { NavigationContainer } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
+import * as Font from "expo-font";
 
 import { Category, Discovery } from '../components/MyComponents'
 
-export default function Home() {
+// --------------------------------------------------
+
+export default function Home({navigation}) {
   const [appIsReady, setAppIsReady] = useState(false);
   const [checked, setChecked] = useState(false);
 
@@ -34,10 +38,14 @@ export default function Home() {
 
   return (
     <View>
-      <Discovery/>
+      <Discovery item='This is a discovery component'/>
       <ScrollView horizontal={true}>
-        <Category/>
-        <Category/>
+        <Category item='Category 1'/>
+        <Category item='Category 2'/>
+        <Category item='Category 3'/>
+        <Category item='Category 4'/>
+        <Category item='Category 5'/>
+        <Category item='Category 6'/>
       </ScrollView>
     </View>
   );
