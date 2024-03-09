@@ -19,7 +19,7 @@ export const Banner = () => {
 		<View style={styles.banner}>
         <Image
           style={styles.fullSize}
-		  source={require('../assets/logo.png')}
+		  source={require('../assets/logo.jpg')}
         />
       </View>
 	);

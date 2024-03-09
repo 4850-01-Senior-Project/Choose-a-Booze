@@ -11,7 +11,7 @@ export const colors =
 export const styles = StyleSheet.create({
 	h1: {
 		fontSize: 32,
-		fontFamily: 'Garamond',
+		fontFamily: 'monospace',
 		color: colors.orange,
 		padding: 16,
 	},
@@ -20,9 +20,8 @@ export const styles = StyleSheet.create({
 	},
 	p: {
 		fontSize: 24,
-		fontFamily: 'Garamond',
-		paddingLeft: 128,
-		paddingBottom: 12,
+		margin: 24,
+		fontFamily: 'monospace',
 		justifyContent: "center",
 	},
 
@@ -43,7 +42,7 @@ export const styles = StyleSheet.create({
 	},
 	category: {
 		fontSize: 32,
-		fontFamily: 'Garamond',
+		fontFamily: 'monospace',
 		color: colors.orange,
 		padding: 16,
 	},
