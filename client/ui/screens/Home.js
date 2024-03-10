@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from "expo-font";
 
-import { colors } from '../assets/Style';
+import { styles, colors } from '../assets/Style';
 import { Category, Discovery } from '../components/MyComponents'
 
 // --------------------------------------------------
@@ -13,7 +13,7 @@ export default function Home({ navigation }) {
   return (
     <View>
       <Discovery item='This is a discovery component' />
-      <ScrollView horizontal={true}>
+      <ScrollView horizontal={true} style={{ borderWidth: 3 }}>
         <Category item='Category 1' />
         <Category item='Category 2' />
         <Category item='Category 3' />
@@ -21,16 +21,15 @@ export default function Home({ navigation }) {
         <Category item='Category 5' />
         <Category item='Category 6' />
       </ScrollView>
-      <View style={{ height: 120, width: 120, borderWidth: 3 }}>
+      <View style={{ width: '25%', height: 120, borderWidth: 3, alignSelf: 'center' }}>
         <Pressable
-          style={{
+          style={[{
             backgroundColor: colors.orange,
             flex: 1,
-            alignContent: 'center',
             justifyContent: 'center'
-          }}
+          }, styles.p]}
           onPress={() => navigation.navigate('DrinkSelector')}
-        />
+        >Drink Selector</Pressable>
       </View>
     </View>
   );

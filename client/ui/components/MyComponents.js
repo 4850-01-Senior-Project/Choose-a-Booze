@@ -7,20 +7,20 @@ export const Category = ({ item }) => {
     <Pressable
       style={({ pressed }) => [
         {
-          color: pressed ? colors.black : colors.orange,
-          backgroundColor: pressed ? colors.orange : colors.black,
+          //color: pressed ? colors.orange : colors.black,
+          backgroundColor: pressed ? colors.black : colors.orange
         },
-        styles.category,
-      ]}
-    >
-      {item}
+        styles.category
+      ]}><Text style={styles.p}>{item}</Text>
     </Pressable>
-  );
+  )
 }
 
 export const Discovery = ({ item }) => {
   return (<Text style={styles.discovery}>{item}</Text>);
 }
+
+//Section Component
 
 export const Banner = () => {
   return (

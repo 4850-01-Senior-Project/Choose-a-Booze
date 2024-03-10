@@ -19,10 +19,9 @@ export const styles = StyleSheet.create({
 
 	},
 	p: {
-		fontSize: 24,
-		margin: 24,
+		fontSize: 16,
+    textAlign: 'center',
 		fontFamily: 'monospace',
-		justifyContent: "center",
 	},
 
 	// --------------------------------------------------

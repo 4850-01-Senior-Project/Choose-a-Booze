@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
-import { View, Text } from "react-native";
+import { View, Text, SectionList, Image } from "react-native";
 import { styles } from '../assets/Style';
 import { Category } from '../components/MyComponents';
 import { getAllDrinkDataByLiquorType } from '../../controllers/getData';
 
 // --------------------------------------------------
 
-export default function DrinkSelector() {
+export default function DrinkSelector({ navigation }) {
 
 const [getData, setData] = useState([]);
 const DATA = [
@@ -47,11 +47,11 @@ useEffect(() => {
         sections={DATA}
         keyExtractor={(item, index) => item + index}
         renderSectionHeader={({ section: { title } }) => (
-          <Category item={title} />
+          <Section item={title} />
         )}
         renderItem={({ item }) => (
           <View style={styles.item}>
-            <Category item={item} onPress={console.log("Category pressed")} />
+            <Section item={item} onPress={console.log("Section pressed")} />
           </View>
         )}
       />
