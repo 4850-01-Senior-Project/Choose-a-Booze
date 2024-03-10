@@ -7,13 +7,13 @@ export const Category = ({ item }) => {
     <Pressable
       style={({ pressed }) => [
         {
-          //color: pressed ? colors.orange : colors.black,
-          backgroundColor: pressed ? colors.green : colors.purple,
+          color: pressed ? colors.black : colors.orange,
+          backgroundColor: pressed ? colors.orange : colors.black,
         },
         styles.category,
       ]}
     >
-      <Text>{item}</Text>
+      {item}
     </Pressable>
   );
 }

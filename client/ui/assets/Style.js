@@ -43,7 +43,6 @@ export const styles = StyleSheet.create({
 	category: {
 		fontSize: 32,
 		fontFamily: 'monospace',
-		color: colors.orange,
 		padding: 16,
 	},
 	discovery: {
