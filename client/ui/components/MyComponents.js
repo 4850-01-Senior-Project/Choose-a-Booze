@@ -1,7 +1,6 @@
 import React from 'react'
 import { View, Text, Pressable, Image } from 'react-native'
-import styles from '../assets/Style.js';
-import colors from '../assets/Colors.js';
+import { styles, colors } from '../assets/Style.js';
 
 export const Category = ({ item }) => {
   return (
@@ -34,4 +33,10 @@ export const Banner = () => {
       />
     </View>
   );
+}
+
+export const BackButton = () => {
+  return (
+      <Pressable style={styles.backButton}></Pressable>
+  )
 }

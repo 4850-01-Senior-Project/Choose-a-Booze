@@ -1,11 +1,7 @@
-import { useCallback, useEffect, useState } from "react";
+// import { useCallback, useEffect, useState } from "react";
 import { ScrollView, View, Pressable, RefreshControl } from "react-native";
-import { NavigationContainer } from '@react-navigation/native';
-import * as SplashScreen from 'expo-splash-screen';
-import * as Font from "expo-font";
 
-import styles from '../assets/Style';
-import colors from "../assets/Colors";
+import { styles, colors} from '../assets/Style';
 import { Category, Discovery } from '../components/MyComponents'
 
 // --------------------------------------------------

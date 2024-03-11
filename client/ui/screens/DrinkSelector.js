@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { View, Text, SectionList, Image } from "react-native";
-import styles from '../assets/Style';
+import { styles } from '../assets/Style';
 import { Section } from '../components/MyComponents';
 import { getAllDrinkDataByLiquorType } from '../../controllers/getData';
 

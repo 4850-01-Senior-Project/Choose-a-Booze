@@ -1,11 +1,24 @@
 import { StyleSheet } from "react-native";
-import colors from './Colors.js';
+
+export const colors = {
+  black: "#2C272E",
+  purple: "#753188",
+  green: "#9AE66E",
+  orange: "#E59934"
+}
 
 export default styles = StyleSheet.create({
+  // Colors
+  black: { color: "#2C272E" },
+  purple: { color: "#753188" },
+  green: { color: "#9AE66E" },
+  orange: { color: "#E59934" },
+
+  // --------------------------------------------------
+  // Headings and Paragraphs Styling
   h1: {
     fontSize: 32,
     fontFamily: 'monospace',
-    color: colors.orange,
     padding: 16,
   },
   p: {
@@ -15,16 +28,21 @@ export default styles = StyleSheet.create({
   },
 
   // --------------------------------------------------
+  // Navigation-Type Components
 
   category: {
-  fontSize: 32,
-  fontFamily: 'monospace',
-  padding: 16,
+    fontSize: 32,
+    fontFamily: 'monospace',
+    padding: 16,
   },
   discovery: {
     fontSize: 32,
     fontFamily: 'monospace',
     padding: 16,
+    width: '80%',
+    marginHorizontal: '10%',
+    height: width / 2,
+    borderWidth: 2,
     color: colors.orange,
   },
   section: {
@@ -34,6 +52,7 @@ export default styles = StyleSheet.create({
   },
 
   // --------------------------------------------------
+  // Misc. Components
 
   fullSize: {
     height: "100%",

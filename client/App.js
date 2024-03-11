@@ -9,7 +9,7 @@ import * as Font from "expo-font";
 
 import Home from "./ui/screens/Home";
 import DrinkSelector from "./ui/screens/DrinkSelector";
-import styles from "./ui/assets/Style";
+import { styles, colors } from "./ui/assets/Style";
 
 // --------------------------------------------------
 

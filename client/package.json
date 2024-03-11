@@ -37,7 +37,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "start-flask": "python ../server/database.py"
+    "start-flask": "python ../server/database.py",
+    "test": "node Test.js"
   },
   "version": "1.0.0",
   "private": true,
