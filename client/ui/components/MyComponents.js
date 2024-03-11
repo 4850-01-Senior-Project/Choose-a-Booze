@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, Pressable, Image } from 'react-native'
-import { styles, colors } from '../assets/Style.js';
+import styles from '../assets/Style.js';
+import colors from '../assets/Colors.js';
 
 export const Category = ({ item }) => {
   return (
@@ -20,7 +21,9 @@ export const Discovery = ({ item }) => {
   return (<Text style={styles.discovery}>{item}</Text>);
 }
 
-//Section Component
+export const Section = ({ item }) => {
+  return (<Text style={styles.section}>{item}</Text>)
+}
 
 export const Banner = () => {
   return (
