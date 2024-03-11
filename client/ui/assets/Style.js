@@ -7,7 +7,7 @@ export const colors = {
   orange: "#E59934"
 }
 
-export default styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   // Colors
   black: { color: "#2C272E" },
   purple: { color: "#753188" },
@@ -34,21 +34,25 @@ export default styles = StyleSheet.create({
     fontSize: 32,
     fontFamily: 'monospace',
     padding: 16,
+    flex: 1,
   },
   discovery: {
     fontSize: 32,
     fontFamily: 'monospace',
     padding: 16,
-    width: '80%',
-    marginHorizontal: '10%',
-    height: width / 2,
+    width: '90%',
+    margin: '5%',
+    textAlign: 'center',
+    //height: width / 2,
     borderWidth: 2,
+    borderRadius: 25,
     color: colors.orange,
   },
   section: {
     fontSize: 32,
     fontFamily: 'monospace',
     padding: 16,
+    borderRadius: 25,
   },
 
   // --------------------------------------------------

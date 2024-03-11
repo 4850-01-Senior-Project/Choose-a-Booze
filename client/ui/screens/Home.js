@@ -1,7 +1,7 @@
 // import { useCallback, useEffect, useState } from "react";
 import { ScrollView, View, Pressable, RefreshControl } from "react-native";
 
-import { styles, colors} from '../assets/Style';
+import { styles, colors } from '../assets/Style';
 import { Category, Discovery } from '../components/MyComponents'
 
 // --------------------------------------------------
@@ -10,7 +10,7 @@ export default function Home({ navigation }) {
   return (
     <View>
       <Discovery item='This is a discovery component' />
-      <ScrollView horizontal={true} style={{ borderWidth: 3 }}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }} horizontal={true} style={{ borderWidth: 3, marginHorizontal: '5%' }}>
         <Category item='Category 1' />
         <Category item='Category 2' />
         <Category item='Category 3' />

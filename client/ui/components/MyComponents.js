@@ -7,17 +7,26 @@ export const Category = ({ item }) => {
     <Pressable
       style={({ pressed }) => [
         {
-          //color: pressed ? colors.orange : colors.black,
-          backgroundColor: pressed ? colors.black : colors.orange
+          backgroundColor: pressed ? colors.purple : colors.black
         },
         styles.category
-      ]}><Text style={styles.p}>{item}</Text>
+      ]}><Text style={[styles.orange, styles.p]}>{item}</Text>
     </Pressable>
   )
 }
 
 export const Discovery = ({ item }) => {
-  return (<Text style={styles.discovery}>{item}</Text>);
+  return (
+    <Pressable
+      style={({ pressed }) => [
+        {
+          backgroundColor: pressed ? colors.purple : colors.black
+        },
+        styles.discovery
+      ]}>
+      {item}
+    </Pressable>
+  );
 }
 
 export const Section = ({ item }) => {
@@ -33,10 +42,4 @@ export const Banner = () => {
       />
     </View>
   );
-}
-
-export const BackButton = () => {
-  return (
-      <Pressable style={styles.backButton}></Pressable>
-  )
 }
