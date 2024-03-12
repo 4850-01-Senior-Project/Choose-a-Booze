@@ -18,13 +18,11 @@ export const styles = StyleSheet.create({
   // Headings and Paragraphs Styling
   h1: {
     fontSize: 32,
-    fontFamily: 'monospace',
     padding: 16,
   },
   p: {
     fontSize: 16,
     textAlign: 'center',
-    fontFamily: 'monospace',
   },
 
   // --------------------------------------------------
@@ -32,13 +30,11 @@ export const styles = StyleSheet.create({
 
   category: {
     fontSize: 32,
-    fontFamily: 'monospace',
     padding: 16,
     flex: 1,
   },
   discovery: {
     fontSize: 32,
-    fontFamily: 'monospace',
     padding: 16,
     width: '90%',
     margin: '5%',
@@ -50,7 +46,6 @@ export const styles = StyleSheet.create({
   },
   section: {
     fontSize: 32,
-    fontFamily: 'monospace',
     padding: 16,
     borderRadius: 25,
   },
