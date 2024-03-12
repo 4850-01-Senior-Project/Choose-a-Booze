@@ -22,6 +22,11 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     color: colors.orange,
   },
+  h2: {
+    fontSize: 24,
+    paddingLeft: 24,
+    color: colors.black,
+  },
   p: {
     fontSize: 16,
     textAlign: 'center',
@@ -50,11 +55,13 @@ export const styles = StyleSheet.create({
     borderRadius: 25,
   },
   sectionHeader: {
-    padding: '7.5%',
+    backgroundColor: colors.black,
+    color: colors.orange,
+    padding: 24,
     fontSize: 32,
   },
   sectionItem: {
-    padding: '10%',
+    padding: 20,
     fontSize: 24,
   },
 

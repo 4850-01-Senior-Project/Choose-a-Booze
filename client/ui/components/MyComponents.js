@@ -34,19 +34,7 @@ export const Discovery = ({ item }) => {
 }
 
 export const SectionHeader = ({ title }) => {
-  return (
-    <Pressable
-      style={({ pressed }) => [
-        styles.sectionHeader,
-        {
-          backgroundColor: pressed ? colors.purple : colors.black
-        },
-      ]}>
-      {
-        <Text style={styles.sectionHeader}>{title}</Text>
-      }
-    </Pressable>
-  );
+  return (<Text style={styles.sectionHeader}>{title}</Text>);
 }
 
 export const SectionItem = ({ text }) => {
@@ -55,11 +43,11 @@ export const SectionItem = ({ text }) => {
       style={({ pressed }) => [
         styles.sectionItem,
         {
-          backgroundColor: pressed ? colors.green : colors.orange
+          backgroundColor: pressed ? colors.purple : colors.orange
         },
       ]}>
       {
-        <Text style={styles.sectionItem}>{text}</Text>
+        <Text style={styles.h2}>{text}</Text>
       }
     </Pressable>
   );
