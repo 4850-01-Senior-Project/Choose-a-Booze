@@ -34,9 +34,7 @@ export default function App() {
 
     prepare();
   }, []);
-
-  // --------------------------------------------------
-
+  // Hide the splashscreen if the application is ready
   const onLayoutRootView = useCallback(async () => {
     if (appIsReady) {
       await SplashScreen.hideAsync();

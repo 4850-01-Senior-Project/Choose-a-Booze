@@ -7,7 +7,3 @@ export const getAllDrinkDataByLiquorType = async (liquor_type) => {
     
     return await trial;
 }
-
-
-
-

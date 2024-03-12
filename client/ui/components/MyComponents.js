@@ -9,7 +9,8 @@ export const Category = ({ item }) => {
         {
           backgroundColor: pressed ? colors.purple : colors.black
         },
-        styles.category
+        styles.category,
+        styles.section
       ]}><Text style={[styles.orange, styles.p]}>{item}</Text>
     </Pressable>
   )
@@ -20,17 +21,48 @@ export const Discovery = ({ item }) => {
     <Pressable
       style={({ pressed }) => [
         {
+          marginHorizontal: '5%',
           backgroundColor: pressed ? colors.purple : colors.black
         },
-        styles.discovery
+        styles.section,
       ]}>
-      {item}
+      {
+        <Text style={styles.h1}>{item}</Text>
+      }
     </Pressable>
   );
 }
 
-export const Section = ({ item }) => {
-  return (<Text style={styles.section}>{item}</Text>)
+export const SectionHeader = ({ title }) => {
+  return (
+    <Pressable
+      style={({ pressed }) => [
+        styles.sectionHeader,
+        {
+          backgroundColor: pressed ? colors.purple : colors.black
+        },
+      ]}>
+      {
+        <Text style={styles.sectionHeader}>{title}</Text>
+      }
+    </Pressable>
+  );
+}
+
+export const SectionItem = ({ text }) => {
+  return (
+    <Pressable
+      style={({ pressed }) => [
+        styles.sectionItem,
+        {
+          backgroundColor: pressed ? colors.green : colors.orange
+        },
+      ]}>
+      {
+        <Text style={styles.sectionItem}>{text}</Text>
+      }
+    </Pressable>
+  );
 }
 
 export const Banner = () => {

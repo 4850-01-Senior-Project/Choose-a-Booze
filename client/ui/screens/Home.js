@@ -1,5 +1,5 @@
 // import { useCallback, useEffect, useState } from "react";
-import { ScrollView, View, Pressable, RefreshControl } from "react-native";
+import { ScrollView, View, Pressable, Text } from "react-native";
 
 import { styles, colors } from '../assets/Style';
 import { Category, Discovery } from '../components/MyComponents'
@@ -8,9 +8,9 @@ import { Category, Discovery } from '../components/MyComponents'
 
 export default function Home({ navigation }) {
   return (
-    <View>
+    <View style={{ backgroundColor: styles.black, borderWidth: 5 }}>
       <Discovery item='This is a discovery component' />
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }} horizontal={true} style={{ borderWidth: 3, marginHorizontal: '5%' }}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }} horizontal={true} style={{ padding: '5%' }}>
         <Category item='Category 1' />
         <Category item='Category 2' />
         <Category item='Category 3' />
@@ -25,8 +25,10 @@ export default function Home({ navigation }) {
             flex: 1,
             justifyContent: 'center'
           }, styles.p]}
-          onPress={() => navigation.navigate('DrinkSelector')}
-        >Drink Selector</Pressable>
+          onPress={() => navigation.navigate('DrinkSelector')}>
+          {
+            <Text style={styles.p}>Drink Selector</Text>
+          }</Pressable>
       </View>
     </View>
   );

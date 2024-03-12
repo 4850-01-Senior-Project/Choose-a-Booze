@@ -11,15 +11,12 @@ collection_ref = firestore_client.collection('Drinks')
 app = Flask(__name__)
 CORS(app)
 
-
 def get_mixeddrink_data():
     documents = collection_ref.get()
     data = []
     for doc in documents:
         data.append(doc.to_dict())
     return jsonify(data)
-
-    
 
 # @app.route('/api/mixeddrinkwith', methods=['GET'])
 # def get_mixeddrink_data_with_filtersOR():

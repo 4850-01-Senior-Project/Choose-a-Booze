@@ -19,6 +19,8 @@ export const styles = StyleSheet.create({
   h1: {
     fontSize: 32,
     padding: 16,
+    textAlign: 'center',
+    color: colors.orange,
   },
   p: {
     fontSize: 16,
@@ -29,25 +31,31 @@ export const styles = StyleSheet.create({
   // Navigation-Type Components
 
   category: {
+    justifyContent: 'center',
+    minWidth: 120,
+    minHeight: 120,
     fontSize: 32,
-    padding: 16,
+    padding: '2.5%',
+    margin: 5,
     flex: 1,
   },
   discovery: {
-    fontSize: 32,
-    padding: 16,
     width: '90%',
     margin: '5%',
-    textAlign: 'center',
-    //height: width / 2,
-    borderWidth: 2,
-    borderRadius: 25,
-    color: colors.orange,
   },
   section: {
-    fontSize: 32,
-    padding: 16,
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    alignItems: 'center',
     borderRadius: 25,
+  },
+  sectionHeader: {
+    padding: '7.5%',
+    fontSize: 32,
+  },
+  sectionItem: {
+    padding: '10%',
+    fontSize: 24,
   },
 
   // --------------------------------------------------
@@ -66,7 +74,6 @@ export const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
   },
-
   item: {
     backgroundColor: colors.purple,
     color: colors.orange,
