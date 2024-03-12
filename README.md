@@ -8,6 +8,7 @@ Flask requires these packages to manage the server.
 Copy and paste into the terminal while in the server folder.
 ```
 pip install flask flask-cors
+npm i -g concurrently
 ```
 // Below needs to be updated more
 ### React Native
