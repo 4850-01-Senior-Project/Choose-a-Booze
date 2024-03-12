@@ -1,34 +1,22 @@
 import { useCallback, useEffect, useState } from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text } from "react-native";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as SplashScreen from 'expo-splash-screen';
 
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import * as Font from "expo-font";
 
-import {getAllDrinkDataByLiquorType} from './controllers/getData'
-import { styles } from './ui/assets/Style';
-import { Banner } from './ui/components/MyComponents.js'
-import { ScreenHeight } from "react-native-elements/dist/helpers";
+import Home from "./ui/screens/Home";
+import DrinkSelector from "./ui/screens/DrinkSelector";
+import { styles, colors } from "./ui/assets/Style";
 
 // --------------------------------------------------
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
   const [checked, setChecked] = useState(false);
-  const [getData, setData] = useState([])
-  useEffect(() => {
-    const fetchData =  async () => {
-      try {
-        const data = await getAllDrinkDataByLiquorType('Bourbon');
-        setData(data);
 
-      } catch (error) {
-        console.log(error);
-      }
-    };
-  
-    fetchData();
-  }, []);
   useEffect(() => {
     async function prepare() {
       try {
@@ -61,39 +49,24 @@ export default function App() {
 
   // --------------------------------------------------
 
-  const DATA = [
-    {
-      title: 'Beer',
-      data: ['Beer 1', 'Beer 2', 'Beer 3'],
-    },
-    {
-      title: 'Wine',
-      data: ['Wine 1', 'Wine 2', 'Wine 3'],
-    },
-    {
-      title: 'Mixed Drinks - Bourbon',
-      data: getData.map((drink) => String(drink.drink.Name)),
-    },
-    {
-      title: 'Mocktails',
-      data: ['MT 1', 'MT 2'],
-    },
-    {
-      title: 'Third Category',
-      data: ['Cat 1', 'Cat 2', 'Cat 3', 'Cat 4'],
-    }
-  ];
-
-  // --------------------------------------------------
+  const Stack = createNativeStackNavigator();
 
   return (
-    <View style={styles.fullSize}>
-      <Banner />
-      <View style={styles.content} onLayout={onLayoutRootView}>
-        <Text style={styles.p}>There is nothing in this View.</Text>
-        <Text style={styles.p}>The View has been moved to 'DrinkSelector.js'.</Text>
-        <Text style={styles.p}>Please navigate from 'App.js' using Python routing.</Text>
-      </View >
+    <View style={styles.fullSize} onLayout={onLayoutRootView}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{ title: 'Home' }}
+          />
+          <Stack.Screen
+            name="DrinkSelector"
+            component={DrinkSelector}
+            options={{ title: 'Drink Selector' }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </View>
   );
 }

@@ -1,26 +1,45 @@
 import React from 'react'
 import { View, Text, Pressable, Image } from 'react-native'
-import { styles } from '../assets/Style.js';
+import { styles, colors } from '../assets/Style.js';
 
-export const Category = ({ item , onPress}) => {
-	return (
-	<Pressable style={styles.category} onPress={onPress}>
-		<Text>{item}</Text>
-	</Pressable>
-	);
+export const Category = ({ item }) => {
+  return (
+    <Pressable
+      style={({ pressed }) => [
+        {
+          backgroundColor: pressed ? colors.purple : colors.black
+        },
+        styles.category
+      ]}><Text style={[styles.orange, styles.p]}>{item}</Text>
+    </Pressable>
+  )
 }
 
 export const Discovery = ({ item }) => {
-	return (<Text>{item}</Text>);
+  return (
+    <Pressable
+      style={({ pressed }) => [
+        {
+          backgroundColor: pressed ? colors.purple : colors.black
+        },
+        styles.discovery
+      ]}>
+      {item}
+    </Pressable>
+  );
+}
+
+export const Section = ({ item }) => {
+  return (<Text style={styles.section}>{item}</Text>)
 }
 
 export const Banner = () => {
-	return(
-		<View style={styles.banner}>
-        <Image
-          style={styles.fullSize}
-		  source={require('../assets/logo.jpg')}
-        />
-      </View>
-	);
+  return (
+    <View style={styles.banner}>
+      <Image
+        style={styles.fullSize}
+        source={require('../assets/logo.jpg')}
+      />
+    </View>
+  );
 }
