@@ -8,7 +8,7 @@ import { Category, Discovery, Selector } from '../components/MyComponents'
 
 export default function Home({ navigation }) {
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: colors.black}}>
       { /* Change the Discovery Component to use a python script which is held inside the server folder. */}
       <Discovery item='This is a discovery component' />
       {/* ScrollView for the Alcohol Base */}

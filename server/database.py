@@ -4,7 +4,7 @@ from google.cloud.firestore import CollectionReference
 from google.cloud.firestore_v1.base_query import FieldFilter
 from filterData import filterDataDontInclude, filterDataInclude
 from flask_cors import CORS
-import requests
+# import requests
 
 firestore_client = firestore.Client.from_service_account_json('../server/env.json')
 collection_ref = firestore_client.collection('Drinks')
@@ -18,30 +18,30 @@ def get_mixeddrink_data():
         data.append(doc.to_dict())
     return jsonify(data)
 
-# @app.route('/api/mixeddrinkwith', methods=['GET'])
-# def get_mixeddrink_data_with_filtersOR():
-#     filter = request.args.get('filter').split('-')
-#     dont_want = request.args.get('dontwant').split('-')
-#     distinct_ids = set()
-
-#     if filter[0] == "" and dont_want[0]=="":
-#         return get_mixeddrink_data()
-
-#     if filter:
-#         results = []
-#         for i in range(1,16):
-#             query = collection_ref.where(filter=FieldFilter(f'Ingredient{i}', 'in', [value for value in filter])).stream()
-#             for doc in query:
-#             # Check if the ID is unique
-#                 document = doc.to_dict()
-#                 if (doc.id not in distinct_ids and filterData(list(document.values()), dont_want)):
-#                     results.append({'id': doc.id, 'drink': document})
-#                     distinct_ids.add(doc.id)
-#     return jsonify(results)
-
-
+'''
 @app.route('/api/mixeddrinkwith', methods=['GET'])
-def get_mixeddrink_data():
+def get_mixeddrink_data_with_filtersOR():
+    filter = request.args.get('filter').split('-')
+    dont_want = request.args.get('dontwant').split('-')
+    distinct_ids = set()
+    if filter[0] == "" and dont_want[0]=="":
+        return get_mixeddrink_data()
+    if filter:
+        results = []
+        for i in range(1,16):
+            query = collection_ref.where(filter=FieldFilter(f'Ingredient{i}', 'in', [value for value in filter])).stream()
+            for doc in query:
+            # Check if the ID is unique
+                document = doc.to_dict()
+                if (doc.id not in distinct_ids and filterData(list(document.values()), dont_want)):
+                    results.append({'id': doc.id, 'drink': document})
+                    distinct_ids.add(doc.id)
+    return jsonify(results)
+'''
+
+# 'and' function for getting drinks
+@app.route('/api/mixeddrinkwith', methods=['GET'])
+def andMixedDrink():
     filter = request.args.get('filter').split('-')
     dont_want = request.args.get('dontwant').split('-')
     distinct_ids = set()
@@ -51,9 +51,25 @@ def get_mixeddrink_data():
         document = doc.to_dict()
         templist = list(document.values())
         if (doc.id not in distinct_ids and filterDataDontInclude(templist , dont_want) and filterDataInclude(templist, filter)):
-            data.append({'id': doc.id, 'drink': document})
+            data.append({'id' : doc.id, 'drink' : document})
             distinct_ids.add(doc.id)
-   
+    return jsonify(data)
+
+
+# 'or' function for getting drinks
+@app.route('/api/mixeddrinkwith', methods=['GET'])
+def orMixedDrink():
+    filter = request.args.get('filter').split('-')
+    dontWant = request.args.get('dontwant').split('-')
+    distinctIDs = set()
+    documents = collection_ref.get()
+    data = []
+    for doc in documents:
+        document = doc.to_dict()
+        templist = list(document.values())
+        if (doc.id not in distinctIDs and filterDataInclude(templist, filter)):
+            data.append({'id' : doc.id, 'drink' : document})
+            distinctIDs.add(doc.id)
     return jsonify(data)
 
 

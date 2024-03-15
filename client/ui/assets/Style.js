@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
   h1: {
     fontSize: 32,
     textAlign: 'center',
-    color: colors.orange,
+    color: colors.green,
   },
   h2: {
     fontSize: 24,
@@ -29,6 +29,7 @@ export const styles = StyleSheet.create({
   p: {
     fontSize: 16,
     textAlign: 'center',
+    color: colors.green,
   },
 
   // --------------------------------------------------
@@ -107,5 +108,6 @@ export const styles = StyleSheet.create({
     paddingHorizontal: '5%',
     paddingVertical: 'auto',
     flex: 1,
+    alignSelf: 'center'
   }
 });

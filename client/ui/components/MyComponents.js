@@ -2,16 +2,18 @@ import React from 'react'
 import { View, Text, Pressable, Image } from 'react-native'
 import { styles, colors } from '../assets/Style.js';
 
+
+
 export const Category = ({ item, onPress }) => {
   return (
     <Pressable
       onPress={onPress}
       style={({ pressed }) => [
         {
-          backgroundColor: pressed ? colors.purple : colors.black
+          backgroundColor: pressed ? colors.orange : colors.purple
         },
         styles.category
-      ]}><Text style={[styles.orange, styles.p]}>{item}</Text>
+      ]}><Text style={styles.p}>{item}</Text>
     </Pressable>
   )
 }
@@ -21,15 +23,26 @@ export const Discovery = ({ item }) => {
     <Pressable
       style={({ pressed }) => [
         {
-          backgroundColor: pressed ? colors.purple : colors.black
+          backgroundColor: pressed ? colors.orange : colors.purple
         },
         styles.discovery
-      ]}>
-      {
-        <Text style={styles.h1}>{item}</Text>
-      }
+      ]}><Text style={styles.h1}>{item}</Text>
     </Pressable>
   );
+}
+
+export const Selector = ({ item, onPress }) => {
+  return (
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [
+        {
+          backgroundColor: pressed ? colors.orange : colors.purple
+        },
+        styles.selector
+      ]}><Text style={styles.h1}>{item}</Text>
+    </Pressable>
+  )
 }
 
 export const SectionHeader = ({ title }) => {
@@ -50,18 +63,4 @@ export const SectionItem = ({ text }) => {
       }
     </Pressable>
   );
-}
-
-export const Selector = ({ item, onPress }) => {
-  return (
-    <Pressable
-      onPress={onPress}
-      style={({ pressed }) => [
-        {
-          backgroundColor: pressed ? colors.purple : colors.black
-        },
-        styles.selector
-      ]}><Text style={styles.h1}>{item}</Text>
-    </Pressable>
-  )
 }

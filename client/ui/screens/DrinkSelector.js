@@ -12,6 +12,7 @@ export default function DrinkSelector({ navigation }) {
       try {
         const data = await getAllDrinkDataByLiquorType({ item });
         setData(data);
+        console.log('Data Retrieved.')
       }
       catch (error) {
         console.log(error);
@@ -27,8 +28,7 @@ export default function DrinkSelector({ navigation }) {
   const DATA = [
     {
       title: 'Bourbon',
-      data: ['B1', 'B2']
-      //data: getData.map((drink) => String(drink.drink.Name)),
+      data: getData.map((drink) => String(drink.drink.Name)),
     },
   ];
 
