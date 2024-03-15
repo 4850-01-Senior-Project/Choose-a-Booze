@@ -6,11 +6,10 @@ from filterData import filterDataDontInclude, filterDataInclude
 from flask_cors import CORS
 import requests
 
-firestore_client = firestore.Client.from_service_account_json('../server/database/env.json')
+firestore_client = firestore.Client.from_service_account_json('../server/env.json')
 collection_ref = firestore_client.collection('Drinks')
 app = Flask(__name__)
 CORS(app)
-
 
 def get_mixeddrink_data():
     documents = collection_ref.get()
@@ -18,8 +17,6 @@ def get_mixeddrink_data():
     for doc in documents:
         data.append(doc.to_dict())
     return jsonify(data)
-
-    
 
 # @app.route('/api/mixeddrinkwith', methods=['GET'])
 # def get_mixeddrink_data_with_filtersOR():
