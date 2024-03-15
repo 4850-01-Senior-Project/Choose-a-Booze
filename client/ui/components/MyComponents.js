@@ -61,7 +61,7 @@ export const Selector = ({ item, onPress }) => {
           backgroundColor: pressed ? colors.purple : colors.black
         },
         styles.selector
-      ]}><Text style={[styles.orange, styles.h1]}>{item}</Text>
+      ]}><Text style={styles.h1}>{item}</Text>
     </Pressable>
   )
 }

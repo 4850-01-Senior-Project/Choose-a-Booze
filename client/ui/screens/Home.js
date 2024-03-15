@@ -8,18 +8,17 @@ import { Category, Discovery, Selector } from '../components/MyComponents'
 
 export default function Home({ navigation }) {
   return (
-    <ScrollView style={{ height: '100%', borderWidth: 3 }}>
+    <View style={{ flex: 1 }}>
       { /* Change the Discovery Component to use a python script which is held inside the server folder. */}
       <Discovery item='This is a discovery component' />
       {/* ScrollView for the Alcohol Base */}
       <ScrollView  horizontal={true} style={styles.scrollview}>
         {/* Pass an onPress function to the Category Component to lead it to the correct page */}
-        <Category item='Base 1' />
-        <Category item='Base 2' />
-        <Category item='Base 3' />
-        <Category item='Base 4' />
-        <Category item='Base 5' />
-        <Category item='Base 6' />
+        <Category item='Gin' />
+        <Category item='Rum' />
+        <Category item='Whiskey' />
+        <Category item='Vodka' />
+        <Category item='Bourbon' />
       </ScrollView>
       {/* ScrollView for the Tags */}
       <ScrollView  horizontal={true} style={styles.scrollview}>
@@ -38,6 +37,6 @@ export default function Home({ navigation }) {
       <Selector
         onPress={() => navigation.navigate('DrinkSelector')}
         item='Drink Selector' />
-    </ScrollView>
+    </View>
   );
 }

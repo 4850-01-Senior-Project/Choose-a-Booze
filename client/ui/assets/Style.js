@@ -18,7 +18,6 @@ export const styles = StyleSheet.create({
   // Headings and Paragraphs Styling
   h1: {
     fontSize: 32,
-    padding: 16,
     textAlign: 'center',
     color: colors.orange,
   },
@@ -40,20 +39,20 @@ export const styles = StyleSheet.create({
     textAlignVertical: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    minWidth: 120,
-    minHeight: 120,
+    flex: 1,
+    aspectRatio: 1,
     fontSize: 32,
     margin: 5,
-    flex: 1,
     borderRadius: 25,
   },
   discovery: {
     textAlign: 'center',
     textAlignVertical: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
     marginHorizontal: '5%',
     marginVertical: '2.5%',
-    width: '90%',
+    flex: 2,
     borderRadius: 25,
   },
   selector: {
@@ -63,11 +62,14 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     marginHorizontal: '5%',
     marginVertical: '2.5%',
-    width: '90%',
-    minHeight: '25%',
+    flex: 2,
     alignSelf: 'stretch',
     borderRadius: 25,
   },
+
+  // --------------------------------------------------
+  // Used in the Drink Selector screen
+
   sectionHeader: {
     backgroundColor: colors.black,
     color: colors.orange,
@@ -85,7 +87,8 @@ export const styles = StyleSheet.create({
 
   fullSize: {
     height: Platform.OS === 'web' ? '100vh' : '100%',
-    width: '100%',
+    width: Platform.OS === 'web' ? '100vw' : '100%',
+    flexDirection: 'column',
   },
   content: {
     height: '80%',
@@ -102,7 +105,7 @@ export const styles = StyleSheet.create({
   },
   scrollview: {
     paddingHorizontal: '5%',
-    paddingVertical: 2.5,
-    minHeight: 135,
+    paddingVertical: 'auto',
+    flex: 1,
   }
 });
