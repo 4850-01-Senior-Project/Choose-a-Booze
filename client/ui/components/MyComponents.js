@@ -2,7 +2,15 @@ import React from 'react'
 import { View, Text, Pressable, Image } from 'react-native'
 import { styles, colors } from '../assets/Style.js';
 
+  // --------------------------------------------------
 
+export const ListItem = () => {
+  return (
+    <Text>ListItem</Text>
+  )
+}
+
+  // --------------------------------------------------
 
 export const Category = ({ item, onPress }) => {
   return (
@@ -18,6 +26,8 @@ export const Category = ({ item, onPress }) => {
   )
 }
 
+// --------------------------------------------------
+
 export const Discovery = ({ item }) => {
   return (
     <Pressable
@@ -30,6 +40,8 @@ export const Discovery = ({ item }) => {
     </Pressable>
   );
 }
+
+  // --------------------------------------------------
 
 export const Selector = ({ item, onPress }) => {
   return (
@@ -45,9 +57,13 @@ export const Selector = ({ item, onPress }) => {
   )
 }
 
+  // --------------------------------------------------
+
 export const SectionHeader = ({ title }) => {
   return (<Text style={styles.sectionHeader}>{title}</Text>);
 }
+
+  // --------------------------------------------------
 
 export const SectionItem = ({ text }) => {
   return (

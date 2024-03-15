@@ -2,7 +2,7 @@
 import { ScrollView, View, Pressable, Text } from "react-native";
 
 import { styles, colors } from '../assets/Style';
-import { Category, Discovery, Selector } from '../components/MyComponents'
+import { ListItem, Category, Discovery, Selector } from '../components/MyComponents'
 
 // --------------------------------------------------
 
@@ -20,6 +20,7 @@ export default function Home({ navigation }) {
         <Category item='Vodka' />
         <Category item='Bourbon' />
       </ScrollView>
+      <ListItem/>
       {/* ScrollView for the Tags */}
       <ScrollView  horizontal={true} style={styles.scrollview}>
         <Category item='Fruity' />
