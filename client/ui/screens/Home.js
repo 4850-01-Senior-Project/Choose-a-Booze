@@ -2,34 +2,42 @@
 import { ScrollView, View, Pressable, Text } from "react-native";
 
 import { styles, colors } from '../assets/Style';
-import { Category, Discovery } from '../components/MyComponents'
+import { Category, Discovery, Selector } from '../components/MyComponents'
 
 // --------------------------------------------------
 
 export default function Home({ navigation }) {
   return (
-    <View style={{ backgroundColor: styles.black, borderWidth: 5 }}>
+    <ScrollView style={{ height: '100%', borderWidth: 3 }}>
+      { /* Change the Discovery Component to use a python script which is held inside the server folder. */}
       <Discovery item='This is a discovery component' />
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }} horizontal={true} style={{ padding: '5%' }}>
-        <Category item='Category 1' />
-        <Category item='Category 2' />
-        <Category item='Category 3' />
-        <Category item='Category 4' />
-        <Category item='Category 5' />
-        <Category item='Category 6' />
+      {/* ScrollView for the Alcohol Base */}
+      <ScrollView  horizontal={true} style={styles.scrollview}>
+        {/* Pass an onPress function to the Category Component to lead it to the correct page */}
+        <Category item='Base 1' />
+        <Category item='Base 2' />
+        <Category item='Base 3' />
+        <Category item='Base 4' />
+        <Category item='Base 5' />
+        <Category item='Base 6' />
       </ScrollView>
-      <View style={{ width: '25%', height: 120, borderWidth: 3, alignSelf: 'center' }}>
-        <Pressable
-          style={[{
-            backgroundColor: colors.orange,
-            flex: 1,
-            justifyContent: 'center'
-          }, styles.p]}
-          onPress={() => navigation.navigate('DrinkSelector')}>
-          {
-            <Text style={styles.p}>Drink Selector</Text>
-          }</Pressable>
-      </View>
-    </View>
+      {/* ScrollView for the Tags */}
+      <ScrollView  horizontal={true} style={styles.scrollview}>
+        <Category item='Fruity' />
+        <Category item='Sweet' />
+        <Category item='Creamy' />
+        <Category item='Light' />
+        <Category item='Refreshing' />
+        <Category item='Spicy' />
+        <Category item='Spiced' />
+        <Category item='Seasonal' />
+        <Category item='Fizzy' />
+        <Category item='Botanical' />
+        <Category item='Strong' />
+      </ScrollView>
+      <Selector
+        onPress={() => navigation.navigate('DrinkSelector')}
+        item='Drink Selector' />
+    </ScrollView>
   );
 }

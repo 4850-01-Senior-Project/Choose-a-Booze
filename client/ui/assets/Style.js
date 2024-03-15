@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 export const colors = {
   black: "#2C272E",
@@ -36,22 +36,36 @@ export const styles = StyleSheet.create({
   // Navigation-Type Components
 
   category: {
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    alignItems: 'center',
     justifyContent: 'center',
     minWidth: 120,
     minHeight: 120,
     fontSize: 32,
-    padding: '2.5%',
     margin: 5,
     flex: 1,
+    borderRadius: 25,
   },
   discovery: {
-    width: '90%',
-    margin: '5%',
-  },
-  section: {
     textAlign: 'center',
     textAlignVertical: 'center',
     alignItems: 'center',
+    marginHorizontal: '5%',
+    marginVertical: '2.5%',
+    width: '90%',
+    borderRadius: 25,
+  },
+  selector: {
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginHorizontal: '5%',
+    marginVertical: '2.5%',
+    width: '90%',
+    minHeight: '25%',
+    alignSelf: 'stretch',
     borderRadius: 25,
   },
   sectionHeader: {
@@ -59,6 +73,7 @@ export const styles = StyleSheet.create({
     color: colors.orange,
     padding: 24,
     fontSize: 32,
+    minHeight: 130,
   },
   sectionItem: {
     padding: 20,
@@ -69,11 +84,7 @@ export const styles = StyleSheet.create({
   // Misc. Components
 
   fullSize: {
-    height: "100%",
-    width: "100%",
-  },
-  banner: {
-    height: '20%',
+    height: Platform.OS === 'web' ? '100vh' : '100%',
     width: '100%',
   },
   content: {
@@ -89,4 +100,9 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 24,
   },
+  scrollview: {
+    paddingHorizontal: '5%',
+    paddingVertical: 2.5,
+    minHeight: 135,
+  }
 });

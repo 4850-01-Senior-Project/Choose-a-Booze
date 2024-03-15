@@ -2,15 +2,15 @@ import React from 'react'
 import { View, Text, Pressable, Image } from 'react-native'
 import { styles, colors } from '../assets/Style.js';
 
-export const Category = ({ item }) => {
+export const Category = ({ item, onPress }) => {
   return (
     <Pressable
+      onPress={onPress}
       style={({ pressed }) => [
         {
           backgroundColor: pressed ? colors.purple : colors.black
         },
-        styles.category,
-        styles.section
+        styles.category
       ]}><Text style={[styles.orange, styles.p]}>{item}</Text>
     </Pressable>
   )
@@ -21,10 +21,9 @@ export const Discovery = ({ item }) => {
     <Pressable
       style={({ pressed }) => [
         {
-          marginHorizontal: '5%',
           backgroundColor: pressed ? colors.purple : colors.black
         },
-        styles.section,
+        styles.discovery
       ]}>
       {
         <Text style={styles.h1}>{item}</Text>
@@ -53,13 +52,16 @@ export const SectionItem = ({ text }) => {
   );
 }
 
-export const Banner = () => {
+export const Selector = ({ item, onPress }) => {
   return (
-    <View style={styles.banner}>
-      <Image
-        style={styles.fullSize}
-        source={require('../assets/logo.jpg')}
-      />
-    </View>
-  );
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [
+        {
+          backgroundColor: pressed ? colors.purple : colors.black
+        },
+        styles.selector
+      ]}><Text style={[styles.orange, styles.h1]}>{item}</Text>
+    </Pressable>
+  )
 }
