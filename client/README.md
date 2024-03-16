@@ -9,3 +9,9 @@
 - [React Native Elements docs][rne]
 
 [rne]: https://reactnativeelements.com/
+
+##Downloads with pip: 
+-pip install google-cloud-firestore
+-pip install Flask
+-pip install requests
+-pip install flask-cors
