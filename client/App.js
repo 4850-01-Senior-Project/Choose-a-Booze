@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as SplashScreen from 'expo-splash-screen';
@@ -9,7 +9,8 @@ import * as Font from "expo-font";
 
 import Home from "./ui/screens/Home";
 import DrinkSelector from "./ui/screens/DrinkSelector";
-import { styles, colors } from "./ui/assets/Style";
+import SurveyScreen from "./ui/screens/SurveyScreen";
+import { styles } from "./ui/assets/Style";
 
 // --------------------------------------------------
 
@@ -62,6 +63,11 @@ export default function App() {
             name="DrinkSelector"
             component={DrinkSelector}
             options={{ title: 'Drink Selector' }}
+          />
+          <Stack.Screen
+            name="SurveyScreen"
+            component={SurveyScreen}
+            options={{ title: 'Survey Screen' }}
           />
         </Stack.Navigator>
       </NavigationContainer>

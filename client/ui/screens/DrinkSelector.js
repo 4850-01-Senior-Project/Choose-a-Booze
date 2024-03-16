@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { View, Text, SectionList, Image } from "react-native";
+import { View, SectionList } from "react-native";
 import { styles } from '../assets/Style';
 import { SectionHeader, SectionItem } from '../components/MyComponents';
 import { getAllDrinkDataByLiquorType } from '../../controllers/getData';
@@ -7,11 +7,14 @@ import { getAllDrinkDataByLiquorType } from '../../controllers/getData';
 // --------------------------------------------------
 
 export default function DrinkSelector({ navigation }) {
+  const [Data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getAllDrinkDataByLiquorType({ item });
+        console.log('Retrieving Data...')
+        const data = await getAllDrinkDataByLiquorType( Data );
         setData(data);
+        console.log('Data Retrieved.')
       }
       catch (error) {
         console.log(error);
@@ -23,12 +26,10 @@ export default function DrinkSelector({ navigation }) {
 
   // --------------------------------------------------
 
-  const [getData, setData] = useState([]);
   const DATA = [
     {
       title: 'Bourbon',
-      data: ['B1', 'B2']
-      //data: getData.map((drink) => String(drink.drink.Name)),
+      data: Data.map((drink) => String(drink.drink.Name)),
     },
   ];
 
@@ -39,13 +40,13 @@ export default function DrinkSelector({ navigation }) {
       <SectionList
         sections={DATA}
         keyExtractor={(item, index) => item + index}
-        renderSectionHeader={({ section: { title }}) => (
-          <SectionHeader title={title}/>
+        renderSectionHeader={({ section: { title } }) => (
+          <SectionHeader title={title} />
         )}
         renderItem={({ item }) => (
-          <SectionItem text={item}/>
+          <SectionItem text={item} />
         )}
-      />  
+      />
     </View>
   );
 }

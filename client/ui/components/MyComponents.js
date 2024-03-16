@@ -1,41 +1,69 @@
 import React from 'react'
-import { View, Text, Pressable, Image } from 'react-native'
+import { Text, Pressable, Dropdown, AntDesign } from 'react-native'
 import { styles, colors } from '../assets/Style.js';
 
-export const Category = ({ item }) => {
+  // --------------------------------------------------
+
+export const ListItem = () => {
+  return (
+    <Text>ListItem</Text>
+  )
+}
+
+  // --------------------------------------------------
+
+export const Category = ({ item, onPress }) => {
   return (
     <Pressable
+      onPress={onPress}
       style={({ pressed }) => [
         {
-          backgroundColor: pressed ? colors.purple : colors.black
+          backgroundColor: pressed ? colors.orange : colors.purple
         },
-        styles.category,
-        styles.section
-      ]}><Text style={[styles.orange, styles.p]}>{item}</Text>
+        styles.category
+      ]}><Text style={styles.p}>{item}</Text>
     </Pressable>
   )
 }
+
+// --------------------------------------------------
 
 export const Discovery = ({ item }) => {
   return (
     <Pressable
       style={({ pressed }) => [
         {
-          marginHorizontal: '5%',
-          backgroundColor: pressed ? colors.purple : colors.black
+          backgroundColor: pressed ? colors.orange : colors.purple
         },
-        styles.section,
-      ]}>
-      {
-        <Text style={styles.h1}>{item}</Text>
-      }
+        styles.discovery
+      ]}><Text style={styles.h1}>{item}</Text>
     </Pressable>
   );
 }
 
+  // --------------------------------------------------
+
+export const Selector = ({ item, onPress }) => {
+  return (
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [
+        {
+          backgroundColor: pressed ? colors.orange : colors.purple
+        },
+        styles.selector
+      ]}><Text style={styles.h1}>{item}</Text>
+    </Pressable>
+  )
+}
+
+  // --------------------------------------------------
+
 export const SectionHeader = ({ title }) => {
   return (<Text style={styles.sectionHeader}>{title}</Text>);
 }
+
+  // --------------------------------------------------
 
 export const SectionItem = ({ text }) => {
   return (
@@ -53,15 +81,30 @@ export const SectionItem = ({ text }) => {
   );
 }
 
-export const Banner = () => {
+export const DropdownComponent = ({ list }) => {
+  //const [value, setValue] = useState(null);
   return (
-    <View style={styles.banner}>
-      <Image
-        style={styles.fullSize}
-        source={require('../assets/logo.jpg')}
-      />
-    </View>
-  );
+    <Dropdown
+      style={styles.dropdown}
+      placeholderStyle={styles.placeholderStyle}
+      selectedTextStyle={styles.selectedTextStyle}
+      iconStyle={styles.iconStyle}
+      data={list}
+      search
+      maxHeight={300}
+      labelField="label"
+      valueField="value"
+      placeholder="Select item"
+      searchPlaceholder="Search..."
+      value={value}
+      onChange={item => {
+        setValue(item.value);
+      }}
+      renderLeftIcon={() => (
+        <AntDesign style={styles.icon} color="black" name="Saftey" size={20} />
+      )}
+    />
+  )
 }
 
 

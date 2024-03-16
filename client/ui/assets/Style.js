@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 export const colors = {
   black: "#2C272E",
@@ -18,9 +18,8 @@ export const styles = StyleSheet.create({
   // Headings and Paragraphs Styling
   h1: {
     fontSize: 32,
-    padding: 16,
     textAlign: 'center',
-    color: colors.orange,
+    color: colors.green,
   },
   h2: {
     fontSize: 24,
@@ -30,35 +29,54 @@ export const styles = StyleSheet.create({
   p: {
     fontSize: 16,
     textAlign: 'center',
+    color: colors.green,
   },
 
   // --------------------------------------------------
   // Navigation-Type Components
 
   category: {
-    justifyContent: 'center',
-    minWidth: 120,
-    minHeight: 120,
-    fontSize: 32,
-    padding: '2.5%',
-    margin: 5,
-    flex: 1,
-  },
-  discovery: {
-    width: '90%',
-    margin: '5%',
-  },
-  section: {
     textAlign: 'center',
     textAlignVertical: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+    aspectRatio: 1,
+    fontSize: 32,
+    margin: 5,
     borderRadius: 25,
   },
+  discovery: {
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginHorizontal: '5%',
+    marginVertical: '2.5%',
+    flex: 2,
+    borderRadius: 25,
+  },
+  selector: {
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginHorizontal: '5%',
+    marginVertical: '2.5%',
+    flex: 2,
+    alignSelf: 'stretch',
+    borderRadius: 25,
+  },
+
+  // --------------------------------------------------
+  // Used in the Drink Selector screen
+
   sectionHeader: {
     backgroundColor: colors.black,
     color: colors.orange,
     padding: 24,
     fontSize: 32,
+    minHeight: 130,
   },
   sectionItem: {
     padding: 20,
@@ -69,12 +87,9 @@ export const styles = StyleSheet.create({
   // Misc. Components
 
   fullSize: {
-    height: "100%",
-    width: "100%",
-  },
-  banner: {
-    height: '20%',
-    width: '100%',
+    height: Platform.OS === 'web' ? '100vh' : '100%',
+    width: Platform.OS === 'web' ? '100vw' : '100%',
+    flexDirection: 'column',
   },
   content: {
     height: '80%',
@@ -89,4 +104,29 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 24,
   },
+  dropdown: {
+    margin: 16,
+    height: 50,
+    borderBottomColor: 'gray',
+    borderBottomWidth: 0.5,
+  },
+  icon: {
+    marginRight: 5,
+  },
+  placeholderStyle: {
+    fontSize: 16,
+  },
+  selectedTextStyle: {
+    fontSize: 16,
+  },
+  iconStyle: {
+    width: 20,
+    height: 20,
+  },
+  scrollview: {
+    paddingHorizontal: '5%',
+    paddingVertical: 'auto',
+    flex: 1,
+    alignSelf: 'center'
+  }
 });
