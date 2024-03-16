@@ -1,14 +1,67 @@
 import React, { Component, useState } from 'react';
-import { StyleSheet } from 'react-native';
-import { Dropdown } from 'react-native-element-dropdown';
-import MultiSelect from 'react-native-multiple-select';
+import { Button, Pressable, StyleSheet } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { dropDownComponent } from '../components/dropdowns';
+import { MultiSelectTags } from '../components/dropdowns';
 
-const surveryQuestions = ["Question 1", "Question3", "Question4", "Question5", "Question6","Question7"]
+const [cravings, setCravings] = useState(null);
+const [liquorMood, setLiquorMood] = useState(null);
+const [dontwantFilters, setDontWants] = useState(null);
+const [theUsual, setTheUsual] = useState(null);
 
-const dropDownComponent = ({list}) => {
-    const [value, setValue] = useState(null);
+const surveryQuestions = [
+  "What kind of drink do you typically go for?", 
+  "What kind of liquor are you in the mood for?", 
+  "What are you feeling?",
+  "What are you not feeling?"
+]
 
+
+const tags = ["sweet", "spicy", "refreshing"]
+const dontwants = ["lime juice", "orange juice", "cream", "simple syrup", "Coca-cola" ]
+const usualDrink = [
+  "Old Fashioned", 
+  "Gin and Tonic", 
+  "Straight liquor", 
+  "Cosmopolitan", 
+  "White Russian", 
+  "Margarita", 
+  "Mojito", 
+  "Whiskey and Coke"
+]
+
+export default function SurveryQuestions({ navigation }) {
+  return (
+    <View style={{ backgroundColor: styles.black, borderWidth: 5 }}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }} horizontal={true} style={{ padding: '5%' }}>
+        <Text>{`Question 1: ${surveryQuestions[0]}`}</Text>
+        <dropDownComponent list={usualDrink}  setValues={setTheUsual}/>
+        <Text>{`Question 2: ${surveryQuestions[1]}`}</Text>
+        <dropDownComponent list={usualDrink} setValues={setLiquorMood} />
+        <Text>{`Question 3: ${surveryQuestions[2]}`}</Text>
+        <MultiSelectTags list={tags} setValues ={setCravings}/>
+        <Text>{`Question 3: ${surveryQuestions[3]}`}</Text>
+        <MultiSelectTags list={dontwants} setValues={setDontWants}/>
+        
+      </ScrollView>
+      <Pressable>Find Me a Drink!</Pressable>
+      <View style={{ width: '25%', height: 120, borderWidth: 3, alignSelf: 'center' }}>
+        <Pressable
+          style={[{
+            backgroundColor: colors.orange,
+            flex: 1,
+            justifyContent: 'center'
+          }, styles.p]}
+          onPress={() => navigation.navigate('Home')}>
+          {
+            <Text style={styles.p}>Home</Text>
+          }</Pressable>
+      </View>
+    </View>
+  );
+}
+
+export const dropDownComponent = ({list, setValue}) => {
     return (
         <Dropdown
         style = {styles.dropdown}
@@ -28,7 +81,6 @@ const dropDownComponent = ({list}) => {
         }}
         renderLeftIcon = {() => (
             <AntDesign style={styles.icon} color="black" name="Saftey" size={20} />
-
         )}
         />
     )
@@ -57,8 +109,8 @@ const styles = StyleSheet.create({
   });
 
 
-  const MultiSelectTags = ({list}) => {
-      const [values, setValues] = useState();
+  export const MultiSelectTags = ({list,setValues}) => {
+      const values = []
       const onSelectedItemsChange = (selectedItems) => {
         setValues(selectedItems)
       }

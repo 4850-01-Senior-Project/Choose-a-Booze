@@ -63,3 +63,5 @@ export const Banner = () => {
     </View>
   );
 }
+
+
