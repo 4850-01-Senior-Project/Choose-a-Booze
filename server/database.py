@@ -39,7 +39,7 @@ def get_mixeddrink_data_with_filtersOR():
     return jsonify(results)
 '''
 
-# 'and' function for getting drinks
+# Add a description here
 @app.route('/api/mixeddrinkwith', methods=['GET'])
 def andMixedDrink():
     filter = request.args.get('filter').split('-')
@@ -53,23 +53,6 @@ def andMixedDrink():
         if (doc.id not in distinct_ids and filterDataDontInclude(templist , dont_want) and filterDataInclude(templist, filter)):
             data.append({'id' : doc.id, 'drink' : document})
             distinct_ids.add(doc.id)
-    return jsonify(data)
-
-
-# 'or' function for getting drinks
-@app.route('/api/mixeddrinkwith', methods=['GET'])
-def orMixedDrink():
-    filter = request.args.get('filter').split('-')
-    dontWant = request.args.get('dontwant').split('-')
-    distinctIDs = set()
-    documents = collection_ref.get()
-    data = []
-    for doc in documents:
-        document = doc.to_dict()
-        templist = list(document.values())
-        if (doc.id not in distinctIDs and filterDataInclude(templist, filter)):
-            data.append({'id' : doc.id, 'drink' : document})
-            distinctIDs.add(doc.id)
     return jsonify(data)
 
 

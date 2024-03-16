@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Pressable, Image } from 'react-native'
+import { Text, Pressable, Dropdown, AntDesign } from 'react-native'
 import { styles, colors } from '../assets/Style.js';
 
   // --------------------------------------------------
@@ -79,4 +79,30 @@ export const SectionItem = ({ text }) => {
       }
     </Pressable>
   );
+}
+
+export const DropdownComponent = ({ list }) => {
+  //const [value, setValue] = useState(null);
+  return (
+    <Dropdown
+      style={styles.dropdown}
+      placeholderStyle={styles.placeholderStyle}
+      selectedTextStyle={styles.selectedTextStyle}
+      iconStyle={styles.iconStyle}
+      data={list}
+      search
+      maxHeight={300}
+      labelField="label"
+      valueField="value"
+      placeholder="Select item"
+      searchPlaceholder="Search..."
+      value={value}
+      onChange={item => {
+        setValue(item.value);
+      }}
+      renderLeftIcon={() => (
+        <AntDesign style={styles.icon} color="black" name="Saftey" size={20} />
+      )}
+    />
+  )
 }

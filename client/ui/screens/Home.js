@@ -1,5 +1,5 @@
 // import { useCallback, useEffect, useState } from "react";
-import { ScrollView, View, Pressable, Text } from "react-native";
+import { ScrollView, View } from "react-native";
 
 import { styles, colors } from '../assets/Style';
 import { ListItem, Category, Discovery, Selector } from '../components/MyComponents'
@@ -38,6 +38,9 @@ export default function Home({ navigation }) {
       <Selector
         onPress={() => navigation.navigate('DrinkSelector')}
         item='Drink Selector' />
+      <Selector
+        onPress={() => navigation.navigate('SurveyScreen')}
+        item='Survey Screen' />
     </View>
   );
 }
