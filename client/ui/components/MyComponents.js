@@ -1,6 +1,7 @@
 import React from 'react'
-import { Text, Pressable, Dropdown, AntDesign } from 'react-native'
+import { Text, Pressable, AntDesign } from 'react-native'
 import { styles, colors } from '../assets/Style.js';
+import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 
   // --------------------------------------------------
 
@@ -81,30 +82,36 @@ export const SectionItem = ({ text }) => {
   );
 }
 
-export const DropdownComponent = ({ list }) => {
-  //const [value, setValue] = useState(null);
+  // --------------------------------------------------
+
+export const Dropdown = ({ list }) => {
+  const values = []
+  const onSelectedItemsChange = (selectedItems) => {
+    setValues(selectedItems)
+  }
+  let multiref;
   return (
-    <Dropdown
-      style={styles.dropdown}
-      placeholderStyle={styles.placeholderStyle}
-      selectedTextStyle={styles.selectedTextStyle}
-      iconStyle={styles.iconStyle}
-      data={list}
-      search
-      maxHeight={300}
-      labelField="label"
-      valueField="value"
-      placeholder="Select item"
-      searchPlaceholder="Search..."
-      value={value}
-      onChange={item => {
-        setValue(item.value);
-      }}
-      renderLeftIcon={() => (
-        <AntDesign style={styles.icon} color="black" name="Saftey" size={20} />
-      )}
-    />
-  )
+    <View style={{ flex: 1 }}>
+      <SectionedMultiSelect
+        hideTags
+        items={list}
+        uniqueKey='multiselecttag'
+        ref={(component) => multiref = component}
+        onSelectedItemsChange={onSelectedItemsChange}
+        selectedItems={values}
+        selectText='Select preference'
+        searchInputPlaceholderText='Search preference'
+        tagRemoveIconColor='#CCC'
+        tagBorderColor='#CCC'
+        tagTextColor='#CCC'
+        selectedItemTextColor='#CCC'
+        selectedItemIconColor='#CCC'
+        itemTextColor='#000'
+        displayKey="name"
+        searchInputStyle={{ color: '#CCC' }}
+        submitButtonColor="#CCC"
+        submitButtonText="Submit"
+      />
+    </View>
+  );
 }
-
-

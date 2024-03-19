@@ -10,37 +10,15 @@ export default function Home({ navigation }) {
   return (
     <View style={{ flex: 1, backgroundColor: colors.black}}>
       { /* Change the Discovery Component to use a python script which is held inside the server folder. */}
-      <Discovery item='This is a discovery component' />
-      {/* ScrollView for the Alcohol Base */}
-      <ScrollView  horizontal={true} style={styles.scrollview}>
-        {/* Pass an onPress function to the Category Component to lead it to the correct page */}
-        <Category item='Gin' />
-        <Category item='Rum' />
-        <Category item='Whiskey' />
-        <Category item='Vodka' />
-        <Category item='Bourbon' />
-      </ScrollView>
-      <ListItem/>
-      {/* ScrollView for the Tags */}
-      <ScrollView  horizontal={true} style={styles.scrollview}>
-        <Category item='Fruity' />
-        <Category item='Sweet' />
-        <Category item='Creamy' />
-        <Category item='Light' />
-        <Category item='Refreshing' />
-        <Category item='Spicy' />
-        <Category item='Spiced' />
-        <Category item='Seasonal' />
-        <Category item='Fizzy' />
-        <Category item='Botanical' />
-        <Category item='Strong' />
-      </ScrollView>
       <Selector
-        onPress={() => navigation.navigate('DrinkSelector')}
-        item='Drink Selector' />
+        onPress={() => navigation.navigate('Randomizer')}
+        item='This is a Selector for Randomizer' />
       <Selector
         onPress={() => navigation.navigate('SurveyScreen')}
-        item='Survey Screen' />
+        item='This is a Selector For Survey Questions' />
+      <Selector
+        onPress={() => navigation.navigate('Home')}
+        item='This is a Selector For Liked Drinks' />
     </View>
   );
 }

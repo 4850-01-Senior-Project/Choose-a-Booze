@@ -1,11 +1,14 @@
-import React, { Component, useState } from 'react';
-import { Pressable, StyleSheet, View, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { Pressable, View, ScrollView, Text } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
-import { Category } from '../components/MyComponents';
-import { Dropdown } from 'react-native-element-dropdown';
-import MultiSelect from 'react-native-multiple-select';
+
+import { styles } from '../assets/Style';
+import { Category, Discovery, Dropdown } from '../components/MyComponents';
+import SectionedMultiSelect from 'react-native-sectioned-multi-select';
+import { MaterialIcons as Icon } from '@expo/vector-icons';
 
 
+// --------------------------------------------------
 
 const surveyQuestions = [
   "What kind of drink do you typically go for?",
@@ -14,6 +17,7 @@ const surveyQuestions = [
   "What are you not feeling?"
 ]
 
+// --------------------------------------------------
 
 const tags = ["sweet", "spicy", "refreshing"]
 const dontwants = ["lime juice", "orange juice", "cream", "simple syrup", "Coca-cola"]
@@ -28,62 +32,38 @@ const usualDrink = [
   "Whiskey and Coke"
 ]
 
-export default function SurveyScreen({ navigation }) {
-  const [cravings, setCravings] = useState(null);
-  const [liquorMood, setLiquorMood] = useState(null);
-  const [dontwantFilters, setDontWants] = useState(null);
-  const [theUsual, setTheUsual] = useState(null);
+// --------------------------------------------------
+
+export default function SurveyScreen() {
+  const [cravings, setCravings] = useState([]);
+  const [liquorMood, setLiquorMood] = useState([]);
+  const [dontwantFilters, setDontWants] = useState([]);
+  const [theUsual, setTheUsual] = useState([]);
 
   return (
-    <View style={{ backgroundColor: styles.black, borderWidth: 5 }}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }} horizontal={false} style={{ padding: '5%' }}>
-        <Category backgroundColor={'gray'} item={`Question 1: ${surveyQuestions[0]}`} />
-        <DropDownComponent list={usualDrink} setValues={setTheUsual} />
-        <Category item={`Question 2: ${surveyQuestions[1]}`} />
-        <DropDownComponent list={usualDrink} setValues={setLiquorMood} />
-        <Category item={`Question 3: ${surveyQuestions[2]}`} />
-        <MultiSelectTags list={tags} setValues={setCravings} />
-        <Category item={`Question 3: ${surveyQuestions[3]}`} />
-        <MultiSelectTags list={dontwants} setValues={setDontWants} />
-      </ScrollView>
-      <Pressable>Find Me a Drink!</Pressable>
-    </View>
-
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }} horizontal={false} style={{ padding: '5%' }}>
+      <SectionedMultiSelect
+        items={tags}
+        IconRenderer={Icon}
+        onSelectedItemsChange={setCravings}
+        selectedItems={cravings}
+      />
+    </ScrollView>
   );
 }
 
-
-
-export const MultiSelectTags = ({ list, setValues }) => {
-  const values = []
-  const onSelectedItemsChange = (selectedItems) => {
-    setValues(selectedItems)
-  }
-  let multiref;
-  return (
-    <View style={{ flex: 1 }}>
-      <MultiSelect
-        hideTags
-        items={list}
-        uniqueKey='multiselecttag'
-        ref={(component) => multiref = component}
-        onSelectedItemsChange={onSelectedItemsChange}
-        selectedItems={values}
-        selectText='Select preference'
-        searchInputPlaceholderText='Search preference'
-        tagRemoveIconColor='#CCC'
-        tagBorderColor='#CCC'
-        tagTextColor='#CCC'
-        selectedItemTextColor='#CCC'
-        selectedItemIconColor='#CCC'
-        itemTextColor='#000'
-        displayKey="name"
-        searchInputStyle={{ color: '#CCC' }}
-        submitButtonColor="#CCC"
-        submitButtonText="Submit"
-      />
+/*
+<View style={{ backgroundColor: styles.black, borderWidth: 5 }}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }} horizontal={false} style={{ padding: '5%' }}>
+        <Discovery backgroundColor={'gray'} item={`Question 1: ${surveyQuestions[0]}`} />
+        <Dropdown list={usualDrink} setValues={setTheUsual} />
+        <Discovery item={`Question 2: ${surveyQuestions[1]}`} />
+        <Dropdown list={usualDrink} setValues={setLiquorMood} />
+        <Discovery item={`Question 3: ${surveyQuestions[2]}`} />
+        <Dropdown list={tags} setValues={setCravings} />
+        <Discovery item={`Question 3: ${surveyQuestions[3]}`} />
+        <Dropdown list={dontwants} setValues={setDontWants} />
+      </ScrollView>
+      <Pressable>Find Me a Drink!</Pressable>
     </View>
-  )
-
-
-}
+*/
