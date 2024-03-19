@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { Pressable, StyleSheet, View, ScrollView } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { Category } from '../components/MyComponents';

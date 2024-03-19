@@ -10,6 +10,7 @@ import * as Font from "expo-font";
 import Home from "./ui/screens/Home";
 import DrinkSelector from "./ui/screens/DrinkSelector";
 import SurveyScreen from "./ui/screens/SurveyScreen";
+import Randomizer from "./ui/screens/Randomizer";
 import { styles } from "./ui/assets/Style";
 
 // --------------------------------------------------
@@ -60,15 +61,24 @@ export default function App() {
             options={{ title: 'Home' }}
           />
           <Stack.Screen
-            name="DrinkSelector"
-            component={DrinkSelector}
-            options={{ title: 'Drink Selector' }}
+            name="Randomizer"
+            component={Randomizer}
+            options={{ title: 'Randomizer' }}
           />
           <Stack.Screen
             name="SurveyScreen"
             component={SurveyScreen}
-            options={{ title: 'Survey Screen' }}
+            options={{ title: 'Survey Screen / Drink Selector' }}
           />
+
+{/* 
+          <Stack.Screen
+            name="LikedDrinks"
+            component={LikedDrinks}
+            options={{ title: 'Liked Drinks' }}
+          />
+*/}
+
         </Stack.Navigator>
       </NavigationContainer>
     </View>

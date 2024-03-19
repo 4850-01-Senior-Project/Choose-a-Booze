@@ -10,13 +10,15 @@ export default function Home({ navigation }) {
   return (
     <View style={{ flex: 1, backgroundColor: colors.black}}>
       { /* Change the Discovery Component to use a python script which is held inside the server folder. */}
-      <Discovery item='This is a Randomizer component. Renamed.' />
       <Selector
-        onPress={() => navigation.navigate('DrinkSelector')}
-        item='This is a Selector component. (For Survey Questions)' />
+        onPress={() => navigation.navigate('Randomizer')}
+        item='This is a Selector for Randomizer' />
       <Selector
         onPress={() => navigation.navigate('SurveyScreen')}
-        item='This is also a Selector. (For Liked Drinks)' />
+        item='This is a Selector For Survey Questions' />
+      <Selector
+        onPress={() => navigation.navigate('Home')}
+        item='This is a Selector For Liked Drinks' />
     </View>
   );
 }
