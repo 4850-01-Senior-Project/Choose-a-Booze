@@ -42,6 +42,7 @@ export default function SurveyScreen() {
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }} horizontal={false} style={{ padding: '5%' }}>
+      <Question/>
       <SectionedMultiSelect
         items={tags}
         IconRenderer={Icon}
