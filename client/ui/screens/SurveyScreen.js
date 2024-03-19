@@ -52,51 +52,6 @@ const [theUsual, setTheUsual] = useState(null);
   );
 }
 
-export const DropDownComponent = ({list, setValues}) => {
-    return ( <View>
-        <Dropdown
-        style = {styles.dropdown}
-        placeholderStyle = {styles.placeholderStyle}
-        selectedTextStyle = {styles.selectedTextStyle}
-        iconStyle={styles.iconStyle}
-        data={list}
-        search
-        maxHeight={300}
-        labelField="label"
-        valueField="value"
-        placeholder="Select item"
-        searchPlaceholder="Search..."
-        onChange={item => {
-          setValues(item.value);
-        }}
-      
-        />
-        </View>
-    )
-}
-
-const styles = StyleSheet.create({
-    dropdown: {
-      margin: 16,
-      height: 50,
-      borderBottomColor: 'gray',
-      borderBottomWidth: 0.5,
-    },
-    icon: {
-      marginRight: 5,
-    },
-    placeholderStyle: {
-      fontSize: 16,
-    },
-    selectedTextStyle: {
-      fontSize: 16,
-      color: 'black'
-    },
-    iconStyle: {
-      width: 20,
-      height: 20,
-    },
-  });
 
 
   export const MultiSelectTags = ({list,setValues}) => {
