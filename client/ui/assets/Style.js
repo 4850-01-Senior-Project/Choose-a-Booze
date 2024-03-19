@@ -29,7 +29,7 @@ export const styles = StyleSheet.create({
   p: {
     fontSize: 16,
     textAlign: 'center',
-    color: colors.green,
+    color: '#FFF',
   },
 
   // --------------------------------------------------
@@ -69,7 +69,7 @@ export const styles = StyleSheet.create({
   },
 
   // --------------------------------------------------
-  // Used in the Drink Selector screen
+  // Used in the ??? Screen
 
   sectionHeader: {
     backgroundColor: colors.black,
@@ -104,6 +104,10 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 24,
   },
+
+  // --------------------------------------------------
+  // Used in the Survey Screen
+  
   dropdown: {
     margin: 16,
     height: 50,
