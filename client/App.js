@@ -11,7 +11,7 @@ import Home from "./ui/screens/Home";
 import DrinkSelector from "./ui/screens/DrinkSelector";
 import SurveyScreen from "./ui/screens/SurveyScreen";
 import Randomizer from "./ui/screens/Randomizer";
-import { styles } from "./ui/assets/Style";
+import { styles, colors } from "./ui/assets/Style";
 
 // --------------------------------------------------
 
@@ -54,11 +54,17 @@ export default function App() {
   return (
     <View style={styles.fullSize} onLayout={onLayoutRootView}>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{
+          headerStyle: { backgroundColor: colors.orange, },
+          headerTintColor: colors.black,
+          headerTitleStyle: { fontWeight: 'bold', },
+          }}>
           <Stack.Screen
             name="Home"
             component={Home}
-            options={{ title: 'Home' }}
+            options={{
+              title: 'Home',
+            }}
           />
           <Stack.Screen
             name="Randomizer"
@@ -71,7 +77,7 @@ export default function App() {
             options={{ title: 'Survey Screen / Drink Selector' }}
           />
 
-{/* 
+          {/* 
           <Stack.Screen
             name="LikedDrinks"
             component={LikedDrinks}

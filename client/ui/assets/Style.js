@@ -1,7 +1,7 @@
 import { Platform, StyleSheet } from "react-native";
 
 export const colors = {
-  black: "#2C272E",
+  black: "#28232A",
   purple: "#753188",
   green: "#9AE66E",
   orange: "#E59934"
