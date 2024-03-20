@@ -41,6 +41,8 @@ export default function SurveyScreen() {
   const [theUsual, setTheUsual] = useState([]);
 
   return (
+    <Text>SurveyScreen</Text>
+/* 
     <ScrollView contentContainerStyle={{ flexGrow: 1 }} horizontal={false} style={{ padding: '5%' }}>
       <Question/>
       <SectionedMultiSelect
@@ -50,6 +52,7 @@ export default function SurveyScreen() {
         selectedItems={cravings}
       />
     </ScrollView>
+*/
   );
 }
 

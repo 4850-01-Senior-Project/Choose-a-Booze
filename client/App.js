@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, createContext, useEffect, useState } from "react";
 import { View } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -8,9 +8,10 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import * as Font from "expo-font";
 
 import Home from "./ui/screens/Home";
-import DrinkSelector from "./ui/screens/DrinkSelector";
-import SurveyScreen from "./ui/screens/SurveyScreen";
 import Randomizer from "./ui/screens/Randomizer";
+import SurveyScreen from "./ui/screens/SurveyScreen";
+// import LikedDrinks from "./ui/screens/LikedDrinks";
+
 import { styles, colors } from "./ui/assets/Style";
 
 // --------------------------------------------------
@@ -58,14 +59,14 @@ export default function App() {
           headerStyle: { backgroundColor: colors.orange, },
           headerTintColor: colors.black,
           headerTitleStyle: { fontWeight: 'bold', },
-          }}>
-          <Stack.Screen
-            name="Home"
-            component={Home}
-            options={{
-              title: 'Home',
-            }}
-          />
+        }}>
+            <Stack.Screen
+              name="Home"
+              component={Home}
+              options={{
+                title: 'Home',
+              }}
+            />
           <Stack.Screen
             name="Randomizer"
             component={Randomizer}
@@ -83,8 +84,7 @@ export default function App() {
             component={LikedDrinks}
             options={{ title: 'Liked Drinks' }}
           />
-*/}
-
+            */}
         </Stack.Navigator>
       </NavigationContainer>
     </View>
