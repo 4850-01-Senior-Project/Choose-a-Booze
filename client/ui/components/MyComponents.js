@@ -7,9 +7,17 @@ import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 
 // --------------------------------------------------
 
-export const ListItem = () => {
+export const Selector = ({ item, onPress }) => {
   return (
-    <Text>ListItem</Text>
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [
+        {
+          backgroundColor: pressed ? colors.orange : colors.purple
+        },
+        styles.selector
+      ]}><Text style={styles.h1}>{item}</Text>
+    </Pressable>
   )
 }
 
@@ -61,90 +69,66 @@ export const SurveyQuestion = ({ item }) => {
       style={
         {
           backgroundColor: colors.purple,
-          minHeight: "15%",
-          maxWidth: '60%',
+          minHeight: '15%',
           marginHorizontal: '5%',
           marginVertical: '2.5%',
-          flex: 2,
+          flex: 1,
           borderRadius: 25,
           alignItems: 'center',
           justifyContent: 'center',
-        }}
-    >
+        }}>
       <Text
         style={{
           fontSize: 20,
           color: '#CCC',
           fontWeight: 'bold',
-          fontFamily: 'Arial',
           textAlign: 'center'
-        }}
-      > {item}</Text>
+        }}>{item}</Text>
     </View>
   );
 }
 
 // --------------------------------------------------
 
-export const Selector = ({ item, onPress }) => {
+export const Dropdown = ({ value, setValue, items, id }) => {
+  return (
+    <SectionedMultiSelect
+      items={items}
+      IconRenderer={Icon}
+      uniqueKey={'id'}
+      onSelectedItemsChange={setValue}
+      selectedItems={value}
+
+      expandDropDowns={true}
+      styles={[
+        styles.green,
+        {
+          searchBar: styles.dropdown,
+          itemText: { fontSize: 18 },
+          selectedItemText: { backgroundColor: 'lightgray', color: 'purple' },
+          selectToggleText: { fontSize: 18 },
+          selectToggle: {
+            borderRadius: 25,
+            padding: 12,
+            fontSize: 18,
+            color: styles.green,
+            backgroundColor: 'gray',
+          }
+        }
+      ]}
+    />
+  );
+}
+
+export const Submit = () => {
   return (
     <Pressable
-      onPress={onPress}
       style={({ pressed }) => [
         {
           backgroundColor: pressed ? colors.orange : colors.purple
         },
-        styles.selector
-      ]}><Text style={styles.h1}>{item}</Text>
+        styles.submit
+      ]}><Text style={styles.h1}>Submit</Text>
     </Pressable>
   )
-}
-
-// --------------------------------------------------
-
-export const SectionHeader = ({ title }) => {
-  return (<Text style={styles.sectionHeader}>{title}</Text>);
-}
-
-// --------------------------------------------------
-
-export const Question = () => {
-  return (<Text>Question Component</Text>)
-}
-
-// --------------------------------------------------
-
-export const Dropdown = ({ value, setValue, items, id }) => {
-
-  return (
-    <View style={{ fontFamily:'Arial', fontSize: 18, minHeight: 10,  textAlign: "center"}}>
-    <SectionedMultiSelect
-      items={items}
-      IconRenderer={Icon}
-      onSelectedItemsChange={setValue}
-      selectedItems={value}
-      uniqueKey={"id"}
-      colors={{primary: 'green'}}
-      expandDropDowns={true}
-      styles={{
-        searchBar: styles.dropdown,
-        itemText: {fontFamily: 'Arial', fontSize: 18},
-        selectedItemText: {backgroundColor: 'lightgray', color: 'purple'},
-        selectToggleText: {fontFamily: 'Arial', fontSize: 18},
-        selectToggle: {
-          borderWidth: 1,
-          borderRadius: 8,
-          borderColor: 'darkgray',
-          padding: 12,
-          marginBottom: 12,
-          fontFamily: 'Arial',
-          fontSize: 18,
-          fontWeight: 2,
-          color: 'white',
-          backgroundColor:'gray',
-          maxWidth: '60%'
-        }
-      }}
-    /></View>
-  );
 }
