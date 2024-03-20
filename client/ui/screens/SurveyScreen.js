@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Pressable, View, ScrollView, Text, ImageBackground } from 'react-native';
+import { Pressable, View, ScrollView, Text, ImageBackground, ImageBackgroundBase } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 
 import { colors, styles } from '../assets/Style';
@@ -41,8 +41,9 @@ export default function SurveyScreen() {
   const [theUsual, setTheUsual] = useState([]);
 
   return (
-    
-    <ScrollView style={{zIndex: 100, padding: '5%', backgroundColor: colors.black }} key={"surveyscreenscroll"} contentContainerStyle={{ flexGrow: 1 }} horizontal={false} >
+    <View style={{backgroundColor: colors.black}}>
+    <ImageBackground source={require('../assets/logo.jpg')} imageStyle={{opacity: .1,zIndex:0}} >
+    <ScrollView style={{zIndex: 100, padding: '5%'}} key={"surveyscreenscroll"} contentContainerStyle={{ flexGrow: 1 }} horizontal={false} >
       <SurveyQuestion key={"theusualquestion"}  item={`Question 1: ${surveyQuestions[0]}`} />
       <Dropdown key={"theusualdropdown"} items={usualDrink} setValue={setTheUsual} value={theUsual} id={"theusualdrink"}/>
       <SurveyQuestion key={"liquormoodquestion"}  item={`Question 2: ${surveyQuestions[1]}`} />
@@ -52,6 +53,8 @@ export default function SurveyScreen() {
       <SurveyQuestion key={"dontwantsquestion"} item={`Question 4: ${surveyQuestions[3]}`} />
       <Dropdown key={"dontwantsdropdown"} items={dontwants} setValue={setDontWants} value={dontwants} id={"dontwants"}/>
     </ScrollView>
+    </ImageBackground>
+    </View>
 
   );
 }

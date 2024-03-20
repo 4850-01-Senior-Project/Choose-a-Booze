@@ -50,7 +50,7 @@ export const SurveyQuestion = ({ item }) => {
         {
           backgroundColor: colors.purple,
           minHeight: "15%",
-          minWidth: '50%',
+          maxWidth: '60%',
           marginHorizontal: '5%',
           marginVertical: '2.5%',
           flex: 2,
@@ -134,7 +134,7 @@ export const Dropdown = ({ value, setValue, items, id }) => {
         selectToggle: {
           borderWidth: 1,
           borderRadius: 8,
-          borderColor: '#bbb',
+          borderColor: 'darkgray',
           padding: 12,
           marginBottom: 12,
           fontFamily: 'Arial',
@@ -142,7 +142,7 @@ export const Dropdown = ({ value, setValue, items, id }) => {
           fontWeight: 2,
           color: 'white',
           backgroundColor:'gray',
-          minWidth: 20
+          maxWidth: '60%'
         }
       }}
     /></View>
