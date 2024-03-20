@@ -3,7 +3,7 @@ import { Pressable, View, ScrollView, Text } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 
 import { styles } from '../assets/Style';
-import { Category, Discovery, Dropdown } from '../components/MyComponents';
+import { Category, Discovery, Dropdown, Question } from '../components/MyComponents';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 import { MaterialIcons as Icon } from '@expo/vector-icons';
 
@@ -42,6 +42,7 @@ export default function SurveyScreen() {
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }} horizontal={false} style={{ padding: '5%' }}>
+      <Question/>
       <SectionedMultiSelect
         items={tags}
         IconRenderer={Icon}

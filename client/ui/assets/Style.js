@@ -1,7 +1,7 @@
 import { Platform, StyleSheet } from "react-native";
 
 export const colors = {
-  black: "#2C272E",
+  black: "#28232A",
   purple: "#753188",
   green: "#9AE66E",
   orange: "#E59934"
@@ -9,7 +9,7 @@ export const colors = {
 
 export const styles = StyleSheet.create({
   // Colors
-  black: { color: "#2C272E" },
+  black: { color: "#28232A" },
   purple: { color: "#753188" },
   green: { color: "#9AE66E" },
   orange: { color: "#E59934" },
@@ -82,6 +82,12 @@ export const styles = StyleSheet.create({
     padding: 20,
     fontSize: 24,
   },
+  scrollview: {
+    paddingHorizontal: '5%',
+    paddingVertical: 'auto',
+    flex: 1,
+    alignSelf: 'center'
+  },
 
   // --------------------------------------------------
   // Misc. Components
@@ -108,29 +114,4 @@ export const styles = StyleSheet.create({
   // --------------------------------------------------
   // Used in the Survey Screen
   
-  dropdown: {
-    margin: 16,
-    height: 50,
-    borderBottomColor: 'gray',
-    borderBottomWidth: 0.5,
-  },
-  icon: {
-    marginRight: 5,
-  },
-  placeholderStyle: {
-    fontSize: 16,
-  },
-  selectedTextStyle: {
-    fontSize: 16,
-  },
-  iconStyle: {
-    width: 20,
-    height: 20,
-  },
-  scrollview: {
-    paddingHorizontal: '5%',
-    paddingVertical: 'auto',
-    flex: 1,
-    alignSelf: 'center'
-  }
 });

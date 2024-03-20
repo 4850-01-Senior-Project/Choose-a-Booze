@@ -84,34 +84,8 @@ export const SectionItem = ({ text }) => {
 
   // --------------------------------------------------
 
-export const Dropdown = ({ list }) => {
-  const values = []
-  const onSelectedItemsChange = (selectedItems) => {
-    setValues(selectedItems)
-  }
-  let multiref;
-  return (
-    <View style={{ flex: 1 }}>
-      <SectionedMultiSelect
-        hideTags
-        items={list}
-        uniqueKey='multiselecttag'
-        ref={(component) => multiref = component}
-        onSelectedItemsChange={onSelectedItemsChange}
-        selectedItems={values}
-        selectText='Select preference'
-        searchInputPlaceholderText='Search preference'
-        tagRemoveIconColor='#CCC'
-        tagBorderColor='#CCC'
-        tagTextColor='#CCC'
-        selectedItemTextColor='#CCC'
-        selectedItemIconColor='#CCC'
-        itemTextColor='#000'
-        displayKey="name"
-        searchInputStyle={{ color: '#CCC' }}
-        submitButtonColor="#CCC"
-        submitButtonText="Submit"
-      />
-    </View>
-  );
+export const Question = () => {
+  return(<Text>Question Component</Text>)
 }
+
+  // --------------------------------------------------
