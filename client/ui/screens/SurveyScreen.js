@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Pressable, View, ScrollView, Text } from 'react-native';
+import { Pressable, View, ScrollView, Text, ImageBackground } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 
-import { styles } from '../assets/Style';
-import { Category, Discovery, Dropdown } from '../components/MyComponents';
+import { colors, styles } from '../assets/Style';
+import { SurveyQuestion, Discovery, Dropdown } from '../components/MyComponents';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
-import { MaterialIcons as Icon } from '@expo/vector-icons';
+
 
 
 // --------------------------------------------------
@@ -19,17 +19,17 @@ const surveyQuestions = [
 
 // --------------------------------------------------
 
-const tags = ["sweet", "spicy", "refreshing"]
-const dontwants = ["lime juice", "orange juice", "cream", "simple syrup", "Coca-cola"]
+const tags = [
+  {name: "sweet", id:1}, {name:"spicy", id:2}, {name: "refreshing", id:3}]
+const dontwants = [{name:"lime juice", id:1}, {name: "orange juice", id:2}, {name: "cream", id:3}, {name:"simple syrup", id:4}, {name:"Coca-cola", id:5}]
 const usualDrink = [
-  "Old Fashioned",
-  "Gin and Tonic",
-  "Straight liquor",
-  "Cosmopolitan",
-  "White Russian",
-  "Margarita",
-  "Mojito",
-  "Whiskey and Coke"
+  {name: "Old Fashioned", id: 1},
+  {name: "Gin and Tonic", id: 2},
+  {name: "Straight Liquor", id: 3},
+  {name: "Cosmopolitan", id: 4},
+  {name: "Jalapeno Margarita", id: 5},
+  {name: "Whiskey and Coke", id: 6},
+
 ]
 
 // --------------------------------------------------
@@ -41,29 +41,17 @@ export default function SurveyScreen() {
   const [theUsual, setTheUsual] = useState([]);
 
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1 }} horizontal={false} style={{ padding: '5%' }}>
-      <SectionedMultiSelect
-        items={tags}
-        IconRenderer={Icon}
-        onSelectedItemsChange={setCravings}
-        selectedItems={cravings}
-      />
+    
+    <ScrollView style={{zIndex: 100, padding: '5%', backgroundColor: colors.black }} key={"surveyscreenscroll"} contentContainerStyle={{ flexGrow: 1 }} horizontal={false} >
+      <SurveyQuestion key={"theusualquestion"}  item={`Question 1: ${surveyQuestions[0]}`} />
+      <Dropdown key={"theusualdropdown"} items={usualDrink} setValue={setTheUsual} value={theUsual} id={"theusualdrink"}/>
+      <SurveyQuestion key={"liquormoodquestion"}  item={`Question 2: ${surveyQuestions[1]}`} />
+      <Dropdown key={"liquormooddropdown"} items={usualDrink} setValue={setLiquorMood} value={liquorMood} id={"liquormood"}/>
+      <SurveyQuestion key={"cravingsquestion"} item={`Question 3: ${surveyQuestions[2]}`} />
+      <Dropdown key={"cravingsdropdown"} items={tags} setValue={setCravings} value={cravings} id={"cravings"}/>
+      <SurveyQuestion key={"dontwantsquestion"} item={`Question 4: ${surveyQuestions[3]}`} />
+      <Dropdown key={"dontwantsdropdown"} items={dontwants} setValue={setDontWants} value={dontwants} id={"dontwants"}/>
     </ScrollView>
+
   );
 }
-
-/*
-<View style={{ backgroundColor: styles.black, borderWidth: 5 }}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }} horizontal={false} style={{ padding: '5%' }}>
-        <Discovery backgroundColor={'gray'} item={`Question 1: ${surveyQuestions[0]}`} />
-        <Dropdown list={usualDrink} setValues={setTheUsual} />
-        <Discovery item={`Question 2: ${surveyQuestions[1]}`} />
-        <Dropdown list={usualDrink} setValues={setLiquorMood} />
-        <Discovery item={`Question 3: ${surveyQuestions[2]}`} />
-        <Dropdown list={tags} setValues={setCravings} />
-        <Discovery item={`Question 3: ${surveyQuestions[3]}`} />
-        <Dropdown list={dontwants} setValues={setDontWants} />
-      </ScrollView>
-      <Pressable>Find Me a Drink!</Pressable>
-    </View>
-*/

@@ -1,9 +1,9 @@
 import React from 'react'
-import { Text, Pressable, AntDesign } from 'react-native'
+import { Text, Pressable, View } from 'react-native'
 import { styles, colors } from '../assets/Style.js';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
-
-  // --------------------------------------------------
+import { MaterialIcons as Icon } from '@expo/vector-icons';
+// --------------------------------------------------
 
 export const ListItem = () => {
   return (
@@ -11,7 +11,7 @@ export const ListItem = () => {
   )
 }
 
-  // --------------------------------------------------
+// --------------------------------------------------
 
 export const Category = ({ item, onPress }) => {
   return (
@@ -42,7 +42,37 @@ export const Discovery = ({ item }) => {
   );
 }
 
-  // --------------------------------------------------
+// --------------------------------------------------
+export const SurveyQuestion = ({ item }) => {
+  return (
+    <View
+      style={
+        {
+          backgroundColor: colors.purple,
+          minHeight: "15%",
+          minWidth: '50%',
+          marginHorizontal: '5%',
+          marginVertical: '2.5%',
+          flex: 2,
+          borderRadius: 25,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+    >
+      <Text
+        style={{
+          fontSize: 20,
+          color: '#CCC',
+          fontWeight: 'bold',
+          fontFamily: 'Arial',
+          textAlign: 'center'
+        }}
+      > {item}</Text>
+    </View>
+  );
+}
+
+// --------------------------------------------------
 
 export const Selector = ({ item, onPress }) => {
   return (
@@ -58,13 +88,13 @@ export const Selector = ({ item, onPress }) => {
   )
 }
 
-  // --------------------------------------------------
+// --------------------------------------------------
 
 export const SectionHeader = ({ title }) => {
   return (<Text style={styles.sectionHeader}>{title}</Text>);
 }
 
-  // --------------------------------------------------
+// --------------------------------------------------
 
 export const SectionItem = ({ text }) => {
   return (
@@ -82,36 +112,39 @@ export const SectionItem = ({ text }) => {
   );
 }
 
-  // --------------------------------------------------
+// --------------------------------------------------
 
-export const Dropdown = ({ list }) => {
-  const values = []
-  const onSelectedItemsChange = (selectedItems) => {
-    setValues(selectedItems)
-  }
-  let multiref;
+export const Dropdown = ({ value, setValue, items, id }) => {
+
   return (
-    <View style={{ flex: 1 }}>
-      <SectionedMultiSelect
-        hideTags
-        items={list}
-        uniqueKey='multiselecttag'
-        ref={(component) => multiref = component}
-        onSelectedItemsChange={onSelectedItemsChange}
-        selectedItems={values}
-        selectText='Select preference'
-        searchInputPlaceholderText='Search preference'
-        tagRemoveIconColor='#CCC'
-        tagBorderColor='#CCC'
-        tagTextColor='#CCC'
-        selectedItemTextColor='#CCC'
-        selectedItemIconColor='#CCC'
-        itemTextColor='#000'
-        displayKey="name"
-        searchInputStyle={{ color: '#CCC' }}
-        submitButtonColor="#CCC"
-        submitButtonText="Submit"
-      />
-    </View>
+    <View style={{ fontFamily:'Arial', fontSize: 18, minHeight: 10,  textAlign: "center"}}>
+    <SectionedMultiSelect
+      items={items}
+      IconRenderer={Icon}
+      onSelectedItemsChange={setValue}
+      selectedItems={value}
+      uniqueKey={"id"}
+      colors={{primary: 'green'}}
+      expandDropDowns={true}
+      styles={{
+        searchBar: styles.dropdown,
+        itemText: {fontFamily: 'Arial', fontSize: 18},
+        selectedItemText: {backgroundColor: 'lightgray', color: 'purple'},
+        selectToggleText: {fontFamily: 'Arial', fontSize: 18},
+        selectToggle: {
+          borderWidth: 1,
+          borderRadius: 8,
+          borderColor: '#bbb',
+          padding: 12,
+          marginBottom: 12,
+          fontFamily: 'Arial',
+          fontSize: 18,
+          fontWeight: 2,
+          color: 'white',
+          backgroundColor:'gray',
+          minWidth: 20
+        }
+      }}
+    /></View>
   );
 }
