@@ -51,7 +51,7 @@ export default function SurveyScreen() {
       <SurveyQuestion key={"cravingsquestion"} item={`Question 3: ${surveyQuestions[2]}`} />
       <Dropdown key={"cravingsdropdown"} items={tags} setValue={setCravings} value={cravings} id={"cravings"}/>
       <SurveyQuestion key={"dontwantsquestion"} item={`Question 4: ${surveyQuestions[3]}`} />
-      <Dropdown key={"dontwantsdropdown"} items={dontwants} setValue={setDontWants} value={dontwants} id={"dontwants"}/>
+      <Dropdown key={"dontwantsdropdown"} items={dontwants} setValue={setDontWants} value={dontwantFilters} id={"dontwants"}/>
     </ScrollView>
     </ImageBackground>
     </View>
