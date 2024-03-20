@@ -9,7 +9,7 @@ export const colors = {
 
 export const styles = StyleSheet.create({
   // Colors
-  black: { color: "#2C272E" },
+  black: { color: "#28232A" },
   purple: { color: "#753188" },
   green: { color: "#9AE66E" },
   orange: { color: "#E59934" },
