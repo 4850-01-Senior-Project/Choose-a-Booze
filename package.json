@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@expo/vector-icons": "^13.0.0",
     "react-native-element-dropdown": "^2.10.2",
     "react-native-sectioned-multi-select": "^0.10.0"
   }
