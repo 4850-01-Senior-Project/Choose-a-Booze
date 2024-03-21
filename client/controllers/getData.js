@@ -30,8 +30,21 @@ export const filterDrinksByIngredientsOR = async (filters, dontwants) => {
             dontWantList += filters[i] + '-'
         }
     }
-    const url = `http://localhost:8180/api/mixeddrinkwith?filter=${filterList}&dontwant=${dontWantList}`
+    const url = `http://localhost:8081/api/mixeddrinkwith?filter=${filterList}&dontwant=${dontWantList}`
     console.log("Awaiting response...");
     const response = await fetch(url)
     return await response.json();
 }
+
+
+export const getTags = async () => {
+    const url = `http://127.0.0.1:8081/api/alltags`
+    console.log("Awaiting response...");
+    const response = await fetch(url)
+    const list = await response.json()
+    let count = 0;
+    const formattedTagList = list.map((item) => { return { name: item.tag.Name, id: ++count } })
+   
+    return formattedTagList;
+}
+

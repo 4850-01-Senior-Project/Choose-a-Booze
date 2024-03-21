@@ -142,9 +142,15 @@ export const Dropdown = ({ value, setValue, items, id }) => {
           fontWeight: 2,
           color: 'white',
           backgroundColor:'gray',
-          maxWidth: '60%'
+          maxWidth: '100%'
         }
       }}
     /></View>
   );
+}
+
+// --------------------------------------------------
+
+export const DisplayResult = ({ tagList, usualDrinkChoice, liquorChoice, liquorMood, dontwants}) => {
+
 }
