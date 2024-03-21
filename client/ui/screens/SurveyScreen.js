@@ -5,7 +5,7 @@ import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 import { DisplayResult } from '../components/MyComponents';
 import { colors, styles } from '../assets/Style';
 import { SurveyQuestion, Question, Category, Discovery, Dropdown } from '../components/MyComponents';
-import { getTags } from '../../controllers/getData';
+import { getTags, getTagsWithDrinks } from '../../controllers/getData';
 
 
 
@@ -42,6 +42,7 @@ export default function SurveyScreen() {
   const [dontwantFilters, setDontWants] = useState([]);
   const [theUsual, setTheUsual] = useState([]);
   const [tags, setTags] = useState([])
+  const [tagDrinkIds, setTagDrinkIds] = useState([])
 
 
 
@@ -52,8 +53,17 @@ export default function SurveyScreen() {
     }
     formatTags().then((result)=> setTags(result))
   }, [])
-
-
+  useEffect(() => {
+    let tagsJSON;
+    const formatTags = async () => {
+      return await getTagsWithDrinks();
+    }
+    formatTags().then((result)=> setTagDrinkIds(result))
+  }, [])
+  //first filter drinks based on liquor choice and dont wants
+  //then grab tag-drink data and find the drinks in that selection that match those ids
+  //display five drinks
+  console.log(tagDrinkIds);
   return (
     <View style={{ backgroundColor: colors.black }}>
       <ImageBackground source={require('../assets/logo.jpg')} imageStyle={{ opacity: .1, zIndex: 0 }} >

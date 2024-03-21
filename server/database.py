@@ -9,6 +9,7 @@ from flask_cors import CORS
 firestore_client = firestore.Client.from_service_account_json('../server/database/env.json')
 collection_ref = firestore_client.collection('Drinks')
 collection_ref_tags = firestore_client.collection('Tags')
+collection_ref_tagsanddrinks = firestore_client.collection('Tag:Drinks')
 app = Flask(__name__)
 CORS(app)
 
@@ -64,6 +65,14 @@ def get_tag_data():
     data = []
     for doc in documents:
         data.append({'id': doc.id, 'tag': doc.to_dict()})
+    return jsonify(data)
+
+@app.route('/api/tagswithdrinks', methods=['GET'])
+def get_tag_and_drink_id_data():
+    documents = collection_ref_tagsanddrinks.get()
+    data = []
+    for doc in documents:
+        data.append(doc.to_dict())
     return jsonify(data)
 
 # Run the Flask application

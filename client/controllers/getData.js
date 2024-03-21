@@ -48,3 +48,13 @@ export const getTags = async () => {
     return formattedTagList;
 }
 
+export const getTagsWithDrinks = async () => {
+    const url = `http://127.0.0.1:8081/api/tagswithdrinks`
+    console.log("Awaiting response...");
+    const response = await fetch(url)
+    const list = await response.json()
+    let count = 0;
+    const formattedTagIDList = list.map((item) => { return { tagid : item.Tag, drinkids: item.Drinks } })
+   
+    return formattedTagIDList;
+}
