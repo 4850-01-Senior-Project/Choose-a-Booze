@@ -8,9 +8,11 @@ from flask_cors import CORS
 
 firestore_client = firestore.Client.from_service_account_json('../server/env.json')
 collection_ref = firestore_client.collection('Drinks')
+collection_ref_tags = firestore_client.collection('Tags')
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/api/alldrinks', methods=['GET'])
 def get_mixeddrink_data():
     documents = collection_ref.get()
     data = []
@@ -41,7 +43,7 @@ def get_mixeddrink_data_with_filtersOR():
 
 # Add a description here
 @app.route('/api/mixeddrinkwith', methods=['GET'])
-def andMixedDrink():
+def getDrinkList():
     filter = request.args.get('filter').split('-')
     dont_want = request.args.get('dontwant').split('-')
     distinct_ids = set()
