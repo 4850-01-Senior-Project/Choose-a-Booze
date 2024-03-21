@@ -5,7 +5,7 @@ import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 
 import { DisplayResult } from '../components/MyComponents';
 import { colors, styles } from '../assets/Style';
-import { SurveyQuestion, Dropdown, Submit } from '../components/MyComponents';
+import { SurveyQuestion, Dropdown, Submit } from '../components/SurveyComponents';
 import { getTags, getTagsWithDrinks } from '../../controllers/getData';
 
 // --------------------------------------------------
@@ -42,29 +42,30 @@ export default function SurveyScreen() {
   const [tags, setTags] = useState([])
   const [tagDrinkIds, setTagDrinkIds] = useState([])
 
-
-
   useEffect(() => {
     let tagsJSON;
     const formatTags = async () => {
       return await getTags();
     }
-    formatTags().then((result)=> setTags(result))
+    formatTags().then((result) => setTags(result))
   }, [])
+
   useEffect(() => {
     let tagsJSON;
     const formatTags = async () => {
       return await getTagsWithDrinks();
     }
-    formatTags().then((result)=> setTagDrinkIds(result))
+    formatTags().then((result) => setTagDrinkIds(result))
   }, [])
+
   //first filter drinks based on liquor choice and dont wants
   //then grab tag-drink data and find the drinks in that selection that match those ids
   //display five drinks
   console.log(tagDrinkIds);
+
   return (
     <View style={{ backgroundColor: colors.black }}>
-    <ImageBackground style={{ flex: 1, backgroundColor: colors.black }} source={require('../assets/logo.jpg')} imageStyle={{ opacity: 0.1 }} >
+      <ImageBackground style={{ flex: 1, backgroundColor: colors.black }} source={require('../assets/logo.jpg')} imageStyle={{ opacity: 0.1 }} >
         <DisplayResult tagList={cravings} usualDrinkChoice={theUsual} liquorChoice={liquorMood} dontwants={dontwantFilters} />
         <ScrollView style={{ zIndex: 100, padding: '5%' }} key={"surveyscreenscroll"} contentContainerStyle={{ flexGrow: 1 }} horizontal={false} >
           <SurveyQuestion key={"theusualquestion"} item={`Question 1: ${surveyQuestions[0]}`} />
