@@ -132,3 +132,9 @@ export const Submit = () => {
     </Pressable>
   )
 }
+
+// --------------------------------------------------
+
+export const DisplayResult = ({ tagList, usualDrinkChoice, liquorChoice, liquorMood, dontwants}) => {
+
+}
