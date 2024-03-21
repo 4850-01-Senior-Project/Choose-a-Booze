@@ -64,7 +64,7 @@ export default function SurveyScreen() {
   console.log(tagDrinkIds);
 
   return (
-    <View style={{ backgroundColor: colors.black }}>
+    <View style={{ flex: 1, backgroundColor: colors.black }}>
       <ImageBackground style={{ flex: 1, backgroundColor: colors.black }} source={require('../assets/logo.jpg')} imageStyle={{ opacity: 0.1 }} >
         <DisplayResult tagList={cravings} usualDrinkChoice={theUsual} liquorChoice={liquorMood} dontwants={dontwantFilters} />
         <ScrollView style={{ zIndex: 100, padding: '5%' }} key={"surveyscreenscroll"} contentContainerStyle={{ flexGrow: 1 }} horizontal={false} >
@@ -77,6 +77,7 @@ export default function SurveyScreen() {
           <SurveyQuestion key={"dontwantsquestion"} item={`Question 4: ${surveyQuestions[3]}`} />
           <Dropdown key={"dontwantsdropdown"} items={dontwants} setValue={setDontWants} value={dontwantFilters} id={"dontwants"} />
         </ScrollView>
+        <Submit />
       </ImageBackground>
     </View>
   );

@@ -7,16 +7,17 @@ import { styles, colors } from '../assets/Style.js';
 export const Discovery = ({ drink }) => {
 	return (
 		<View style={{ flex: 4 }}>
-			<Text style={styles.h1}>Discovery</Text>
+			<Text style={styles.h1}>{drink}</Text>
 		</View >
 	);
 }
 
 // --------------------------------------------------
 
-export const Reroll = () => {
+export const Reroll = ({ press }) => {
 	return (
 		<Pressable
+			onPress={press}
 			style={({ pressed }) => [
 				{
 					backgroundColor: pressed ? colors.orange : colors.purple

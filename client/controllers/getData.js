@@ -6,8 +6,6 @@ export const getAllDrinkDataByLiquorType = async (liquor_type) => {
     return await response.json();
 }
 
-
-
 export const filterDrinksByIngredientsOR = async (filters, dontwants) => {
 
     const filterList = ""

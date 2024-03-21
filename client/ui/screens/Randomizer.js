@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+import getAllDrinkDataByLiquorType from '../../controllers/getData';
 import { Text, View } from 'react-native';
 import { styles, colors } from '../assets/Style';
 import { Discovery, Reroll } from '../components/RandomizerComponents';
@@ -6,7 +7,8 @@ import { Discovery, Reroll } from '../components/RandomizerComponents';
 // --------------------------------------------------
 
 export default function Randomizer() {
-  const [drink, setDrink] = useState('Whiskey')
+  //console.log(getAllDrinkDataByLiquorType('Bourbon'));
+  const [drink, setDrink] = useState(null);
 
   return (
     <View style={{ flex: 1, backgroundColor: colors.black }}>
