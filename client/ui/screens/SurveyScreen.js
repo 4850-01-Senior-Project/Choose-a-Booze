@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Pressable, View, ScrollView, Text, ImageBackground, ImageBackgroundBase } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 
 import { colors, styles } from '../assets/Style';
-import { SurveyQuestion, Discovery, Dropdown } from '../components/MyComponents';
-import SectionedMultiSelect from 'react-native-sectioned-multi-select';
+import { SurveyQuestion, Question, Category, Discovery, Dropdown } from '../components/MyComponents';
 
 
 
@@ -55,6 +55,5 @@ export default function SurveyScreen() {
     </ScrollView>
     </ImageBackground>
     </View>
-
   );
 }

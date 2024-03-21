@@ -1,8 +1,10 @@
 import React from 'react'
+import { useContext } from 'react'
 import { Text, Pressable, View } from 'react-native'
 import { styles, colors } from '../assets/Style.js';
-import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 import { MaterialIcons as Icon } from '@expo/vector-icons';
+import SectionedMultiSelect from 'react-native-sectioned-multi-select';
+
 // --------------------------------------------------
 
 export const ListItem = () => {
@@ -22,27 +24,37 @@ export const Category = ({ item, onPress }) => {
           backgroundColor: pressed ? colors.orange : colors.purple
         },
         styles.category
-      ]}><Text style={styles.p}>{item}</Text>
+      ]}>
+      <Text style={styles.p}>{item}</Text>
     </Pressable>
   )
 }
 
 // --------------------------------------------------
 
-export const Discovery = ({ item }) => {
+export const Discovery = ({ drink }) => {
+  return (
+    <View style={{ flex: 4 }}>
+      <Text style={styles.h1}>Discovery</Text>
+    </View >
+  );
+}
+
+export const Reroll = () => {
   return (
     <Pressable
       style={({ pressed }) => [
         {
           backgroundColor: pressed ? colors.orange : colors.purple
         },
-        styles.discovery
-      ]}><Text style={styles.h1}>{item}</Text>
+        styles.reroll
+      ]}><Text style={styles.h1}>Reroll</Text>
     </Pressable>
-  );
+  )
 }
 
 // --------------------------------------------------
+
 export const SurveyQuestion = ({ item }) => {
   return (
     <View
@@ -96,20 +108,8 @@ export const SectionHeader = ({ title }) => {
 
 // --------------------------------------------------
 
-export const SectionItem = ({ text }) => {
-  return (
-    <Pressable
-      style={({ pressed }) => [
-        styles.sectionItem,
-        {
-          backgroundColor: pressed ? colors.purple : colors.orange
-        },
-      ]}>
-      {
-        <Text style={styles.h2}>{text}</Text>
-      }
-    </Pressable>
-  );
+export const Question = () => {
+  return (<Text>Question Component</Text>)
 }
 
 // --------------------------------------------------

@@ -63,24 +63,20 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     marginHorizontal: '5%',
     marginVertical: '2.5%',
-    flex: 2,
+    flex: 1,
     alignSelf: 'stretch',
     borderRadius: 25,
   },
-
-  // --------------------------------------------------
-  // Used in the ??? Screen
-
-  sectionHeader: {
-    backgroundColor: colors.black,
-    color: colors.orange,
-    padding: 24,
-    fontSize: 32,
-    minHeight: 130,
-  },
-  sectionItem: {
-    padding: 20,
-    fontSize: 24,
+  reroll: {
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginHorizontal: '5%',
+    marginVertical: '2.5%',
+    flex: 1,
+    alignSelf: 'stretch',
+    borderRadius: 25,
   },
 
   // --------------------------------------------------
@@ -104,33 +100,14 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 24,
   },
-
-  // --------------------------------------------------
-  // Used in the Survey Screen
-  
-  dropdown: {
-    margin: 16,
-    height: 50,
-    borderBottomColor: 'gray',
-    borderBottomWidth: 0.5,
-  },
-  icon: {
-    marginRight: 5,
-  },
-  placeholderStyle: {
-    fontSize: 16,
-  },
-  selectedTextStyle: {
-    fontSize: 16,
-  },
-  iconStyle: {
-    width: 20,
-    height: 20,
-  },
   scrollview: {
     paddingHorizontal: '5%',
     paddingVertical: 'auto',
     flex: 1,
     alignSelf: 'center'
-  }
+  },
+
+  // --------------------------------------------------
+  // Used in the Survey Screen
+  
 });
