@@ -43,7 +43,7 @@ export const getTags = async () => {
     const response = await fetch(url)
     const list = await response.json()
     let count = 0;
-    const formattedTagList = list.map((item) => { return { name: item.tag.Name, id: ++count } })
+    const formattedTagList = list.map((item) => { return { name: item.tag.Name, id: ++count, tagid: item.id } })
    
     return formattedTagList;
 }
