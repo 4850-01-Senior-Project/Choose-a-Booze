@@ -2,12 +2,11 @@ import { useEffect, useState } from 'react';
 import { Pressable, View, ScrollView, Text, ImageBackground, ImageBackgroundBase } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
+
 import { DisplayResult } from '../components/MyComponents';
 import { colors, styles } from '../assets/Style';
-import { SurveyQuestion, Question, Category, Discovery, Dropdown } from '../components/MyComponents';
+import { SurveyQuestion, Dropdown, Submit } from '../components/MyComponents';
 import { getTags, getTagsWithDrinks } from '../../controllers/getData';
-
-
 
 // --------------------------------------------------
 
@@ -20,9 +19,8 @@ const surveyQuestions = [
 
 // --------------------------------------------------
 
-
-
-
+const tags = [
+  { name: "sweet", id: 1 }, { name: "spicy", id: 2 }, { name: "refreshing", id: 3 }]
 const dontwants = [{ name: "lime juice", id: 1 }, { name: "orange juice", id: 2 }, { name: "cream", id: 3 }, { name: "simple syrup", id: 4 }, { name: "Coca-cola", id: 5 }]
 const usualDrink = [
   { name: "Old Fashioned", id: 1 },
@@ -66,7 +64,7 @@ export default function SurveyScreen() {
   console.log(tagDrinkIds);
   return (
     <View style={{ backgroundColor: colors.black }}>
-      <ImageBackground source={require('../assets/logo.jpg')} imageStyle={{ opacity: .1, zIndex: 0 }} >
+    <ImageBackground style={{ flex: 1, backgroundColor: colors.black }} source={require('../assets/logo.jpg')} imageStyle={{ opacity: 0.1 }} >
         <DisplayResult tagList={cravings} usualDrinkChoice={theUsual} liquorChoice={liquorMood} dontwants={dontwantFilters} />
         <ScrollView style={{ zIndex: 100, padding: '5%' }} key={"surveyscreenscroll"} contentContainerStyle={{ flexGrow: 1 }} horizontal={false} >
           <SurveyQuestion key={"theusualquestion"} item={`Question 1: ${surveyQuestions[0]}`} />

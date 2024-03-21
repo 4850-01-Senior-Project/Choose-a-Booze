@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { useContext, useEffect, useState } from 'react';
+import { Text, View } from 'react-native';
 import { styles, colors } from '../assets/Style';
-import { Discovery, Reroll } from "../components/MyComponents";
+import { Discovery, Reroll } from '../components/MyComponents';
 
 // --------------------------------------------------
 

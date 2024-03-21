@@ -1,18 +1,18 @@
-import { Platform, StyleSheet } from "react-native";
+import { Platform, StyleSheet } from 'react-native';
 
 export const colors = {
-  black: "#28232A",
-  purple: "#753188",
-  green: "#9AE66E",
-  orange: "#E59934"
+  black: '#28232A',
+  purple: '#753188',
+  green: '#9AE66E',
+  orange: '#E59934'
 }
 
 export const styles = StyleSheet.create({
   // Colors
-  black: { color: "#28232A" },
-  purple: { color: "#753188" },
-  green: { color: "#9AE66E" },
-  orange: { color: "#E59934" },
+  black: { color: '#28232A' },
+  purple: { color: '#753188' },
+  green: { color: '#9AE66E' },
+  orange: { color: '#E59934' },
 
   // --------------------------------------------------
   // Headings and Paragraphs Styling
@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
 
   category: {
     textAlign: 'center',
-    textAlignVertical: 'center',
+    verticalAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
   },
   discovery: {
     textAlign: 'center',
-    textAlignVertical: 'center',
+    verticalAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center',
     marginHorizontal: '5%',
@@ -58,7 +58,7 @@ export const styles = StyleSheet.create({
   },
   selector: {
     textAlign: 'center',
-    textAlignVertical: 'center',
+    verticalAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center',
     marginHorizontal: '5%',
@@ -69,7 +69,20 @@ export const styles = StyleSheet.create({
   },
   reroll: {
     textAlign: 'center',
-    textAlignVertical: 'center',
+    verticalAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginHorizontal: '5%',
+    marginVertical: '2.5%',
+    width: '90%',
+    height: '20%',
+    flex: 1,
+    alignSelf: 'stretch',
+    borderRadius: 25,
+  },
+  submit: {
+    textAlign: 'center',
+    verticalAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center',
     marginHorizontal: '5%',
@@ -89,8 +102,8 @@ export const styles = StyleSheet.create({
   },
   content: {
     height: '80%',
-    width: "100%",
-    justifyContent: "center",
+    width: '100%',
+    justifyContent: 'center',
   },
   item: {
     backgroundColor: colors.purple,
@@ -109,5 +122,5 @@ export const styles = StyleSheet.create({
 
   // --------------------------------------------------
   // Used in the Survey Screen
-  
+
 });
