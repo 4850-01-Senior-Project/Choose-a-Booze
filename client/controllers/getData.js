@@ -1,21 +1,22 @@
 
-export const getAllDrinkDataByLiquorType = async (liquor_type) => {
-  const url = `http://localhost:8180/api/mixeddrinkwith?filter=${liquor_type.substring(0, 1).toUpperCase() + liquor_type.substring(1).toLowerCase()}&dontwant=`
-  console.log("Awaiting response...");
-  const response = await fetch(url)
-  return await response.json();
+export const getAllDrinkData= async () => {
+    const url = `http://127.0.0.1:8081/api/alldrinks`
+    console.log("Awaiting response...");
+    const response = await fetch(url)
+    return await response.json();
 }
 
 // --------------------------------------------------
 
 export const filterDrinksByIngredientsOR = async (filters, dontwants) => {
+console.log(filters)
   const filterList = format(filters)
   const dontWantList = format(dontwants)
-
-  const url = `http://localhost:8081/api/mixeddrinkwith?filter=${filterList}&dontwant=${dontWantList}`
-  console.log("Awaiting response...");
-  const response = await fetch(url)
-  return await response.json();
+  
+    const url = `http://127.0.0.1:8081/api/mixeddrinkwith?filter=${filterList}&dontwant=${dontWantList}`
+    console.log("Awaiting response...");
+    const response = await fetch(url)
+    return await response.json();
 }
 
 // --------------------------------------------------
