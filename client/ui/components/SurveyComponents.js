@@ -63,6 +63,8 @@ export const Dropdown = ({ value, setValue, items, id }) => {
 	);
 }
 
+// --------------------------------------------------
+
 export const Submit = () => {
 	return (
 		<Pressable
@@ -74,4 +76,10 @@ export const Submit = () => {
 			]}><Text style={styles.h1}>Submit</Text>
 		</Pressable>
 	)
+}
+
+// --------------------------------------------------
+
+export const DisplayResult = ({ tagList, usualDrinkChoice, liquorChoice, liquorMood, dontwants}) => {
+
 }

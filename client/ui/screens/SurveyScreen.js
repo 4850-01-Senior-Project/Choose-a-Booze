@@ -3,7 +3,7 @@ import { Pressable, View, ScrollView, Text, ImageBackground, ImageBackgroundBase
 import AntDesign from '@expo/vector-icons/AntDesign';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 
-import { DisplayResult } from '../components/MyComponents';
+import { DisplayResult } from '../components/SurveyComponents';
 import { colors, styles } from '../assets/Style';
 import { SurveyQuestion, Dropdown, Submit } from '../components/SurveyComponents';
 import { getTags, getTagsWithDrinks } from '../../controllers/getData';
