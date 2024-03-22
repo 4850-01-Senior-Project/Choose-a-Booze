@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import { Pressable, View, ScrollView, Text, ImageBackground, ImageBackgroundBase } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
-import { DisplayResult } from '../components/MyComponents';
-import { colors, styles } from '../assets/Style';
-import { SurveyQuestion, Question, Category, Discovery, Dropdown } from '../components/MyComponents';
-import { filterDrinksByIngredientsOR, getAllDrinkData, getTags, getTagsWithDrinks } from '../../controllers/getData';
 
+import { filterDrinksByIngredientsOR, getAllDrinkData, getTags, getTagsWithDrinks } from '../../controllers/getData';
+import { DisplayResult } from '../components/SurveyComponents';
+import { colors, styles } from '../assets/Style';
+import { SurveyQuestion, Dropdown, Submit } from '../components/SurveyComponents';
+import { getTags, getTagsWithDrinks } from '../../controllers/getData';
 
 
 // --------------------------------------------------
@@ -55,21 +56,20 @@ export default function SurveyScreen() {
   const [tagDrinkIds, setTagDrinkIds] = useState([])
   const [drinks, setDrinks] = useState([])
 
-
-
   useEffect(() => {
     let tagsJSON;
     const formatTags = async () => {
       return await getTags();
     }
-    formatTags().then((result)=> setTags(result))
+    formatTags().then((result) => setTags(result))
   }, [])
+
   useEffect(() => {
     let tagsJSON;
     const formatTags = async () => {
       return await getTagsWithDrinks();
     }
-    formatTags().then((result)=> setTagDrinkIds(result))
+    formatTags().then((result) => setTagDrinkIds(result))
   }, [])
 
   useEffect(() => {
@@ -77,21 +77,20 @@ export default function SurveyScreen() {
     const formatTags = async () => {
       console.log(liquorMood);
       return await filterDrinksByIngredientsOR(liquorMood,dontwantFilters);
-      
     }
     formatTags().then((result) => setDrinks(result))
   }, [liquorMood,dontwantFilters] )
 
 
- 
   //first filter drinks based on liquor choice and dont wants
   //then grab tag-drink data and find the drinks in that selection that match those ids
   //display five drinks
   console.log(tagDrinkIds);
   console.log(drinks);
+  
   return (
-    <View style={{ backgroundColor: colors.black }}>
-      <ImageBackground source={require('../assets/logo.jpg')} imageStyle={{ opacity: .1, zIndex: 0 }} >
+    <View style={{ flex: 1, backgroundColor: colors.black }}>
+      <ImageBackground style={{ flex: 1, backgroundColor: colors.black }} source={require('../assets/logo.jpg')} imageStyle={{ opacity: 0.1 }} >
         <DisplayResult tagList={cravings} usualDrinkChoice={theUsual} liquorChoice={liquorMood} dontwants={dontwantFilters} />
         <ScrollView style={{ zIndex: 100, padding: '5%' }} key={"surveyscreenscroll"} contentContainerStyle={{ flexGrow: 1 }} horizontal={false} >
           <SurveyQuestion key={"theusualquestion"} item={`Question 1: ${surveyQuestions[0]}`} />
@@ -103,6 +102,7 @@ export default function SurveyScreen() {
           <SurveyQuestion key={"dontwantsquestion"} item={`Question 4: ${surveyQuestions[3]}`} />
           <Dropdown key={"dontwantsdropdown"} items={dontwants} setValue={setDontWants} value={dontwantFilters} id={"dontwants"} />
         </ScrollView>
+        <Submit />
       </ImageBackground>
     </View>
   );
