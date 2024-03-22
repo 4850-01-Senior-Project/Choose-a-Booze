@@ -20,6 +20,8 @@ export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
   const [checked, setChecked] = useState(false);
 
+  // --------------------------------------------------
+
   useEffect(() => {
     async function prepare() {
       try {
@@ -37,6 +39,10 @@ export default function App() {
 
     prepare();
   }, []);
+
+  // --------------------------------------------------
+
+
   // Hide the splashscreen if the application is ready
   const onLayoutRootView = useCallback(async () => {
     if (appIsReady) {
@@ -60,13 +66,13 @@ export default function App() {
           headerTintColor: colors.black,
           headerTitleStyle: { fontWeight: 'bold', },
         }}>
-            <Stack.Screen
-              name="Home"
-              component={Home}
-              options={{
-                title: 'Home',
-              }}
-            />
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              title: 'Home',
+            }}
+          />
           <Stack.Screen
             name="Randomizer"
             component={Randomizer}
