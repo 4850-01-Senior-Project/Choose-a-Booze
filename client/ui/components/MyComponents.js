@@ -95,7 +95,7 @@ export const Dropdown = ({ value, setValue, items, id }) => {
     <SectionedMultiSelect
       items={items}
       IconRenderer={Icon}
-      uniqueKey={'id'}
+      uniqueKey={'name'}
       onSelectedItemsChange={setValue}
       selectedItems={value}
 

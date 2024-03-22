@@ -18,7 +18,7 @@ def get_mixeddrink_data():
     documents = collection_ref.get()
     data = []
     for doc in documents:
-        data.append(doc.to_dict())
+        data.append({'id' : doc.id, 'drink': doc.to_dict()})
     return jsonify(data)
 
 '''
@@ -45,8 +45,8 @@ def get_mixeddrink_data_with_filtersOR():
 # Add a description here
 @app.route('/api/mixeddrinkwith', methods=['GET'])
 def getDrinkList():
-    filter = request.args.get('filter').split('-')
-    dont_want = request.args.get('dontwant').split('-')
+    filter = request.args.get('filter').split(',')
+    dont_want = request.args.get('dontwant').split(',')
     distinct_ids = set()
     documents = collection_ref.get()
     data = []

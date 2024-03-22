@@ -13,6 +13,8 @@ def filterDataDontInclude(drink, filters):
     return False
     
 def filterDataInclude(drink, filters):
+    if len(filters) == 0 or filters[0]=="":
+        return True
     isInDrink = False
     for ingredient in drink:
         for filter in filters:

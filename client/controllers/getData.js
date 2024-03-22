@@ -1,6 +1,6 @@
 
-export const getAllDrinkDataByLiquorType = async (liquor_type) => {
-    const url = `http://localhost:8180/api/mixeddrinkwith?filter=${liquor_type.substring(0, 1).toUpperCase() + liquor_type.substring(1).toLowerCase()}&dontwant=`
+export const getAllDrinkData= async () => {
+    const url = `http://127.0.0.1:8081/api/alldrinks`
     console.log("Awaiting response...");
     const response = await fetch(url)
     return await response.json();
@@ -9,28 +9,28 @@ export const getAllDrinkDataByLiquorType = async (liquor_type) => {
 
 
 export const filterDrinksByIngredientsOR = async (filters, dontwants) => {
-
-    const filterList = ""
-    const dontWantList = ""
+console.log(filters)
+    let filterList =  ""
+    let dontWantList =  ""
 
     for (let i = 0; i < filters.length; i++) {
         if (i === filters.length - 1) {
-            filterList += filters[i]
+            filterList += filters[i] !== "undefined"? filters[i] : ""
         }
         else {
-            filterList += filters[i] + '-'
+            filterList += `${filters[i] !== "undefined"? filters[i] : ""},`
         }
     }
 
     for (let i = 0; i < dontwants.length; i++) {
-        if (i === filters.length - 1) {
-            dontWantList += filters[i]
+        if (i === dontwants.length - 1) {
+            dontWantList += dontwants[i] === "undefined"? dontwants[i] : ""
         }
         else {
-            dontWantList += filters[i] + '-'
+            dontWantList += `${dontwants[i] === "undefined"? dontwants[i] : ""},`
         }
     }
-    const url = `http://localhost:8081/api/mixeddrinkwith?filter=${filterList}&dontwant=${dontWantList}`
+    const url = `http://127.0.0.1:8081/api/mixeddrinkwith?filter=${filterList}&dontwant=${dontWantList}`
     console.log("Awaiting response...");
     const response = await fetch(url)
     return await response.json();
