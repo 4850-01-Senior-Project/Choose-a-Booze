@@ -23,7 +23,6 @@ export const styles = StyleSheet.create({
   },
   h2: {
     fontSize: 24,
-    paddingLeft: 24,
     color: colors.black,
   },
   p: {
@@ -87,7 +86,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     marginHorizontal: '5%',
     marginVertical: '2.5%',
-    flex: 1,
+    height: '20%',
+    width: '90%',
     alignSelf: 'stretch',
     borderRadius: 25,
   },
@@ -123,4 +123,13 @@ export const styles = StyleSheet.create({
   // --------------------------------------------------
   // Used in the Survey Screen
 
+  question: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.purple,
+    minHeight: '15%',
+    marginHorizontal: '5%',
+    marginVertical: '2.5%',
+    borderRadius: 25,
+  },
 });
