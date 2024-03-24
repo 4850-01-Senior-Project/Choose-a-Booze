@@ -23,7 +23,9 @@ export default function Randomizer() {
   return (
     <View style={{ flex: 1, backgroundColor: colors.black }}>
       <Discovery
-        drink={drink}
+        drink={'Pineapple Margarita'}
+        description={'This classic margarita is one of the most famous cocktails of all time, invented back in the 1930’s.'}
+        measurement={['Pineapple Juice', 'Tequila', 'Cointreau', 'Fresh Lime Juice']}
       />
       <Reroll />
     </View>
