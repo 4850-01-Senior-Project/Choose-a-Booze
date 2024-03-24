@@ -42,8 +42,7 @@ export const getTags = async () => {
     console.log("Awaiting response...");
     const response = await fetch(url)
     const list = await response.json()
-    let count = 0;
-    const formattedTagList = list.map((item) => { return { name: item.tag.Name, id: ++count, tagid: item.id } })
+    const formattedTagList = list.map((item) => { return { name: item.tag.Name, tagid: item.id } })
    
     return formattedTagList;
 }
