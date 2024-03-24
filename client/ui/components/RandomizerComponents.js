@@ -4,15 +4,15 @@ import { styles, colors } from '../assets/Style.js';
 
 // --------------------------------------------------
 
-export const Discovery = ({ drink, description, measurement }) => {
+export const Discovery = ({ title, description, DATA }) => {
   return (
     <View style={styles.discovery}>
-      <Text style={styles.h2}>{drink}</Text>
+      <Text style={styles.h2}>{title}</Text>
       <Text style={styles.p}>{description}</Text>
       <FlatList
         style={{ borderStyle: 'dotted', borderWidth: 1, margin: 25, padding: 20 }}
-        data={measurement}
-        renderItem={({ item }) => <Text style={styles.p}>{item}</Text>}
+        data={DATA}
+        renderItem={({ item }) => <Text style={styles.p}>{item.ing} -- {item.meas}</Text>}
       />
     </View >
   );
