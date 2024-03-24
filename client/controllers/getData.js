@@ -22,13 +22,13 @@ export const filterDrinksByIngredientsOR = async (filters, dontwants) => {
 // --------------------------------------------------
 
 const format = (filter) => {
-    result = ""
-    for (let i = 0; i < array.length; i++) {
-        if (i === dontwants.length - 1) {
-            result += `${filter[i] === "undefined" ? filter[i] : ""}`
+    let result = ""
+    for (let i = 0; i < filter.length; i++) {
+        if (i === filter.length - 1) {
+            result += `${filter[i] !== "undefined" || filter[i] ? filter[i] : ""}`
         }
         else {
-            result += `${filter[i] === "undefined" ? filter[i] : ""},`
+            result += `${filter[i] !== "undefined" || filter[i] ? filter[i] : ""},`
         }
         return result
     }
