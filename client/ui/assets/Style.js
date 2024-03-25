@@ -22,15 +22,14 @@ export const styles = StyleSheet.create({
     color: colors.green,
   },
   h2: {
-    fontSize: 32,
+    fontSize: 24,
+    paddingLeft: 24,
     color: colors.black,
-    margin: 15
   },
   p: {
-    fontSize: 20,
+    fontSize: 16,
     textAlign: 'center',
-    margin: 2,
-    color: colors.black,
+    color: '#FFF',
   },
 
   // --------------------------------------------------
@@ -54,10 +53,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     marginHorizontal: '5%',
     marginVertical: '2.5%',
+    flex: 2,
     borderRadius: 25,
-    padding: '2.5%',
-    flex: 4,
-    backgroundColor: colors.green
   },
   selector: {
     textAlign: 'center',
@@ -90,8 +87,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     marginHorizontal: '5%',
     marginVertical: '2.5%',
-    height: '20%',
-    width: '90%',
+    flex: 1,
     alignSelf: 'stretch',
     borderRadius: 25,
   },
@@ -127,13 +123,4 @@ export const styles = StyleSheet.create({
   // --------------------------------------------------
   // Used in the Survey Screen
 
-  question: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.purple,
-    minHeight: '15%',
-    marginHorizontal: '5%',
-    marginVertical: '2.5%',
-    borderRadius: 25,
-  },
 });

@@ -6,16 +6,12 @@ from filterData import filterDataDontInclude, filterDataInclude
 from flask_cors import CORS
 # import requests
 
-# --------------------------------------------------
-
 firestore_client = firestore.Client.from_service_account_json('../server/database/env.json')
 collection_ref = firestore_client.collection('Drinks')
 collection_ref_tags = firestore_client.collection('Tags')
 collection_ref_tagsanddrinks = firestore_client.collection('Tag:Drinks')
 app = Flask(__name__)
 CORS(app)
-
-# --------------------------------------------------
 
 @app.route('/api/alldrinks', methods=['GET'])
 def get_mixeddrink_data():
@@ -24,8 +20,6 @@ def get_mixeddrink_data():
     for doc in documents:
         data.append({'id' : doc.id, 'drink': doc.to_dict()})
     return jsonify(data)
-
-# --------------------------------------------------
 
 '''
 @app.route('/api/mixeddrinkwith', methods=['GET'])
@@ -48,8 +42,6 @@ def get_mixeddrink_data_with_filtersOR():
     return jsonify(results)
 '''
 
-# --------------------------------------------------
-
 # Add a description here
 @app.route('/api/mixeddrinkwith', methods=['GET'])
 def getDrinkList():
@@ -66,7 +58,6 @@ def getDrinkList():
             distinct_ids.add(doc.id)
     return jsonify(data)
 
-# --------------------------------------------------
 
 @app.route('/api/alltags', methods=['GET'])
 def get_tag_data():
@@ -75,8 +66,6 @@ def get_tag_data():
     for doc in documents:
         data.append({'id': doc.id, 'tag': doc.to_dict()})
     return jsonify(data)
-
-# --------------------------------------------------
 
 @app.route('/api/tagswithdrinks', methods=['GET'])
 def get_tag_and_drink_id_data():

@@ -17,7 +17,7 @@ export default function Home({ navigation }) {
         onPress={() => navigation.navigate('SurveyScreen')}
         item='This is a Selector For Survey Questions' />
       <Selector
-        onPress={() => navigation.navigate('LikedDrinks')}
+        onPress={() => navigation.navigate('Home')} // Needs to be changed to Liked Drinks
         item='This is a Selector For Liked Drinks' />
     </View>
   );
