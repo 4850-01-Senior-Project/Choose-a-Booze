@@ -9,17 +9,7 @@ import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 export const SurveyQuestion = ({ item }) => {
 	return (
 		<View
-			style={
-				{
-					backgroundColor: colors.purple,
-					minHeight: '15%',
-					marginHorizontal: '5%',
-					marginVertical: '2.5%',
-					flex: 1,
-					borderRadius: 25,
-					alignItems: 'center',
-					justifyContent: 'center',
-				}}>
+			style={styles.question}>
 			<Text
 				style={{
 					fontSize: 20,
@@ -70,10 +60,10 @@ export const Submit = () => {
 		<Pressable
 			style={({ pressed }) => [
 				{
-					backgroundColor: pressed ? colors.orange : colors.purple
+					backgroundColor: pressed ? colors.green : colors.orange
 				},
 				styles.submit
-			]}><Text style={styles.h1}>Submit</Text>
+			]}><Text style={styles.h2}>Submit</Text>
 		</Pressable>
 	)
 }

@@ -10,7 +10,7 @@ import * as Font from "expo-font";
 import Home from "./ui/screens/Home";
 import Randomizer from "./ui/screens/Randomizer";
 import SurveyScreen from "./ui/screens/SurveyScreen";
-// import LikedDrinks from "./ui/screens/LikedDrinks";
+import LikedDrinks from "./ui/screens/LikedDrinks";
 
 import { styles, colors } from "./ui/assets/Style";
 
@@ -19,6 +19,8 @@ import { styles, colors } from "./ui/assets/Style";
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
   const [checked, setChecked] = useState(false);
+
+  // --------------------------------------------------
 
   useEffect(() => {
     async function prepare() {
@@ -37,6 +39,10 @@ export default function App() {
 
     prepare();
   }, []);
+
+  // --------------------------------------------------
+
+
   // Hide the splashscreen if the application is ready
   const onLayoutRootView = useCallback(async () => {
     if (appIsReady) {
@@ -60,13 +66,13 @@ export default function App() {
           headerTintColor: colors.black,
           headerTitleStyle: { fontWeight: 'bold', },
         }}>
-            <Stack.Screen
-              name="Home"
-              component={Home}
-              options={{
-                title: 'Home',
-              }}
-            />
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              title: 'Home',
+            }}
+          />
           <Stack.Screen
             name="Randomizer"
             component={Randomizer}
@@ -77,14 +83,11 @@ export default function App() {
             component={SurveyScreen}
             options={{ title: 'Survey Screen / Drink Selector' }}
           />
-
-          {/* 
           <Stack.Screen
             name="LikedDrinks"
             component={LikedDrinks}
             options={{ title: 'Liked Drinks' }}
           />
-            */}
         </Stack.Navigator>
       </NavigationContainer>
     </View>
