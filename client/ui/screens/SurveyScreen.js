@@ -3,11 +3,10 @@ import { Pressable, View, ScrollView, Text, ImageBackground, ImageBackgroundBase
 import AntDesign from '@expo/vector-icons/AntDesign';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 
-import { filterDrinksByIngredientsOR, getAllDrinkData, getTags, getTagsWithDrinks } from '../../controllers/getData';
+import { filterDrinksByIngredientsOR, getTags, getTagsWithDrinks } from '../../controllers/getData';
 import { DisplayResult } from '../components/SurveyComponents';
 import { colors, styles } from '../assets/Style';
 import { SurveyQuestion, Dropdown, Submit } from '../components/SurveyComponents';
-import { getTags, getTagsWithDrinks } from '../../controllers/getData';
 
 
 // --------------------------------------------------
@@ -24,24 +23,24 @@ const surveyQuestions = [
 
 
 
-const dontwants = [{ name: "lime juice", id: 1 }, { name: "orange juice", id: 2 }, { name: "cream", id: 3 }, { name: "simple syrup", id: 4 }, { name: "Coca-cola", id: 5 }]
+const dontwants = [{ name: "lime juice"}, { name: "orange juice"}, { name: "cream"}, { name: "simple syrup"}, { name: "Coca-cola"}]
 const usualDrink = [
-  { name: "Old Fashioned", id: 1 },
-  { name: "Gin and Tonic", id: 2 },
-  { name: "Straight Liquor", id: 3 },
-  { name: "Cosmopolitan", id: 4 },
-  { name: "Jalapeno Margarita", id: 5 },
-  { name: "Whiskey and Coke", id: 6 },
+  { name: "Old Fashioned" },
+  { name: "Gin and Tonic" },
+  { name: "Straight Liquor" },
+  { name: "Cosmopolitan" },
+  { name: "Jalapeno Margarita" },
+  { name: "Whiskey and Coke" },
 
 ]
 
 const liquor = [
-  { name: "Vodka", id: 1 },
-  { name: "Gin", id: 2 },
-  { name: "Tequila", id: 3 },
-  { name: "Whiskey", id: 4 },
-  { name: "Rum", id: 5 },
-  { name: "Mezcal", id: 6 },
+  { name: "Vodka"},
+  { name: "Gin"},
+  { name: "Tequila",},
+  { name: "Whiskey" },
+  { name: "Rum"},
+  { name: "Mezcal"},
 
 ]
 
