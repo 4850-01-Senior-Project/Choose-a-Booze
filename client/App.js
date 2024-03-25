@@ -3,14 +3,15 @@ import { View } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as SplashScreen from 'expo-splash-screen';
-
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import * as Font from "expo-font";
+
+  // --------------------------------------------------
 
 import Home from "./ui/screens/Home";
 import Randomizer from "./ui/screens/Randomizer";
 import SurveyScreen from "./ui/screens/SurveyScreen";
-// import LikedDrinks from "./ui/screens/LikedDrinks";
+import LikedDrinks from "./ui/screens/LikedDrinks";
 
 import { styles, colors } from "./ui/assets/Style";
 
@@ -77,14 +78,11 @@ export default function App() {
             component={SurveyScreen}
             options={{ title: 'Survey Screen / Drink Selector' }}
           />
-
-          {/* 
           <Stack.Screen
             name="LikedDrinks"
             component={LikedDrinks}
             options={{ title: 'Liked Drinks' }}
           />
-            */}
         </Stack.Navigator>
       </NavigationContainer>
     </View>

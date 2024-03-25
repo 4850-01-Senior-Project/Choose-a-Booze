@@ -13,6 +13,8 @@ collection_ref_tagsanddrinks = firestore_client.collection('Tag:Drinks')
 app = Flask(__name__)
 CORS(app)
 
+# --------------------------------------------------
+
 @app.route('/api/alldrinks', methods=['GET'])
 def get_mixeddrink_data():
     documents = collection_ref.get()
@@ -20,6 +22,8 @@ def get_mixeddrink_data():
     for doc in documents:
         data.append({'id' : doc.id, 'drink': doc.to_dict()})
     return jsonify(data)
+
+# --------------------------------------------------
 
 '''
 @app.route('/api/mixeddrinkwith', methods=['GET'])
@@ -42,6 +46,7 @@ def get_mixeddrink_data_with_filtersOR():
     return jsonify(results)
 '''
 
+# --------------------------------------------------
 # Add a description here
 @app.route('/api/mixeddrinkwith', methods=['GET'])
 def getDrinkList():
@@ -58,6 +63,7 @@ def getDrinkList():
             distinct_ids.add(doc.id)
     return jsonify(data)
 
+# --------------------------------------------------
 
 @app.route('/api/alltags', methods=['GET'])
 def get_tag_data():
@@ -67,6 +73,8 @@ def get_tag_data():
         data.append({'id': doc.id, 'tag': doc.to_dict()})
     return jsonify(data)
 
+# --------------------------------------------------
+
 @app.route('/api/tagswithdrinks', methods=['GET'])
 def get_tag_and_drink_id_data():
     documents = collection_ref_tagsanddrinks.get()
@@ -75,6 +83,7 @@ def get_tag_and_drink_id_data():
         data.append(doc.to_dict())
     return jsonify(data)
 
+# --------------------------------------------------
 # Run the Flask application
 if __name__ == '__main__':
     app.run(port=8081)

@@ -1,13 +1,19 @@
 import React from 'react'
-import { Text, Pressable, View } from 'react-native'
+import { Text, Pressable, View, FlatList } from 'react-native'
 import { styles, colors } from '../assets/Style.js';
 
 // --------------------------------------------------
 
-export const Discovery = ({ drink }) => {
+export const Discovery = ({ title, description, DATA }) => {
   return (
-    <View style={{ flex: 4, minHeight: 120, minWidth: 120, backgroundColor: styles.green }}>
-      <Text style={styles.h1}>{drink}</Text>
+    <View style={styles.discovery}>
+      <Text style={styles.h1}>{title}</Text>
+      <Text style={styles.p}>{description}</Text>
+      <FlatList
+        style={{ borderStyle: 'dotted', borderWidth: 1, margin: 25, padding: 20 }}
+        data={DATA}
+        renderItem={({ item }) => <Text style={styles.p}>{item.ing} -- {item.meas}</Text>}
+      />
     </View >
   );
 }

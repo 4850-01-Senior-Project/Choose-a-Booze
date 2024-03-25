@@ -75,10 +75,10 @@ export default function SurveyScreen() {
     let tagsJSON;
     const formatTags = async () => {
       console.log(liquorMood);
-      return await filterDrinksByIngredientsOR(liquorMood,dontwantFilters);
+      return await filterDrinksByIngredientsOR(liquorMood, dontwantFilters);
     }
     formatTags().then((result) => setDrinks(result))
-  }, [liquorMood,dontwantFilters] )
+  }, [liquorMood, dontwantFilters])
 
 
   //first filter drinks based on liquor choice and dont wants
@@ -86,12 +86,12 @@ export default function SurveyScreen() {
   //display five drinks
   console.log(tagDrinkIds);
   console.log(drinks);
-  
+
   return (
     <View style={{ flex: 1, backgroundColor: colors.black }}>
       <ImageBackground style={{ flex: 1, backgroundColor: colors.black }} source={require('../assets/logo.jpg')} imageStyle={{ opacity: 0.1 }} >
-        <DisplayResult tagList={cravings} usualDrinkChoice={theUsual} liquorChoice={liquorMood} dontwants={dontwantFilters} />
-        <ScrollView style={{ zIndex: 100, padding: '5%' }} key={"surveyscreenscroll"} contentContainerStyle={{ flexGrow: 1 }} horizontal={false} >
+        <ScrollView contentContainerStyle={{ flexGrow: 1, paddingBottom: 400 }} key={"surveyscreenscroll"} >
+          <DisplayResult tagList={cravings} usualDrinkChoice={theUsual} liquorChoice={liquorMood} dontwants={dontwantFilters} />
           <SurveyQuestion key={"theusualquestion"} item={`Question 1: ${surveyQuestions[0]}`} />
           <Dropdown key={"theusualdropdown"} items={usualDrink} setValue={setTheUsual} value={theUsual} id={"theusualdrink"} />
           <SurveyQuestion key={"liquormoodquestion"} item={`Question 2: ${surveyQuestions[1]}`} />
@@ -100,8 +100,8 @@ export default function SurveyScreen() {
           <Dropdown key={"cravingsdropdown"} items={tags} setValue={setCravings} value={cravings} id={"cravings"} />
           <SurveyQuestion key={"dontwantsquestion"} item={`Question 4: ${surveyQuestions[3]}`} />
           <Dropdown key={"dontwantsdropdown"} items={dontwants} setValue={setDontWants} value={dontwantFilters} id={"dontwants"} />
+          <Submit />
         </ScrollView>
-        <Submit />
       </ImageBackground>
     </View>
   );
