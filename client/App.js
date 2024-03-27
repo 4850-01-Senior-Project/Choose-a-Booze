@@ -6,7 +6,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import * as Font from "expo-font";
 
-  // --------------------------------------------------
+// --------------------------------------------------
 
 import Home from "./ui/screens/Home";
 import Randomizer from "./ui/screens/Randomizer";
@@ -61,13 +61,13 @@ export default function App() {
           headerTintColor: colors.black,
           headerTitleStyle: { fontWeight: 'bold', },
         }}>
-            <Stack.Screen
-              name="Home"
-              component={Home}
-              options={{
-                title: 'Home',
-              }}
-            />
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              title: 'Home',
+            }}
+          />
           <Stack.Screen
             name="Randomizer"
             component={Randomizer}
@@ -77,6 +77,11 @@ export default function App() {
             name="SurveyScreen"
             component={SurveyScreen}
             options={{ title: 'Survey Screen / Drink Selector' }}
+          />
+          <Stack.Screen
+            name="Results"
+            component={Results}
+            options={{ title: 'Results' }}
           />
           <Stack.Screen
             name="LikedDrinks"

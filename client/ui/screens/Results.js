@@ -3,11 +3,11 @@ import { styles, colors } from '../assets/Style';
 
 // --------------------------------------------------
 
-export default function LikedDrinks() {
+export default function Results() {
   return (
     <View style={{ flex: 1, backgroundColor: colors.black }}>
       <ScrollView>
-        <Text style={styles.h1}>Liked Drink Number 1</Text>
+        <Text style={styles.h1}>Result</Text>
       </ScrollView>
     </View>
   );

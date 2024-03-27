@@ -56,28 +56,43 @@ export default function SurveyScreen() {
   const [drinks, setDrinks] = useState([])
 
   useEffect(() => {
-    let tagsJSON;
-    const formatTags = async () => {
-      return await getTags();
+    try {
+      let tagsJSON;
+      const formatTags = async () => {
+        return await getTags();
+      }
+      formatTags().then((result) => setTags(result))
     }
-    formatTags().then((result) => setTags(result))
+    catch (e) {
+      console.log(e);
+    }
   }, [])
 
   useEffect(() => {
-    let tagsJSON;
-    const formatTags = async () => {
-      return await getTagsWithDrinks();
+    try {
+      let tagsJSON;
+      const formatTags = async () => {
+        return await getTagsWithDrinks();
+      }
+      formatTags().then((result) => setTagDrinkIds(result))
     }
-    formatTags().then((result) => setTagDrinkIds(result))
+    catch (e) {
+      console.log(e);
+    }
   }, [])
 
   useEffect(() => {
-    let tagsJSON;
-    const formatTags = async () => {
-      console.log(liquorMood);
-      return await filterDrinksByIngredientsOR(liquorMood, dontwantFilters);
+    try {
+      let tagsJSON;
+      const formatTags = async () => {
+        console.log(liquorMood);
+        return await filterDrinksByIngredientsOR(liquorMood, dontwantFilters);
+      }
+      formatTags().then((result) => setDrinks(result))
     }
-    formatTags().then((result) => setDrinks(result))
+    catch (e) {
+      console.log(e);
+    }
   }, [liquorMood, dontwantFilters])
 
 

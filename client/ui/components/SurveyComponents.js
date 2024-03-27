@@ -68,6 +68,7 @@ export const Dropdown = ({ value, setValue, items, id }) => {
 export const Submit = () => {
   return (
     <Pressable
+      onPress={() => navigation.navigate('Results')}
       style={({ pressed }) => [
         {
           backgroundColor: pressed ? colors.green : colors.orange
