@@ -4,11 +4,11 @@ import { styles, colors } from '../assets/Style.js';
 
 // --------------------------------------------------
 
-export const Discovery = ({ title, description, DATA }) => {
+export const Discovery = ({ title, tags, DATA }) => {
   return (
     <View style={styles.discovery}>
       <Text style={styles.h1}>{title}</Text>
-      <Text style={styles.p}>{description}</Text>
+      <Text style={styles.p}>{tags}</Text>
       <FlatList
         style={{ borderStyle: 'dotted', borderWidth: 1, margin: 25, padding: 20 }}
         data={DATA}

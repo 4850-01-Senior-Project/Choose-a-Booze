@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Pressable, View, ScrollView, Text, ImageBackground, ImageBackgroundBase } from 'react-native';
+import { View, ScrollView, ImageBackground } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
-import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 
 import { filterDrinksByIngredientsOR, getAllDrinkData, getTags, getTagsWithDrinks } from '../../controllers/getData';
 import { DisplayResult } from '../components/SurveyComponents';
 import { colors, styles } from '../assets/Style';
 import { SurveyQuestion, Dropdown, Submit } from '../components/SurveyComponents';
-
 
 // --------------------------------------------------
 
@@ -46,7 +44,7 @@ const liquor = [
 
 // --------------------------------------------------
 
-export default function SurveyScreen() {
+export default function SurveyScreen({ navigation }) {
   const [cravings, setCravings] = useState([]);
   const [liquorMood, setLiquorMood] = useState([]);
   const [dontwantFilters, setDontWants] = useState([]);
@@ -115,7 +113,7 @@ export default function SurveyScreen() {
           <Dropdown key={"cravingsdropdown"} items={tags} setValue={setCravings} value={cravings} id={"cravings"} />
           <SurveyQuestion key={"dontwantsquestion"} item={`Question 4: ${surveyQuestions[3]}`} />
           <Dropdown key={"dontwantsdropdown"} items={dontwants} setValue={setDontWants} value={dontwantFilters} id={"dontwants"} />
-          <Submit />
+          <Submit press={() => navigation.navigate('Results')}/>
         </ScrollView>
       </ImageBackground>
     </View>

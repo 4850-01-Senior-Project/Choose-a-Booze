@@ -12,6 +12,7 @@ import Home from "./ui/screens/Home";
 import Randomizer from "./ui/screens/Randomizer";
 import SurveyScreen from "./ui/screens/SurveyScreen";
 import LikedDrinks from "./ui/screens/LikedDrinks";
+import Results from "./ui/screens/Results";
 
 import { styles, colors } from "./ui/assets/Style";
 
