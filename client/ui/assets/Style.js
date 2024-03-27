@@ -20,17 +20,17 @@ export const styles = StyleSheet.create({
     fontSize: 32,
     textAlign: 'center',
     color: colors.green,
+    padding: 15,
   },
   h2: {
-    fontSize: 32,
+    fontSize: 24,
     color: colors.black,
-    margin: 15
   },
   p: {
-    fontSize: 20,
+    fontSize: 16,
     textAlign: 'center',
-    margin: 2,
-    color: colors.black,
+    margin: 5,
+    color: '#FFF',
   },
 
   // --------------------------------------------------
@@ -54,10 +54,10 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     marginHorizontal: '5%',
     marginVertical: '2.5%',
-    borderRadius: 25,
-    padding: '2.5%',
+    padding: '5%',
     flex: 4,
-    backgroundColor: colors.green
+    backgroundColor: colors.purple,
+    borderRadius: 25,
   },
   selector: {
     textAlign: 'center',

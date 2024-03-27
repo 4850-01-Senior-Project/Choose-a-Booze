@@ -3,8 +3,7 @@ import { styles, colors } from '../assets/Style';
 
 // --------------------------------------------------
 
-export default function Randomizer() {
-
+export default function LikedDrinks() {
   return (
     <View style={{ flex: 1, backgroundColor: colors.black }}>
       <ScrollView>

@@ -3,14 +3,16 @@ import { View } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as SplashScreen from 'expo-splash-screen';
-
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import * as Font from "expo-font";
+
+// --------------------------------------------------
 
 import Home from "./ui/screens/Home";
 import Randomizer from "./ui/screens/Randomizer";
 import SurveyScreen from "./ui/screens/SurveyScreen";
 import LikedDrinks from "./ui/screens/LikedDrinks";
+import Results from "./ui/screens/Results";
 
 import { styles, colors } from "./ui/assets/Style";
 
@@ -19,8 +21,6 @@ import { styles, colors } from "./ui/assets/Style";
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
   const [checked, setChecked] = useState(false);
-
-  // --------------------------------------------------
 
   useEffect(() => {
     async function prepare() {
@@ -39,10 +39,6 @@ export default function App() {
 
     prepare();
   }, []);
-
-  // --------------------------------------------------
-
-
   // Hide the splashscreen if the application is ready
   const onLayoutRootView = useCallback(async () => {
     if (appIsReady) {
@@ -82,6 +78,11 @@ export default function App() {
             name="SurveyScreen"
             component={SurveyScreen}
             options={{ title: 'Survey Screen / Drink Selector' }}
+          />
+          <Stack.Screen
+            name="Results"
+            component={Results}
+            options={{ title: 'Results' }}
           />
           <Stack.Screen
             name="LikedDrinks"
