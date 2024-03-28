@@ -12,6 +12,7 @@ export default function Randomizer() {
   const [title, setTitle] = useState('Rusty Nail');
   const [tags, setTags] = useState('Fruity???');
   const [DATA, setDATA] = useState([{ ing: 'Scotch', meas: '1 1/2 oz' }, { ing: 'Drambuie', meas: '3/4 oz' }, { ing: 'Lemon Peel Twist', meas: '1 twist' }]);
+  const [drink, setDrink] = useState(null);
 
   const reroll = () => {
     setTitle('Bee\'s Knees');
@@ -30,6 +31,8 @@ export default function Randomizer() {
   }, [])
 
   // --------------------------------------------------
+
+  // drink => title, tags, DATA
 
   return (
     <View style={{ flex: 5, backgroundColor: colors.black }}>

@@ -1,4 +1,4 @@
-
+# Needs Refactoring
 def filterDataDontInclude(drink, filters):
     isInDrink = False
     for ingredient in drink:
@@ -12,6 +12,7 @@ def filterDataDontInclude(drink, filters):
         return True
     return False
     
+# Needs Refactoring
 def filterDataInclude(drink, filters):
     if len(filters) == 0 or filters[0]=="":
         return True

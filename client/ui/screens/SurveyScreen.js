@@ -18,9 +18,6 @@ const surveyQuestions = [
 
 // --------------------------------------------------
 
-
-
-
 const dontwants = [{ name: "lime juice", id: 1 }, { name: "orange juice", id: 2 }, { name: "cream", id: 3 }, { name: "simple syrup", id: 4 }, { name: "Coca-cola", id: 5 }]
 const usualDrink = [
   { name: "Old Fashioned", id: 1 },
@@ -29,7 +26,6 @@ const usualDrink = [
   { name: "Cosmopolitan", id: 4 },
   { name: "Jalapeno Margarita", id: 5 },
   { name: "Whiskey and Coke", id: 6 },
-
 ]
 
 const liquor = [
@@ -56,9 +52,7 @@ export default function SurveyScreen({ navigation }) {
   useEffect(() => {
     try {
       let tagsJSON;
-      const formatTags = async () => {
-        return await getTags();
-      }
+      const formatTags = async () => { return await getTags(); }
       formatTags().then((result) => setTags(result))
     }
     catch (e) {
@@ -69,9 +63,7 @@ export default function SurveyScreen({ navigation }) {
   useEffect(() => {
     try {
       let tagsJSON;
-      const formatTags = async () => {
-        return await getTagsWithDrinks();
-      }
+      const formatTags = async () => { return await getTagsWithDrinks(); }
       formatTags().then((result) => setTagDrinkIds(result))
     }
     catch (e) {
@@ -82,10 +74,7 @@ export default function SurveyScreen({ navigation }) {
   useEffect(() => {
     try {
       let tagsJSON;
-      const formatTags = async () => {
-        console.log(liquorMood);
-        return await filterDrinksByIngredientsOR(liquorMood, dontwantFilters);
-      }
+      const formatTags = async () => { return await filterDrinksByIngredientsOR(liquorMood, dontwantFilters); }
       formatTags().then((result) => setDrinks(result))
     }
     catch (e) {
@@ -113,7 +102,7 @@ export default function SurveyScreen({ navigation }) {
           <Dropdown key={"cravingsdropdown"} items={tags} setValue={setCravings} value={cravings} id={"cravings"} />
           <SurveyQuestion key={"dontwantsquestion"} item={`Question 4: ${surveyQuestions[3]}`} />
           <Dropdown key={"dontwantsdropdown"} items={dontwants} setValue={setDontWants} value={dontwantFilters} id={"dontwants"} />
-          <Submit press={() => navigation.navigate('Results')}/>
+          <Submit press={() => navigation.navigate('Results')} />
         </ScrollView>
       </ImageBackground>
     </View>

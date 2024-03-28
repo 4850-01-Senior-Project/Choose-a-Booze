@@ -9,12 +9,12 @@ export const getAllDrinkData = async () => {
 // --------------------------------------------------
 
 export const filterDrinksByIngredientsOR = async (filters, dontwants) => {
-  console.log(filters)
+  console.log("Filters: " + filters);
   const filterList = format(filters)
   const dontWantList = format(dontwants)
 
   const url = `http://127.0.0.1:8081/api/mixeddrinkwith?filter=${filterList}&dontwant=${dontWantList}`
-  console.log("Awaiting response...");
+  console.log("Awaiting response from :" + url);
   const response = await fetch(url)
   return await response.json();
 }
@@ -34,7 +34,7 @@ const format = (array) => {
 
 export const getTags = async () => {
   const url = `http://127.0.0.1:8081/api/alltags`
-  console.log("Awaiting response...");
+  console.log("Awaiting response from: " + url);
   const response = await fetch(url)
   const list = await response.json()
   let count = 0;
@@ -47,7 +47,7 @@ export const getTags = async () => {
 
 export const getTagsWithDrinks = async () => {
   const url = `http://127.0.0.1:8081/api/tagswithdrinks`
-  console.log("Awaiting response...");
+  console.log("Awaiting response from: " + url);
   const response = await fetch(url)
   const list = await response.json()
   let count = 0;
