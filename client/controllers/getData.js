@@ -1,8 +1,10 @@
 
 export const getAllDrinkData = async () => {
   const url = `http://127.0.0.1:8081/api/alldrinks`
-  console.log("Awaiting response...");
+  console.log("Awaiting response from: " + url);
   const response = await fetch(url)
+  const json = await response.json();
+  console.log(json.Drinks);
   return await response.json();
 }
 
