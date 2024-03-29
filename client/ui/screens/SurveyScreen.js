@@ -54,6 +54,7 @@ export default function SurveyScreen() {
   const [tags, setTags] = useState([])
   const [tagDrinkIds, setTagDrinkIds] = useState([])
   const [drinks, setDrinks] = useState([])
+  const [isVisible, setIsVisible] = useState([])
 
   useEffect(() => {
     let tagsJSON;
@@ -72,7 +73,6 @@ export default function SurveyScreen() {
   }, [])
 
   useEffect(() => {
-    let tagsJSON;
     const formatTags = async () => {
       console.log(liquorMood);
       return await filterDrinksByIngredientsOR(liquorMood,dontwantFilters);
@@ -90,7 +90,7 @@ export default function SurveyScreen() {
   return (
     <View style={{ flex: 1, backgroundColor: colors.black }}>
       <ImageBackground style={{ flex: 1, backgroundColor: colors.black }} source={require('../assets/logo.jpg')} imageStyle={{ opacity: 0.1 }} >
-        <DisplayResult tagList={cravings} usualDrinkChoice={theUsual} liquorChoice={liquorMood} dontwants={dontwantFilters} />
+        {/* {isVisible ? <DisplayResult tagList={cravings} tags={tags} tagDrinkIds={tagDrinkIds} usualDrinkChoice={theUsual} drinks={drinks ? drinks: [""] } />: <></>} */}
         <ScrollView style={{ zIndex: 100, padding: '5%' }} key={"surveyscreenscroll"} contentContainerStyle={{ flexGrow: 1 }} horizontal={false} >
           <SurveyQuestion key={"theusualquestion"} item={`Question 1: ${surveyQuestions[0]}`} />
           <Dropdown key={"theusualdropdown"} items={usualDrink} setValue={setTheUsual} value={theUsual} id={"theusualdrink"} />
@@ -101,7 +101,7 @@ export default function SurveyScreen() {
           <SurveyQuestion key={"dontwantsquestion"} item={`Question 4: ${surveyQuestions[3]}`} />
           <Dropdown key={"dontwantsdropdown"} items={dontwants} setValue={setDontWants} value={dontwantFilters} id={"dontwants"} />
         </ScrollView>
-        <Submit />
+        {/* <Submit visible={isVisible} isVisible={setIsVisible}/> */}
       </ImageBackground>
     </View>
   );

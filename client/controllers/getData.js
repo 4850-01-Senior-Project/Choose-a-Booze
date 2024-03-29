@@ -22,6 +22,7 @@ export const filterDrinksByIngredientsOR = async (filters, dontwants) => {
 // --------------------------------------------------
 
 const format = (filter) => {
+    console.log(filter);
     let result = ""
     for (let i = 0; i < filter.length; i++) {
         if (i === filter.length - 1) {

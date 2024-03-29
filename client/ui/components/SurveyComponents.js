@@ -1,8 +1,12 @@
 import React from 'react'
-import { Text, Pressable, View } from 'react-native'
+import { Text, Pressable, View, ScrollView } from 'react-native'
 import { styles, colors } from '../assets/Style.js';
 import { MaterialIcons as Icon } from '@expo/vector-icons';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
+import {filterDrinksByTagForSurveyResults}  from '../../helperFunctions/SurveyQuestionFunctions.js';
+import { filterDrinkList } from '../../helperFunctions/SurveyQuestionFunctions.js';
+import Randomizer from '../screens/Randomizer.js';
+import { useState,useEffect } from 'react';
 
 // --------------------------------------------------
 
@@ -65,7 +69,10 @@ export const Dropdown = ({ value, setValue, items, id }) => {
 
 // --------------------------------------------------
 
-export const Submit = () => {
+export const Submit = ({visible, isVisible}) => {
+	const toggleVisibility = () => {
+		isVisible(!visible)
+	  }
 	return (
 		<Pressable
 			style={({ pressed }) => [
@@ -73,13 +80,53 @@ export const Submit = () => {
 					backgroundColor: pressed ? colors.orange : colors.purple
 				},
 				styles.submit
-			]}><Text style={styles.h1}>Submit</Text>
+			]}
+			onPress={toggleVisibility()}
+		><Text style={styles.h1}>Submit</Text>
 		</Pressable>
 	)
 }
 
 // --------------------------------------------------
 
-export const DisplayResult = ({ tagList, usualDrinkChoice, liquorChoice, liquorMood, dontwants}) => {
 
+export const DisplayResult = ({ tagList, tags, usualDrinkChoice, drinks, tagDrinkIds}) => {
+	const [drinkSelection, setDrinks] = useState([])
+	
+	let tagResultDrinkIDs
+	if (tagList.length > 0) {  tagResultDrinkIDs= filterDrinksByTagForSurveyResults(tagList, tags, tagDrinkIds) }
+	console.log(tagResultDrinkIDs);
+
+	setDrinks(filterDrinkList(drinks, tagResultDrinkIDs))
+
+	const fiveRandomDrinks = []
+	if (drinks.length > 4) {
+		for (let i = 0; i < 5; i++) {
+			let num = Math.floor(Math.random() * 10)
+			fiveRandomDrinks.forEach((number) => {
+				num = Math.floor(Math.random() * 10)
+				while (number == num) {
+					num = Math.floor(Math.random() * 10)
+				}
+				fiveRandomDrinks[i] = num
+			})
+		}
+	}
+	const DrinksRandom = fiveRandomDrinks.length > 0? fiveRandomDrinks.map((number) => drinkSelection[number]) : drinks
+
+
+
+	return (
+		<ScrollView style={{ zIndex: 100, padding: '5%' }} key={"surveyscreenscroll"} contentContainerStyle={{ flexGrow: 1 }} horizontal={true}>
+			{DrinksRandom && DrinksRandom.map((drink) => { 
+			return (
+					<View style={{ flex: 4, minHeight: 120, minWidth: 120, backgroundColor: styles.green }}>
+					<Image />
+					<Text style={styles.h1}>{drink}</Text>
+					</View >
+					)
+			})}
+		</ScrollView>
+
+	);
 }
