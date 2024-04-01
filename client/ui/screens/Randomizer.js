@@ -21,7 +21,7 @@ export default function Randomizer() {
   }
 
   // --------------------------------------------------
-
+/* 
   useEffect(() => {
     let tagsJSON;
     const formatTags = async () => {
@@ -29,7 +29,7 @@ export default function Randomizer() {
     }
     formatTags().then((result) => setTags(result))
   }, [])
-
+ */
   // --------------------------------------------------
 
   // drink => title, tags, DATA
