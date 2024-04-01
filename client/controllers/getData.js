@@ -3,8 +3,6 @@ export const getAllDrinkData = async () => {
   const url = `http://127.0.0.1:8081/api/alldrinks`
   console.log("Awaiting response from: " + url);
   const response = await fetch(url)
-  const json = await response.json();
-  console.log(json.Drinks);
   return await response.json();
 }
 
@@ -55,4 +53,16 @@ export const getTagsWithDrinks = async () => {
   const formattedTagIDList = list.map((item) => { return { tagid: item.Tag, drinkids: item.Drinks } })
 
   return formattedTagIDList;
+}
+
+// This needs to be changed
+// Currently, it's a copy of getTags
+export const getDrinkbyID = async () => {
+  const url = `http://127.0.0.1:8081/api/alltags`
+  console.log("Awaiting response from: " + url);
+  const response = await fetch(url)
+  const list = await response.json()
+  const formattedTagList = list.map((item) => { return { name: item.tag.Name, tagid: item.id } })
+
+  return formattedTagList;
 }
