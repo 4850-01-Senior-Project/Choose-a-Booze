@@ -85,7 +85,7 @@ export default function SurveyScreen() {
   //then grab tag-drink data and find the drinks in that selection that match those ids
   //display five drinks
   console.log(tagDrinkIds);
-  console.log(drinks);
+
   
   return (
     <View style={{ flex: 1, backgroundColor: colors.black }}>
