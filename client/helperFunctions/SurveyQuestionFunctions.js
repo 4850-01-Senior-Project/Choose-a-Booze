@@ -7,7 +7,7 @@ export function filterDrinksByTagForSurveyResults(chosenTags, tags, tagsDrinks) 
             console.log(tagName);
             if (tag === tagName.name) {
                 tagIds.push(tagName.tagid)
-              
+
             }
         });
     });
@@ -20,7 +20,7 @@ export function filterDrinksByTagForSurveyResults(chosenTags, tags, tagsDrinks) 
             }
         });
     });
-    
+
     return drinkIDs;
 }
 
