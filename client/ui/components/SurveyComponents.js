@@ -3,7 +3,7 @@ import { Text, Pressable, View, ScrollView } from 'react-native'
 import { styles, colors } from '../assets/Style.js';
 import { MaterialIcons as Icon } from '@expo/vector-icons';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
-import {filterDrinksByTagForSurveyResults}  from '../../helperFunctions/SurveyQuestionFunctions.js';
+import { filterDrinksByTagForSurveyResults } from '../../helperFunctions/SurveyQuestionFunctions.js';
 import { filterDrinkList } from '../../helperFunctions/SurveyQuestionFunctions.js';
 import Randomizer from '../screens/Randomizer.js';
 import { useState,useEffect } from 'react';
