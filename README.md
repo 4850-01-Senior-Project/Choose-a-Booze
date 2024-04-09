@@ -1,9 +1,16 @@
-# Choose-a-Booze
-## Necessary Packages & Dependencies
+# Senior Project
+CS4850 - 01 - Spring 2024
+
+INDY 3 - Purple - The Drink App
+## Who Are We?
+
+// Insert Images Here
+
+## Getting Started
+### Necessary Packages & Dependencies
 Firstly, install node.js and run npm init for node_modules. This project was built on 10.2.4
 
-//Alyssa please include the necessary flask packages
-### Flask
+#### Flask
 Flask requires these packages to manage the server.
 Copy and paste into the terminal while in the server folder.
 ```
@@ -14,7 +21,7 @@ Copy and paste into the terminal while in the server folder.
 npm i -g concurrently
 ```
 // Below needs to be updated more
-### React Native
+#### React Native
 Below are the required react native packages.
 Install the dependencies in the client folder.
 ```
