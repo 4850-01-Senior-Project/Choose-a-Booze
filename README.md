@@ -1,4 +1,4 @@
-# Senior Project
+# Choose-a-Booze
 CS4850 - 01 - Spring 2024
 
 INDY 3 - Purple - The Drink App
