@@ -6,10 +6,15 @@ INDY 3 - Purple - The Drink App
 
 |||
 |---|---|
-|![Alyssa](images/Alyssa.jpg "Alyssa")|![Ian](images/Ian.jpg "Ian")|
-|![Josh](images/Josh.jpg "Josh")|![Rouse](images/Rouse.jpg "Rouse")|
+|![Alyssa](images/Alyssa.jpg "Alyssa")|Description|
+![Ian](images/Ian.jpg "Ian")|Description|
+|![Josh](images/Josh.jpg "Josh")|Description|
+![Rouse](images/Rouse.jpg "Rouse")|Description|
+
+
 ### Relevant Links
 [Final Report](./FinalReport.pdf)
+
 [Presentation video](https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley)
 
 
