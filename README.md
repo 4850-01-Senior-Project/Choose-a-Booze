@@ -4,7 +4,14 @@ CS4850 - 01 - Spring 2024
 INDY 3 - Purple - The Drink App
 ## Who Are We?
 
-// Insert Images Here
+|||
+|---|---|
+|![Alyssa](images/Alyssa.jpg "Alyssa")|![Ian](images/Ian.jpg "Ian")|
+|![Josh](images/Josh.jpg "Josh")|![Rouse](images/Rouse.jpg "Rouse")|
+### Relevant Links
+[Final Report](./FinalReport.pdf)
+[Presentation video](https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley)
+
 
 ## Getting Started
 ### Necessary Packages & Dependencies
