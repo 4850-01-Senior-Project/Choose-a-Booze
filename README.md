@@ -1,12 +1,3 @@
----
-title: "Choose-a-Booze"
-subtitle: "Senior Project Spring 2024"
-author: "McCracken, Caputo, Early, Moreno"
-description: "This markdown file represents the website required for the Senior Project"
-institute: "KSU"
-date: "01/04/2024"
----
-
 # Choose-a-Booze
 <h3 align='center'>
 CS4850 - 01 - Spring 2024
