@@ -1,13 +1,32 @@
+---
+title: "Choose-a-Booze"
+subtitle: "Senior Project Spring 2024"
+author: "McCracken, Caputo, Early, Moreno"
+description: "This markdown file represents the website required for the Senior Project"
+institute: "KSU"
+date: "01/04/2024"
+---
+
 # Choose-a-Booze
+<h3 align='center'>
 CS4850 - 01 - Spring 2024
+</h3>
+<p align="center">
+<img src="./client/ui/assets/logo.jpg" alt="The Drink App Logo" style="width:30%; border:0;">
+</p>
+<p align='center'>
+INDY 3 - Purple - The Drink App
+</p>
+
 
 # Table of Contents
-1. [Who Are We?](#who-are-we)
-2. [Relevant Links](#relevant-links)
-3. [Getting Started](#getting-started)
+* [Who Are We?](#who-are-we)
+* [Relevant Links](#relevant-links)
+* [Getting Started](#getting-started)
+	* [Necessary Packages & Dependencies](#necessary-packages--dependencies)
+	* [Usage Guide](#usage-guide)
 
-INDY 3 - Purple - The Drink App
-## Who Are We?
+# Who Are We?
 
 |||
 |---|---|
@@ -17,19 +36,20 @@ INDY 3 - Purple - The Drink App
 ![Rouse](images/Rouse.jpg "Rouse")|Description|
 
 
-### Relevant Links
-[Final Report](./FinalReport.pdf)
-
-[Presentation video](https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley)
-
-[Github Site](https://github.com/4850-01-Senior-Project/Choose-a-Booze)
+## Relevant Links
+* [Final Report](./FinalReport.pdf)
+* [Presentation video](https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley)
+* [Github Site](https://github.com/4850-01-Senior-Project/Choose-a-Booze)
 
 
-## Getting Started
-### Necessary Packages & Dependencies
-Firstly, install node.js and run npm init for node_modules. This project was built on 10.2.4
+# Getting Started
+* [Necessary Packages & Dependencies](#necessary-packages--dependencies)
+* [Usage Guide](#usage-guide)
 
-#### Flask
+## Necessary Packages & Dependencies
+Firstly, install node.js and run npm init to create node_modules. This project was built using node.js 10.2.4
+
+### Flask
 Flask requires these packages to manage the server.
 Copy and paste into the terminal while in the server folder.
 ```
@@ -39,8 +59,8 @@ Copy and paste into the terminal while in the server folder.
 -pip install flask-cors
 npm i -g concurrently
 ```
-// Below needs to be updated more
-#### React Native
+
+### React Native
 Below are the required react native packages.
 Install the dependencies in the client folder.
 ```
@@ -49,3 +69,6 @@ npm install react-native-splash-screen
 npx expo install react-native-screens react-native-safe-area-context
 npx expo install react-native-sectioned-multi-select @expo/vector-icons 
 ```
+
+## Running the App
+We use Expo Go to serve the app on mobile. Begin by installing expo go on your mobile device and start the server on your laptop or PC by running `npm run start-flask` in one terminal, and `npm start` in another. Finally, expo will prompt the user to start the server for web, android, or iOS; then scan the QR code provided.
