@@ -15,7 +15,7 @@ INDY 3 - Purple - The Drink App
 * [Relevant Links](#relevant-links)
 * [Getting Started](#getting-started)
 	* [Necessary Packages & Dependencies](#necessary-packages--dependencies)
-	* [Usage Guide](#usage-guide)
+	* [Usage Guide](#running-the-app)
 
 # Who Are We?
 
