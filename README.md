@@ -1,37 +1,12 @@
 # Choose-a-Booze
-<h3 align='center'>
-CS4850 - 01 - Spring 2024
-</h3>
-<p align="center">
-<img src="./client/ui/assets/logo.jpg" alt="The Drink App Logo" style="width:30%; border:0;">
-</p>
-<p align='center'>
-INDY 3 - Purple - The Drink App
-</p>
 
+The goal of The Drink App is to provide a way for users to get suggestions on what alcoholic beverage to try, randomly or based on criteria.
 
-# Table of Contents
-* [Who Are We?](#who-are-we)
-* [Relevant Links](#relevant-links)
-* [Getting Started](#getting-started)
-	* [Necessary Packages & Dependencies](#necessary-packages--dependencies)
-	* [Usage Guide](#usage-guide)
+Whether it's finding the perfect drink pairing for date night or something new for a night out with friends.
 
-# Who Are We?
+This app aims to educate users about beverages and pairings, and as a bonus, makes deciding on what to buy less scary/time-consuming.
 
-|||
-|---|---|
-|![Alyssa](images/Alyssa.jpg "Alyssa")|Description|
-![Ian](images/Ian.jpg "Ian")|Ian McCracken - I'm the Programming Lead for the team; most of my work consisted of coordinating development, and front-end development using React Native.|
-|![Josh](images/Josh.jpg "Josh")|Description|
-![Rouse](images/Rouse.jpg "Rouse")|Description|
-
-
-## Relevant Links
-* [Final Report](./FinalReport.pdf)
-* [Presentation video](https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley)
-* [Github Site](https://github.com/4850-01-Senior-Project/Choose-a-Booze)
-
+React Native helps make the user interface intuitive; the user will be able to navigate through a component-based mobile application which works on web as well.
 
 # Getting Started
 * [Necessary Packages & Dependencies](#necessary-packages--dependencies)
