@@ -23,10 +23,12 @@ export const filterDrinksByIngredientsOR = async (filters, dontwants) => {
 
 const format = (array) => {
   let result = ""
+  if (array === 'undefined' || !array || array?.length < 1){return ""}
   for (let i = 0; i < array.length - 1; i++) {
     result += `${array[i] !== "undefined" || array[i] ? array[i] : ""},`
   }
   result += `${array[array.length - 1] !== "undefined" || array[array.length - 1] ? array[array.length - 1] : ""}`
+  console.log(result);
   return result
 }
 

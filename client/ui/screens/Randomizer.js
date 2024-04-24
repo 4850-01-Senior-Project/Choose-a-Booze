@@ -1,40 +1,42 @@
-import { useContext, useEffect, useState } from 'react';
-import getAllDrinkDataByLiquorType, { getAllDrinkData, getDrinkbyID } from '../../controllers/getData';
-import { getTags, getTagsWithDrinks } from '../../controllers/getData';
+import { useEffect, useState, useMemo, useCallback } from 'react';
 import { Text, View } from 'react-native';
-import { styles, colors } from '../assets/Style';
 import { Discovery, Reroll } from '../components/RandomizerComponents';
-
-// --------------------------------------------------
+import { findRandomDrink, formatIngredients } from '../../helperFunctions/RandomizerFunctions.js';
+import { drinkList } from './Home';
 
 export default function Randomizer() {
-  //const [title, setTitle] = useState('Rusty Nail');
-  //const [tags, setTags] = useState(['Fruity???']);
-  //const [DATA, setDATA] = useState([{ ing: 'Scotch', meas: '1 1/2 oz' }, { ing: 'Drambuie', meas: '3/4 oz' }, { ing: 'Lemon Peel Twist', meas: '1 twist' }]);
-  //const [drink, setDrink] = useState(null);
-
   const [title, setTitle] = useState('');
   const [tags, setTags] = useState([]);
   const [DATA, setDATA] = useState([]);
-  const [drink, setDrink] = useState(getDrinkbyID('01001'));
+  //const [randomDrink, setRandomDrink] = useState(() => findRandomDrink(drinkList))
 
-  useEffect(() => {
-    setTitle(drink.Name)
-    //setTags()
-    //setDATA()
-  });
+  let randomDrink = findRandomDrink(drinkList)
+  // useEffect(() => {
+    if (randomDrink){
+      setTitle(useMemo(() => {
+        return randomDrink.drink.name;
+      }, [randomDrink]))
+      setDATA(useMemo(() => {
+        return formatIngredients(randomDrink);
+      }, [randomDrink]))
+    }
+  // }, [randomDrink]); 
 
-  const reroll = () => {
-    setDrink(getDrinkbyID(Math.random(267)))
-  }
 
-  // drink => title, tags, DATA
+
+  console.log(randomDrink);
+  
+  const reroll = useCallback(() => {
+    //setRandomDrink(findRandomDrink(drinkList));
+    randomDrink = findRandomDrink(drinkList)
+
+  }, [findRandomDrink, drinkList]);
 
   return (
-    <View style={{ flex: 5, backgroundColor: colors.black }}>
+    <View style={{ flex: 5, backgroundColor: 'black' }}>
       <Discovery
         title={title}
-        tags={tags}
+        tags={tags}  // Assuming you'll set tags later
         DATA={DATA}
       />
       <Reroll press={reroll} />

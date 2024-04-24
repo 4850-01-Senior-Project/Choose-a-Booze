@@ -1,37 +1,44 @@
 export function filterDrinksByTagForSurveyResults(chosenTags, tags, tagsDrinks) {
     const tagIds = [];
-    console.log(chosenTags, tags, tagsDrinks);
     chosenTags.forEach(tag => {
-        console.log(tag);
+        //console.log("tag ", tag);
         tags.forEach(tagName => {
-            console.log(tagName);
-            if (tag === tagName.name) {
+            //console.log("tagList name:", tagName);
+            if (String(tag).toLowerCase() === String(tagName.name).toLowerCase()) {
+                //console.log(tagName.tagid);
                 tagIds.push(tagName.tagid)
-
             }
         });
     });
-    console.log(tagsDrinks);
+
     let drinkIDs = [];
     tagIds.forEach(id => {
         tagsDrinks.forEach(tagid => {
-            if (id === tagid.Tags) {
-                drinkIDs.push(tagid.Drinks);
+            // console.log(tagid, tagIds);
+            if (id === tagid.tagid) {
+                drinkIDs.push(tagid.drinkids);
             }
         });
     });
-
+    //console.log(drinkIDs);
     return drinkIDs;
 }
 
 export function filterDrinkList(drinks, drinkIDs) {
     let drinkNames = [];
+
     drinkIDs.forEach(drinkID => {
-        drinks.forEach(drink => {
-            if (drink.id === drinkID) {
-                drinkNames.push(drink.drink);
-            }
-        });
+        const drinkList = drinkID.split(",")
+       console.log(drinkList, drinks);
+        drinkList.forEach((id) => {
+            drinks.forEach(drink => {
+                if (Number(drink.id.trim()) === Number(id)) {
+                    drinkNames.push(drink.drink);
+                }
+            });
+        })
+    
     });
+    console.log(drinkNames);
     return drinkNames;
 }
