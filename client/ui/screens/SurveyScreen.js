@@ -104,16 +104,16 @@ export default function SurveyScreen({ navigation }) {
           {/* <DisplayResult tagList={cravings} usualDrinkChoice={theUsual} liquorChoice={liquorMood} dontwants={dontwantFilters} /> */}
 
           <SurveyQuestion key={"theusualquestion"} item={`Question 1: ${surveyQuestions[0]}`} />
-          <Dropdown key={"theusualdropdown"} items={usualDrink} setValue={setTheUsual} value={theUsual} id={"theusualdrink"} />
+          <Dropdown key={"theusualdropdown"} items={usualDrink} setValue={setTheUsual} value={theUsual} id={theusualdrink} />
 
           <SurveyQuestion key={"liquormoodquestion"} item={`Question 2: ${surveyQuestions[1]}`} />
-          <Dropdown key={"liquormooddropdown"} items={liquor} setValue={setLiquorMood} value={liquorMood} id={"liquormood"} />
+          <Dropdown key={"liquormooddropdown"} items={liquor} setValue={setLiquorMood} value={liquorMood} id={liquormood} />
 
           <SurveyQuestion key={"cravingsquestion"} item={`Question 3: ${surveyQuestions[2]}`} />
-          <Dropdown key={"cravingsdropdown"} items={tags} setValue={setCravings} value={cravings} id={"cravings"} />
+          <Dropdown key={"cravingsdropdown"} items={tags} setValue={setCravings} value={cravings} id={cravings} />
 
           <SurveyQuestion key={"dontwantsquestion"} item={`Question 4: ${surveyQuestions[3]}`} />
-          <Dropdown key={"dontwantsdropdown"} items={dontwants} setValue={setDontWants} value={dontwantFilters} id={"dontwants"} />
+          <Dropdown key={"dontwantsdropdown"} items={dontwants} setValue={setDontWants} value={dontwantFilters} id={dontwants} />
 
           <Submit press={() => navigation.navigate('Results')} />
         </ScrollView>

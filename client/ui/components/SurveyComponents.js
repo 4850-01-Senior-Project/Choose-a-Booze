@@ -42,26 +42,13 @@ export const Dropdown = ({ value, setValue, items, id }) => {
     <SectionedMultiSelect
       items={items}
       IconRenderer={Icon}
-      uniqueKey={'id'}
+      uniqueKey={id}
       onSelectedItemsChange={setValue}
       selectedItems={value}
 
       expandDropDowns={true}
       styles={[
-        styles.green,
-        {
-          searchBar: styles.dropdown,
-          itemText: { fontSize: 18 },
-          selectedItemText: { backgroundColor: 'lightgray', color: 'purple' },
-          selectToggleText: { fontSize: 18 },
-          selectToggle: {
-            borderRadius: 25,
-            padding: 12,
-            fontSize: 18,
-            color: styles.green,
-            backgroundColor: 'gray',
-          }
-        }
+        styles.green, styles.dropdown
       ]}
     />
   );

@@ -136,4 +136,16 @@ export const styles = StyleSheet.create({
     marginVertical: '2.5%',
     borderRadius: 25,
   },
+  dropdown: {
+    itemText: { fontSize: 18 },
+    selectedItemText: { backgroundColor: 'lightgray', color: 'purple' },
+    selectToggleText: { fontSize: 18 },
+    selectToggle: {
+      borderRadius: 25,
+      padding: 12,
+      fontSize: 18,
+      color: colors.green,
+      backgroundColor: 'gray',
+    }
+  }
 });

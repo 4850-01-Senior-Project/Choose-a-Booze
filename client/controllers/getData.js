@@ -1,3 +1,5 @@
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
 export const getAllDrinkData = async () => {
   const url = `http://127.0.0.1:8081/api/alldrinks`
