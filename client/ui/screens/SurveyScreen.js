@@ -55,6 +55,7 @@ export default function SurveyScreen({ navigation }) {
   const [tags, setTags] = useState([])
   const [tagDrinkIds, setTagDrinkIds] = useState([])
   const [drinks, setDrinks] = useState([])
+  const [isVisible, setIsVisible] = useState([])
 
   useEffect(() => {
     try {
