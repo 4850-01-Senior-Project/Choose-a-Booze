@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, createContext } from 'react';
 import { View, ScrollView, ImageBackground } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
-
 import { filterDrinksByIngredientsOR, getAllDrinkData, getTags, getTagsWithDrinks } from '../../controllers/getData';
 import { DisplayResult, Question } from '../components/SurveyComponents';
 import { colors, styles } from '../assets/Style';
@@ -44,6 +43,8 @@ const liquor = [
   { name: "Mezcal" },
 ]
 
+export let Context;
+
 // --------------------------------------------------
 
 export default function SurveyScreen({ navigation }) {
@@ -61,7 +62,6 @@ export default function SurveyScreen({ navigation }) {
       let tagsJSON;
       const formatTags = async () => { return await getTags(); }
       formatTags().then((result) => setTags(result))
-      console.log("tags: " + tags + ".");
     }
     catch (e) {
       console.log(e);
@@ -70,38 +70,35 @@ export default function SurveyScreen({ navigation }) {
 
   useEffect(() => {
     try {
-      let tagsJSON;
+      console.log("this is working");
       const formatTags = async () => { return await getTagsWithDrinks(); }
-      formatTags().then((result) => setTagDrinkIds(result))
-      console.log("tag-drink ID: " + tagDrinkIds + ".");
+      formatTags().then((result) => {console.log("results: ", result); setTagDrinkIds(result)})
     }
     catch (e) {
       console.log(e);
     }
   }, [])
-
+  
   useEffect(() => {
-    try {
-      let tagsJSON;
-      const formatTags = async () => { return await filterDrinksByIngredientsOR(liquorMood, dontwantFilters); }
-      formatTags().then((result) => setDrinks(result))
-      console.log("drinks: " + drinks + ".");
-    }
-    catch (e) {
-      console.log(e);
-    }
-  }, [liquorMood, dontwantFilters])
-
-
-  //first filter drinks based on liquor choice and dont wants
-  //then grab tag-drink data and find the drinks in that selection that match those ids
-  //display five drinks
-
+    const fetchFilteredDrinks = () => {
+      console.log("liquormood", liquorMood, "dontwants", dontwantFilters);
+      filterDrinksByIngredientsOR(liquorMood, dontwantFilters)
+        .then(result => {
+          setDrinks(result);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    };
+  
+    fetchFilteredDrinks();
+  }, [liquorMood, dontwants]);
+  Context = { usual: theUsual, liquorMood: liquorMood, tags: cravings, dontwantFilters: dontwantFilters, tagLists: tags, tagDrinkLists: tagDrinkIds , drinkList: drinks}
+  console.log("Liquor: ", drinks);
   return (
     <View style={{ flex: 1, backgroundColor: colors.black }}>
       <ImageBackground style={{ flex: 1, backgroundColor: colors.black }} source={require('../assets/logo.jpg')} imageStyle={{ opacity: 0.1 }} >
         <ScrollView contentContainerStyle={{ flexGrow: 1, paddingBottom: 400 }} key={"surveyscreenscroll"} >
-          {/* <DisplayResult tagList={cravings} usualDrinkChoice={theUsual} liquorChoice={liquorMood} dontwants={dontwantFilters} /> */}
 
           <SurveyQuestion key={"theusualquestion"} item={`Question 1: ${surveyQuestions[0]}`} />
           <Dropdown key={"theusualdropdown"} items={usualDrink} setValue={setTheUsual} value={theUsual} id={"theusualdrink"} />
@@ -116,6 +113,7 @@ export default function SurveyScreen({ navigation }) {
           <Dropdown key={"dontwantsdropdown"} items={dontwants} setValue={setDontWants} value={dontwantFilters} id={"dontwants"} />
 
           <Submit press={() => navigation.navigate('Results')} />
+         
         </ScrollView>
       </ImageBackground>
     </View>
