@@ -1,48 +1,11 @@
 import React from 'react'
-import { Text, Pressable, AntDesign } from 'react-native'
+import { useContext } from 'react'
+import { Text, Pressable, View } from 'react-native'
 import { styles, colors } from '../assets/Style.js';
+import { MaterialIcons as Icon } from '@expo/vector-icons';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 
-  // --------------------------------------------------
-
-export const ListItem = () => {
-  return (
-    <Text>ListItem</Text>
-  )
-}
-
-  // --------------------------------------------------
-
-export const Category = ({ item, onPress }) => {
-  return (
-    <Pressable
-      onPress={onPress}
-      style={({ pressed }) => [
-        {
-          backgroundColor: pressed ? colors.orange : colors.purple
-        },
-        styles.category
-      ]}><Text style={styles.p}>{item}</Text>
-    </Pressable>
-  )
-}
-
 // --------------------------------------------------
-
-export const Discovery = ({ item }) => {
-  return (
-    <Pressable
-      style={({ pressed }) => [
-        {
-          backgroundColor: pressed ? colors.orange : colors.purple
-        },
-        styles.discovery
-      ]}><Text style={styles.h1}>{item}</Text>
-    </Pressable>
-  );
-}
-
-  // --------------------------------------------------
 
 export const Selector = ({ item, onPress }) => {
   return (
@@ -58,34 +21,19 @@ export const Selector = ({ item, onPress }) => {
   )
 }
 
-  // --------------------------------------------------
+// --------------------------------------------------
 
-export const SectionHeader = ({ title }) => {
-  return (<Text style={styles.sectionHeader}>{title}</Text>);
-}
-
-  // --------------------------------------------------
-
-export const SectionItem = ({ text }) => {
+export const Category = ({ item, onPress }) => {
   return (
     <Pressable
+      onPress={onPress}
       style={({ pressed }) => [
-        styles.sectionItem,
         {
-          backgroundColor: pressed ? colors.purple : colors.orange
+          backgroundColor: pressed ? colors.orange : colors.purple
         },
+        styles.category
       ]}>
-      {
-        <Text style={styles.h2}>{text}</Text>
-      }
+      <Text style={styles.p}>{item}</Text>
     </Pressable>
-  );
+  )
 }
-
-  // --------------------------------------------------
-
-export const Question = () => {
-  return(<Text>Question Component</Text>)
-}
-
-  // --------------------------------------------------

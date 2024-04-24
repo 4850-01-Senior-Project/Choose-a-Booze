@@ -1,37 +1,68 @@
 
-export const getAllDrinkDataByLiquorType = async (liquor_type) => {
-    const url = `http://localhost:8180/api/mixeddrinkwith?filter=${liquor_type.substring(0, 1).toUpperCase() + liquor_type.substring(1).toLowerCase()}&dontwant=`
-    console.log("Awaiting response...");
-    const response = await fetch(url)
-    return await response.json();
+export const getAllDrinkData = async () => {
+  const url = `http://127.0.0.1:8081/api/alldrinks`
+  console.log("Awaiting response from: " + url);
+  const response = await fetch(url)
+  return await response.json();
 }
 
-
+// --------------------------------------------------
 
 export const filterDrinksByIngredientsOR = async (filters, dontwants) => {
+  console.log("Filters: " + filters);
+  const filterList = format(filters)
+  const dontWantList = format(dontwants)
 
-    const filterList = ""
-    const dontWantList = ""
+  const url = `http://127.0.0.1:8081/api/mixeddrinkwith?filter=${filterList}&dontwant=${dontWantList}`
+  console.log("Awaiting response from :" + url);
+  const response = await fetch(url)
+  return await response.json();
+}
 
-    for (let i = 0; i < filters.length; i++) {
-        if (i === filters.length - 1) {
-            filterList += filters[i]
-        }
-        else {
-            filterList += filters[i] + '-'
-        }
-    }
+// --------------------------------------------------
 
-    for (let i = 0; i < dontwants.length; i++) {
-        if (i === filters.length - 1) {
-            dontWantList += filters[i]
-        }
-        else {
-            dontWantList += filters[i] + '-'
-        }
-    }
-    const url = `http://localhost:8180/api/mixeddrinkwith?filter=${filterList}&dontwant=${dontWantList}`
-    console.log("Awaiting response...");
-    const response = await fetch(url)
-    return await response.json();
+const format = (array) => {
+  let result = ""
+  for (let i = 0; i < array.length - 1; i++) {
+    result += `${array[i] !== "undefined" || array[i] ? array[i] : ""},`
+  }
+  result += `${array[array.length - 1] !== "undefined" || array[array.length - 1] ? array[array.length - 1] : ""}`
+  return result
+}
+
+// --------------------------------------------------
+
+export const getTags = async () => {
+  const url = `http://127.0.0.1:8081/api/alltags`
+  console.log("Awaiting response from: " + url);
+  const response = await fetch(url)
+  const list = await response.json()
+  const formattedTagList = list.map((item) => { return { name: item.tag.Name, tagid: item.id } })
+
+  return formattedTagList;
+}
+
+// --------------------------------------------------
+
+export const getTagsWithDrinks = async () => {
+  const url = `http://127.0.0.1:8081/api/tagswithdrinks`
+  console.log("Awaiting response from: " + url);
+  const response = await fetch(url)
+  const list = await response.json()
+  let count = 0;
+  const formattedTagIDList = list.map((item) => { return { tagid: item.Tag, drinkids: item.Drinks } })
+
+  return formattedTagIDList;
+}
+
+// This needs to be changed
+// Currently, it's a copy of getTags
+export const getDrinkbyID = async () => {
+  const url = `http://127.0.0.1:8081/api/alltags`
+  console.log("Awaiting response from: " + url);
+  const response = await fetch(url)
+  const list = await response.json()
+  const formattedTagList = list.map((item) => { return { name: item.tag.Name, tagid: item.id } })
+
+  return formattedTagList;
 }
