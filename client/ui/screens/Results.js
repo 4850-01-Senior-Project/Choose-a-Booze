@@ -4,6 +4,7 @@ import { filterDrinkList, filterDrinksByTagForSurveyResults } from '../../helper
 import { Context } from './SurveyScreen';
 import { colors } from '../assets/Style';
 import { Discovery } from '../components/RandomizerComponents';
+import { formatIngredients } from '../../helperFunctions/RandomizerFunctions';
 
 export default function Results({ title }) {
   const { usual, liquorMood, tags, tagLists, tagDrinkLists, drinkList }  = Context;
@@ -18,28 +19,25 @@ export default function Results({ title }) {
   const result = filterDrinkList(drinks, tagResultDrinkIDs)
  
  
-  const fiveRandomDrinks = [0,0,0,0,0]
+  const fiveRandomDrinks = []
   if (result.length > 5) {
-    for (let i = 0; i < 5; i++) {
-      let num = Math.floor(Math.random(0,result.length))
-      fiveRandomDrinks.forEach((number) => {     
-        while (number == num) {
-          num = Math.floor(Math.random(0,result.length))
-        }
-        fiveRandomDrinks[i] = num
-      })
-    }
+    while (fiveRandomDrinks.length < 5) {
+      let num = Math.floor(Math.random() * result.length);
+      if (fiveRandomDrinks.indexOf(num) === -1) {
+          fiveRandomDrinks.push(num);
+      }
   }
- 
+  }
+  console.log(fiveRandomDrinks);
   const DrinksRandom = fiveRandomDrinks.length > 0 ? fiveRandomDrinks.map((number) => result[number]) : result
   console.log(DrinksRandom);
 
   return (
     <View style={{ flex: 4, backgroundColor: colors.black }}>
       <Discovery
-        title={title}
+        title={DrinksRandom[0].Name}
         tags={tags}
-        DATA={DrinksRandom}
+        DATA={formatIngredients(DrinksRandom[0])}
       />
     </View>
   );

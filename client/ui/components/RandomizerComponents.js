@@ -12,14 +12,14 @@ export const Discovery = ({ title, tags, DATA }) => {
     <View style={styles.discovery}>
       <Text style={styles.h1}>{title}</Text>
       <FlatList
-        style={{ borderStyle: 'dotted', borderWidth: 1, margin: 25, padding: 20 }}
-        data={tags}
+        style={{ borderStyle: 'dotted', borderWidth: 0, margin: 25, padding: 2 }}
+        data={DATA}
         renderItem={({ item }) => <Text style={styles.p}>{item}</Text>}
       />
       <FlatList
-        style={{ borderStyle: 'dotted', borderWidth: 1, margin: 25, padding: 20 }}
-        data={DATA[0].drink}
-        renderItem={({ item }) => <Text style={styles.p}>{item.ing} -- {item.meas}</Text>}
+        style={{ borderStyle: 'dotted', borderWidth: 0, margin: 15, padding: 2}}
+        data={tags}
+        renderItem={({ item }) => <Text style={styles.p}>{item}</Text>}
       />
     </View >
   );
