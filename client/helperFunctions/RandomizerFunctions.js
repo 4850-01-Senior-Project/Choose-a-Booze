@@ -1,14 +1,14 @@
 export const findRandomDrink = (results) => {
 
-    let num = Math.floor(Math.random(0, results.length))
+    let num = Math.floor(Math.random()* results.length)
 
     return results[num]
 }
 
 export const formatIngredients = (drink) => {
-    console.log("drink ", drink.drink);
-    const keys = Object.keys(drink.drink);
-    const values = Object.values(drink.drink);
+    console.log("drink ", drink);
+    const keys = Object.keys(drink);
+    const values = Object.values(drink);
     console.log("keys ", keys);
     const ingredients = []
     const measurements = []

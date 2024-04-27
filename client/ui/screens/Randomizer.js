@@ -8,30 +8,17 @@ export default function Randomizer() {
   const [title, setTitle] = useState('');
   const [tags, setTags] = useState([]);
   const [DATA, setDATA] = useState([]);
-  //const [randomDrink, setRandomDrink] = useState(() => findRandomDrink(drinkList))
-
-  let randomDrink = findRandomDrink(drinkList)
-  // useEffect(() => {
+  const [randomDrink, setRandomDrink] = useState(findRandomDrink(drinkList))
+  useEffect(() => {
     if (randomDrink){
-      setTitle(useMemo(() => {
-        return randomDrink.drink.name;
-      }, [randomDrink]))
-      setDATA(useMemo(() => {
-        return formatIngredients(randomDrink);
-      }, [randomDrink]))
+      setTitle(randomDrink.drink.Name);
+      setDATA(formatIngredients(randomDrink.drink))
     }
-  // }, [randomDrink]); 
-
-
-
+  }, [randomDrink]); 
+ const reroll = () => {
+    setRandomDrink(findRandomDrink(drinkList));
+  }
   console.log(randomDrink);
-  
-  const reroll = useCallback(() => {
-    //setRandomDrink(findRandomDrink(drinkList));
-    randomDrink = findRandomDrink(drinkList)
-
-  }, [findRandomDrink, drinkList]);
-
   return (
     <View style={{ flex: 5, backgroundColor: 'black' }}>
       <Discovery
